@@ -1,0 +1,29 @@
+# Render "Blueprint": creates the web service and a small disk so bookings are kept.
+# A disk needs a paid instance type. The free type loses all data on every restart.
+services:
+  - type: web
+    name: fixora
+    runtime: docker
+    plan: starter
+    healthCheckPath: /api/health
+    disk:
+      name: fixora-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: ADMIN_KEY
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: SMTP_HOST
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASS
+        sync: false
+      - key: SMTP_FROM
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ANTHROPIC_API_KEY
+        sync: false

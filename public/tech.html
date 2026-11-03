@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-mode="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#070b1a">
+<title>Fixora Technician</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f9d8a'/%3E%3Cpath d='M14 32 32 16l18 16v16a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3Z' fill='white'/%3E%3Cpath d='M34 24 26 36h6l-2 8 8-12h-6Z' fill='%23f59e0b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+(function(){try{var m=localStorage.getItem('fx-theme')||'auto';var d=m==='auto'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;document.documentElement.dataset.theme=d;document.documentElement.dataset.mode=m;}catch(e){}})();
+</script>
+<style>
+
+:root{
+  --bg:#070b1a;--bg2:#0b1226;--surface:rgba(255,255,255,.055);--surface-solid:#111a33;--border:rgba(255,255,255,.12);
+  --text:#eef2ff;--muted:#a3adc9;--primary:#3ee0c4;--primary-ink:#04201b;--accent:#ffb547;--violet:#7c6cff;--bad:#ff6b8b;--good:#34d399;
+  --shadow:0 20px 60px rgba(0,0,0,.45);--glow:0 0 40px rgba(62,224,196,.25);--nav:rgba(7,11,26,.7);
+  --font-d:'Sora',system-ui,sans-serif;--font-b:'Inter',system-ui,sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f3f7fc;--bg2:#e9f0f9;--surface:rgba(255,255,255,.7);--surface-solid:#ffffff;--border:rgba(15,40,80,.12);
+  --text:#0d1b33;--muted:#53627f;--primary:#0f9d8a;--primary-ink:#ffffff;--accent:#f59e0b;--violet:#5b4bdb;--bad:#d6335a;--good:#0f9d6a;
+  --shadow:0 18px 50px rgba(30,60,110,.14);--glow:0 0 40px rgba(15,157,138,.18);--nav:rgba(243,247,252,.75);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);background:var(--bg);color:var(--text);line-height:1.6;min-height:100vh;overflow-x:hidden;transition:background .4s,color .4s}
+h1,h2,h3,h4{font-family:var(--font-d);line-height:1.2;letter-spacing:-.02em}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input{font:inherit;color:inherit}
+.icon{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;display:block}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+#bg3d{position:fixed;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none;opacity:0;transition:opacity 1.2s}
+#bg3d.ready{opacity:1}
+.bg-fade{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1100px 650px at 85% -10%,color-mix(in srgb,var(--violet) 22%,transparent),transparent 60%),radial-gradient(800px 560px at -10% 25%,color-mix(in srgb,var(--primary) 18%,transparent),transparent 60%)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--shadow)}
+.lite .card,.lite header.nav{backdrop-filter:none;-webkit-backdrop-filter:none}
+.grad{background:linear-gradient(120deg,var(--primary),var(--violet) 60%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:12px;border:1px solid var(--border);background:var(--surface);font-weight:500;font-size:.9rem;transition:transform .25s,border-color .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);border-color:var(--primary)}
+.btn.p{background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 55%,var(--violet)));color:var(--primary-ink);border-color:transparent;font-weight:600;box-shadow:var(--glow)}
+.btn[aria-pressed="true"]{border-color:var(--primary);background:color-mix(in srgb,var(--primary) 18%,var(--surface-solid));box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 20%,transparent)}
+.rv{opacity:0;transform:translateY(26px)}
+.shown .rv{animation:rise .8s cubic-bezier(.2,.7,.2,1) both;animation-delay:calc(var(--d,0) * 90ms)}
+@keyframes rise{to{opacity:1;transform:none}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}}
+@keyframes shake{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+
+
+[hidden]{display:none!important}
+header.nav{position:sticky;top:0;z-index:100;background:var(--nav);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:10px;height:64px;width:min(760px,94%);margin:auto}
+.logo{display:flex;align-items:center;gap:10px;font-family:var(--font-d);font-weight:800;font-size:1.2rem;letter-spacing:-.03em}
+.logo svg{width:36px;height:36px;filter:drop-shadow(0 6px 14px color-mix(in srgb,var(--primary) 45%,transparent))}
+.logo small{display:block;font-family:var(--font-b);font-weight:500;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:-3px}
+.nav-right{display:flex;align-items:center;gap:8px}
+.theme{display:flex;padding:3px;border-radius:12px;background:var(--surface);border:1px solid var(--border)}
+.theme button{width:32px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--muted);transition:.2s}
+.theme button[aria-pressed="true"]{background:var(--primary);color:var(--primary-ink)}
+.ib{width:42px;height:42px;padding:0;justify-content:center}
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:20px}
+.login{width:min(420px,100%);padding:32px 26px;text-align:center}
+.login .logo{justify-content:center;margin-bottom:16px}
+.login h1{font-size:1.5rem;margin-bottom:6px}
+.login p{color:var(--muted);font-size:.9rem;margin-bottom:16px}
+.field{width:100%;padding:14px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);outline:none;text-align:center;margin-top:10px}
+.field:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 25%,transparent)}
+.err{color:var(--bad);min-height:1.5em;font-size:.86rem;margin:8px 0}
+.shake{animation:shake .45s}
+.dd-btn{display:flex;align-items:center;gap:9px;width:100%;padding:14px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);text-align:left;transition:border-color .2s,box-shadow .2s}
+.dd-btn:hover,.dd-btn[aria-expanded="true"]{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)}
+.dd-btn .l{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dd-btn .l.ph{color:var(--muted)}
+.dd-btn .chev{transition:transform .3s;color:var(--primary)}
+.dd-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
+.dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--muted)}
+.pop{position:fixed;z-index:300;max-height:300px;overflow:auto;padding:6px;border-radius:14px;background:var(--surface-solid);border:1px solid var(--border);box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-8px) scale(.97);transform-origin:top center;transition:opacity .2s,transform .26s cubic-bezier(.2,.8,.2,1),visibility 0s linear .26s}
+.pop.up{transform-origin:bottom center;transform:translateY(8px) scale(.97)}
+.pop.open{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.pop-o{display:flex;align-items:center;gap:10px;padding:12px;border-radius:10px;cursor:pointer}
+.pop.open .pop-o{animation:ddIn .3s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 22ms)}
+@keyframes ddIn{from{opacity:0;transform:translateX(-8px)}}
+.pop-o.hi{background:color-mix(in srgb,var(--primary) 14%,transparent)}
+.pop-o small{margin-left:auto;color:var(--muted);text-transform:capitalize}
+.wrap{width:min(760px,94%);margin:0 auto;padding:22px 0 90px}
+.hello{margin-bottom:16px}
+.hello h1{font-size:clamp(1.5rem,5vw,2rem)}
+.hello p{color:var(--muted)}
+.tabs{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}
+.chip{padding:9px 16px;border-radius:99px;border:1px solid var(--border);background:var(--surface-solid);font-size:.86rem;font-weight:500;transition:.2s}
+.chip[aria-pressed="true"]{background:color-mix(in srgb,var(--primary) 20%,var(--surface-solid));border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)}
+.job{padding:18px;margin-bottom:14px;animation:fadeUp .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(min(var(--i),8) * 60ms)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
+.job.done{opacity:.72}
+.job.fresh{animation:flash 2.4s ease}
+@keyframes flash{0%,40%{background:color-mix(in srgb,var(--accent) 28%,transparent)}}
+.j-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:99px;font-size:.8rem;font-weight:600;background:color-mix(in srgb,var(--c) 18%,transparent);color:var(--text)}
+.pill i{width:8px;height:8px;border-radius:50%;background:var(--c)}
+.emerg{color:var(--bad);font-weight:700;letter-spacing:.05em;font-size:.76rem}
+.job h3{font-size:1.1rem;margin-bottom:2px}
+.job .when{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+.info{display:grid;gap:8px;margin-bottom:14px;font-size:.92rem}
+.info div{display:flex;gap:10px;align-items:flex-start}
+.info .icon{color:var(--primary);margin-top:3px}
+.note{padding:10px 12px;border-radius:12px;background:color-mix(in srgb,var(--accent) 14%,transparent);font-size:.88rem}
+.acts{display:flex;gap:10px;flex-wrap:wrap}
+.btn{text-decoration:none}
+a.btn{color:var(--text)}
+.acts .btn{flex:1 1 130px;justify-content:center;min-height:46px}
+.big{width:100%;justify-content:center;min-height:54px;font-size:1.02rem;margin-top:10px}
+.etas{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;align-items:center}
+.etas span{color:var(--muted);font-size:.84rem;width:100%}
+.etas .chip{padding:8px 14px}
+.empty{padding:46px 20px;text-align:center;color:var(--muted)}
+#toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,40px);padding:14px 22px;border-radius:14px;background:var(--surface-solid);border:1px solid var(--primary);box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.4s;z-index:400;font-size:.92rem;max-width:90vw}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:480px){.hide-sm{display:none}}
+</style>
+</head>
+<body>
+<canvas id="bg3d" aria-hidden="true"></canvas>
+<div class="bg-fade"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M9 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4M16 8l4 4-4 4M20 12H9"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></symbol>
+  <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4M5 4h11l-2 4 2 4H5"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 64 64">
+    <defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee0c4"/><stop offset="1" stop-color="#7c6cff"/></linearGradient></defs>
+    <rect width="64" height="64" rx="18" fill="url(#lg1)"/>
+    <path d="M12 32 32 14l20 18v17a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3Z" fill="#fff" fill-opacity=".95"/>
+    <path d="M35 22 25 37h7l-3 11 11-16h-7.5Z" fill="#f59e0b"/>
+  </symbol>
+</svg>
+
+<div class="login-wrap shown" id="loginWrap">
+  <div class="card login rv" id="loginCard">
+    <div class="logo"><svg><use href="#i-logo"/></svg><span>Fixora<small>Technician</small></span></div>
+    <h1>Hello, technician</h1>
+    <p>Pick your name and enter the 6-digit PIN your manager gave you.</p>
+    <div id="ddHolder"></div>
+    <input class="field" type="password" id="pin" inputmode="numeric" maxlength="6" placeholder="6-digit PIN" autocomplete="current-password" aria-label="PIN">
+    <div class="err" id="lerr"></div>
+    <button class="btn p" id="go" style="width:100%;justify-content:center">Sign in</button>
+  </div>
+</div>
+
+<div id="app" hidden>
+  <header class="nav"><div class="nav-in">
+    <div class="logo"><svg><use href="#i-logo"/></svg><span>Fixora<small>Technician</small></span></div>
+    <div class="nav-right">
+      <div class="theme" role="group" aria-label="Theme">
+        <button data-mode="light" aria-pressed="false" aria-label="Light mode"><svg class="icon"><use href="#i-sun"/></svg></button>
+        <button data-mode="dark" aria-pressed="false" aria-label="Dark mode"><svg class="icon"><use href="#i-moon"/></svg></button>
+        <button data-mode="auto" aria-pressed="true" aria-label="Auto mode"><svg class="icon"><use href="#i-auto"/></svg></button>
+      </div>
+      <button class="btn ib" id="out" aria-label="Sign out"><svg class="icon"><use href="#i-out"/></svg></button>
+    </div>
+  </div></header>
+  <main class="wrap">
+    <div class="hello rv" style="--d:0"><h1 id="hi">Your jobs</h1><p id="sub"></p></div>
+    <div class="tabs rv" style="--d:1" id="tabs"></div>
+    <div id="jobs"></div>
+  </main>
+</div>
+<div class="pop" id="pop" role="listbox"></div>
+<div id="toast" role="status"></div>
+
+<script>
+const API = (['localhost', '127.0.0.1'].includes(location.hostname) && location.port !== '3000') ? 'http://localhost:3000' : '';
+const SCOL = { 'Scheduled':'#8aa0d6','Confirmed':'#3ee0c4','On the way':'#ffb547','Arrived':'#7c6cff','In progress':'#b58cff','Completed':'#34d399' };
+const ACTION = { 'Scheduled':"I'm on my way", 'Confirmed':"I'm on my way", 'On the way':"I've arrived", 'Arrived':'Start the job', 'In progress':'Mark job complete' };
+const NEXT = { 'Scheduled':'On the way', 'Confirmed':'On the way', 'On the way':'Arrived', 'Arrived':'In progress', 'In progress':'Completed' };
+const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+const el = (t, props = {}, ...kids) => { const n = document.createElement(t); Object.entries(props).forEach(([k, v]) => k === 'className' ? n.className = v : k === 'text' ? n.textContent = v : k === 'style' ? n.style.cssText = v : n.setAttribute(k, v)); kids.forEach(k => k != null && k !== '' && n.append(k)); return n; };
+const ic = n => { const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); s.setAttribute('class', 'icon'); const u = document.createElementNS('http://www.w3.org/2000/svg', 'use'); u.setAttribute('href', '#i-' + n); s.append(u); return s; };
+let token = '', me = '', jobs = [], tab = 'active', timer = 0, lastSig = '', known = null, picked = null, busy = false;
+try{ token = sessionStorage.getItem('fx-tech') || ''; me = sessionStorage.getItem('fx-tech-name') || ''; }catch(e){}
+function toast(m){ const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('show'), 3200); }
+
+const mq = matchMedia('(prefers-color-scheme: dark)');
+function applyTheme(mode){
+  const eff = mode === 'auto' ? (mq.matches ? 'dark' : 'light') : mode;
+  document.documentElement.dataset.theme = eff; document.documentElement.dataset.mode = mode;
+  $$('.theme button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
+  try{ localStorage.setItem('fx-theme', mode); }catch(e){}
+  if(window.__recolor) window.__recolor();
+}
+$$('.theme button').forEach(b => b.onclick = () => applyTheme(b.dataset.mode));
+mq.addEventListener('change', () => { if(document.documentElement.dataset.mode === 'auto') applyTheme('auto'); });
+applyTheme(document.documentElement.dataset.mode || 'auto');
+
+async function call(path, opts = {}){
+  try{ const r = await fetch(API + path, { ...opts, headers:{ 'Content-Type':'application/json', 'x-tech-token':token, ...(opts.headers || {}) } }); const j = await r.json().catch(() => ({})); return { ok:r.ok, status:r.status, data:j }; }
+  catch(e){ return { ok:false, status:0, data:{} }; }
+}
+
+/* animated dropdown for choosing the technician */
+const pop = $('#pop'); let popBtn = null, popItems = [], popHi = -1;
+function closePop(){ if(popBtn) popBtn.setAttribute('aria-expanded', 'false'); popBtn = null; pop.classList.remove('open'); }
+function openPop(btn, items){
+  if(popBtn === btn){ closePop(); return; }
+  closePop(); popBtn = btn; popItems = items; btn.setAttribute('aria-expanded', 'true');
+  pop.replaceChildren(...items.map((it, i) => el('div', { className:'pop-o', role:'option', 'data-i':i, style:'--i:' + Math.min(i, 12) }, el('i', { className:'dot', style:'background:var(--primary)' }), el('span', { text:it.name }), el('small', { text:it.service === 'ac' ? 'AC' : it.service }))));
+  const r = btn.getBoundingClientRect(); pop.style.width = r.width + 'px'; pop.style.left = r.left + 'px'; pop.classList.remove('open', 'up'); pop.style.top = '0px'; pop.style.visibility = 'hidden';
+  const h = Math.min(300, pop.scrollHeight + 14), up = innerHeight - r.bottom < h + 16 && r.top > h + 16;
+  pop.classList.toggle('up', up); pop.style.top = (up ? r.top - h - 8 : r.bottom + 8) + 'px'; pop.style.visibility = '';
+  popHi = 0; requestAnimationFrame(() => pop.classList.add('open'));
+}
+pop.addEventListener('click', e => { const o = e.target.closest('.pop-o'); if(!o) return; picked = popItems[+o.dataset.i]; const b = popBtn; closePop(); b.querySelector('.l').textContent = picked.name; b.querySelector('.l').classList.remove('ph'); $('#pin').focus(); });
+document.addEventListener('pointerdown', e => { if(popBtn && !pop.contains(e.target) && !popBtn.contains(e.target)) closePop(); });
+addEventListener('scroll', () => { if(popBtn) closePop(); }, true);
+
+async function buildLogin(){
+  const r = await call('/api/tech/list'), list = r.ok ? r.data.techs : [];
+  const b = el('button', { type:'button', className:'dd-btn', 'aria-haspopup':'listbox', 'aria-expanded':'false' }, ic('user'), el('span', { className:'l ph', text:list.length ? 'Choose your name' : (r.ok ? 'No technician has a PIN yet' : 'Cannot reach the server') }), ic('down'));
+  b.lastChild.setAttribute('class', 'icon chev'); b.onclick = () => { if(list.length) openPop(b, list); };
+  $('#ddHolder').replaceChildren(b);
+  if(!r.ok) $('#lerr').textContent = 'Could not reach the server. Is it running?'; else if(!list.length) $('#lerr').textContent = 'Ask your manager to create your PIN in the admin page.';
+}
+async function login(){
+  if(!picked){ $('#lerr').textContent = 'Please choose your name.'; return; }
+  const pin = $('#pin').value.trim(); if(!/^\d{6}$/.test(pin)){ $('#lerr').textContent = 'Enter your 6-digit PIN.'; return; }
+  const r = await call('/api/tech/login', { method:'POST', body:JSON.stringify({ id:picked.id, pin }) });
+  if(!r.ok){ $('#lerr').textContent = r.status === 0 ? 'Could not reach the server.' : (r.data.error || 'Wrong PIN.'); const c = $('#loginCard'); c.classList.remove('shake'); void c.offsetWidth; c.classList.add('shake'); $('#pin').value = ''; return; }
+  token = r.data.token; me = r.data.name; try{ sessionStorage.setItem('fx-tech', token); sessionStorage.setItem('fx-tech-name', me); }catch(e){}
+  $('#pin').value = ''; start();
+}
+$('#go').onclick = login; $('#pin').addEventListener('keydown', e => { if(e.key === 'Enter') login(); });
+function signOut(msg){
+  if(token) call('/api/tech/logout', { method:'POST' });
+  token = ''; known = null; lastSig = ''; try{ sessionStorage.removeItem('fx-tech'); sessionStorage.removeItem('fx-tech-name'); }catch(e){}
+  clearInterval(timer); $('#app').hidden = true; $('#loginWrap').hidden = false; $('#lerr').textContent = msg || ''; picked = null; buildLogin();
+}
+$('#out').onclick = () => signOut('');
+
+/* jobs */
+async function load(force){
+  if(busy) return;
+  const r = await call('/api/tech/jobs');
+  if(r.status === 401){ signOut('Please sign in again.'); return; }
+  if(!r.ok) return;
+  const list = r.data.jobs, sig = JSON.stringify(list);
+  if(known){ const fresh = list.filter(j => !known.has(j.id)); if(fresh.length){ toast(fresh.length === 1 ? 'New job: ' + fresh[0].issueName : fresh.length + ' new jobs'); fresh.forEach(j => j._fresh = true); try{ navigator.vibrate && navigator.vibrate(200); }catch(e){} } }
+  known = new Set(list.map(j => j.id));
+  if(sig === lastSig && !force) return;
+  lastSig = sig; jobs = list; draw();
+}
+function whenText(j){ return j.urgency === 'emergency' ? 'Emergency · as soon as possible' : new Date(j.date + 'T00:00').toLocaleDateString([], { weekday:'short', day:'numeric', month:'short' }) + ' · ' + j.slot; }
+function draw(){
+  const act = jobs.filter(j => j.status !== 'Completed'), done = jobs.filter(j => j.status === 'Completed');
+  $('#hi').textContent = 'Hi ' + (me.split(' ')[0] || 'there');
+  $('#sub').textContent = act.length ? `${act.length} job${act.length > 1 ? 's' : ''} waiting for you` : 'No open jobs right now. New ones appear here automatically.';
+  $('#tabs').replaceChildren(...[['active', 'Active · ' + act.length], ['done', 'Done · ' + done.length]].map(([k, l]) => { const b = el('button', { type:'button', className:'chip', text:l }); b.setAttribute('aria-pressed', String(tab === k)); b.onclick = () => { tab = k; draw(); }; return b; }));
+  const list = tab === 'active' ? act : done;
+  if(!list.length){ $('#jobs').replaceChildren(el('div', { className:'card empty', text:tab === 'active' ? 'Nothing assigned to you yet.' : 'No completed jobs in the last 2 days.' })); return; }
+  $('#jobs').replaceChildren(...list.map((j, i) => card(j, i)));
+}
+function card(j, i){
+  const c = SCOL[j.status] || '#8aa0d6';
+  const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(j.addr);
+  const node = el('article', { className:'card job' + (j.status === 'Completed' ? ' done' : '') + (j._fresh ? ' fresh' : ''), style:`--i:${i};--c:${c}` },
+    el('div', { className:'j-top' }, el('span', { className:'pill' }, el('i'), document.createTextNode(j.status)), j.urgency === 'emergency' ? el('span', { className:'emerg', text:'EMERGENCY' }) : el('small', { text:j.id, style:'color:var(--muted)' })),
+    el('h3', { text:(j.serviceName || j.service) + ' · ' + (j.issueName || j.issue) + (j.qty > 1 ? ' × ' + j.qty : '') }),
+    el('div', { className:'when', text:whenText(j) }),
+    el('div', { className:'info' },
+      el('div', {}, ic('user'), el('span', { text:j.name })),
+      el('div', {}, ic('pin'), el('span', { text:j.addr })),
+      el('div', {}, ic('wallet'), el('span', { text:'$' + Number(j.total).toFixed(2) + (j.paid ? ' · Paid' + (j.payMethod ? ' (' + j.payMethod + ')' : '') : ' · Collect on completion') })),
+      j.notes ? el('div', { className:'note', text:'Customer note: ' + j.notes }) : null));
+  j._fresh = false;
+  node.append(el('div', { className:'acts' },
+    (() => { const a = el('a', { className:'btn', href:'tel:' + j.phone.replace(/[^\d+]/g, '') }, ic('phone'), document.createTextNode('Call')); return a; })(),
+    (() => { const a = el('a', { className:'btn', href:maps, target:'_blank', rel:'noopener' }, ic('pin'), document.createTextNode('Navigate')); return a; })()));
+  if(j.status === 'On the way'){
+    const row = el('div', { className:'etas' }, el('span', { text:'Tell the customer how long you need:' }));
+    [10, 15, 20, 30, 45, 60].forEach(m => { const b = el('button', { type:'button', className:'chip', text:m + ' min' }); b.setAttribute('aria-pressed', String(j.etaMin === m)); b.onclick = () => act(j, { eta:m }, 'ETA set to ' + m + ' minutes'); row.append(b); });
+    node.append(row);
+  }
+  if(!j.paid && ['Arrived', 'In progress', 'Completed'].includes(j.status)){ const c = el('button', { type:'button', className:'btn big', text:'Cash collected  $' + Number(j.total).toFixed(2) }); c.onclick = () => { if(confirm('Confirm you received $' + Number(j.total).toFixed(2) + ' in cash?')) act(j, { pay:'cash' }, 'Cash payment recorded'); }; node.append(c); }
+  if(NEXT[j.status]){ const b = el('button', { type:'button', className:'btn p big', text:ACTION[j.status] }); b.onclick = () => { if(j.status === 'In progress' && !confirm('Mark this job as complete?')) return; act(j, { status:NEXT[j.status] }, j.status === 'In progress' ? 'Job completed. Great work!' : 'Updated: ' + NEXT[j.status]); }; node.append(b); }
+  return node;
+}
+async function act(j, body, msg){
+  if(busy) return; busy = true;
+  const r = await call('/api/tech/jobs/' + j.id, { method:'PATCH', body:JSON.stringify(body) });
+  busy = false;
+  if(r.status === 401){ signOut('Please sign in again.'); return; }
+  if(!r.ok){ toast(r.data.error || 'Could not save. Check your connection.'); load(true); return; }
+  toast(msg); load(true);
+}
+async function start(){
+  $('#loginWrap').hidden = true; $('#app').hidden = false; document.body.classList.add('shown');
+  await load(true); clearInterval(timer); timer = setInterval(() => { if(!document.hidden) load(); }, 8000);
+}
+buildLogin(); if(token) start();
+</script>
+<script>
+
+/* ---------- 3D background (three.js loads after the page is usable) ---------- */
+function init3D(){
+  if(typeof THREE === 'undefined') return;
+  const canvas = document.getElementById('bg3d'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true, powerPreference:'high-performance' });
+  const lowEnd = innerWidth < 700 || (navigator.hardwareConcurrency || 8) <= 4;
+  let pr = Math.min(devicePixelRatio, lowEnd ? 1 : 1.5); renderer.setPixelRatio(pr);
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(55, 1, .1, 200); cam.position.z = 26;
+  scene.add(new THREE.AmbientLight(0xffffff, .7));
+  const l1 = new THREE.PointLight(0x3ee0c4, 1.6, 90); l1.position.set(12, 10, 14); scene.add(l1);
+  const l2 = new THREE.PointLight(0x7c6cff, 1.6, 90); l2.position.set(-14, -8, 10); scene.add(l2);
+  const geos = [new THREE.IcosahedronGeometry(1.6, 0), new THREE.OctahedronGeometry(1.5, 0), new THREE.TorusGeometry(1.3, .42, 14, 36), new THREE.TorusKnotGeometry(1, .3, 80, 12), new THREE.BoxGeometry(1.8, 1.8, 1.8)];
+  const group = new THREE.Group(), items = [];
+  const palette = () => document.documentElement.dataset.theme === 'dark' ? [0x3ee0c4, 0x7c6cff, 0xffb547, 0x4b8cff] : [0x0f9d8a, 0x5b4bdb, 0xf59e0b, 0x3b6fe0];
+  for(let i = 0; i < (lowEnd ? 7 : 14); i++){
+    const m = new THREE.Mesh(geos[i % geos.length], new THREE.MeshStandardMaterial({ color:0x3ee0c4, metalness:.5, roughness:.25, transparent:true, opacity:.5, flatShading:true }));
+    m.add(new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry), new THREE.LineBasicMaterial({ color:0xffffff, transparent:true, opacity:.25 })));
+    m.position.set((Math.random() - .5) * 60, (Math.random() - .5) * 60, (Math.random() - .5) * 30 - 6); m.scale.setScalar(.6 + Math.random() * 1.1);
+    m.userData = { rx:(Math.random() - .5) * .012, ry:(Math.random() - .5) * .012, fy:Math.random() * 6, sp:.3 + Math.random() * .6, base:m.position.y };
+    group.add(m); items.push(m);
+  }
+  scene.add(group);
+  const N = lowEnd ? 300 : 650, pos = new Float32Array(N * 3);
+  for(let i = 0; i < N; i++){ pos[i * 3] = (Math.random() - .5) * 110; pos[i * 3 + 1] = (Math.random() - .5) * 110; pos[i * 3 + 2] = (Math.random() - .5) * 70 - 10; }
+  const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  const pm = new THREE.PointsMaterial({ size:.16, color:0x3ee0c4, transparent:true, opacity:.7, sizeAttenuation:true }), pts = new THREE.Points(pg, pm); scene.add(pts);
+  const GX = lowEnd ? 36 : 60, GZ = lowEnd ? 24 : 40, gpos = new Float32Array(GX * GZ * 3);
+  for(let x = 0; x < GX; x++) for(let z = 0; z < GZ; z++){ const i = (x * GZ + z) * 3; gpos[i] = (x - GX / 2) * 2; gpos[i + 1] = 0; gpos[i + 2] = (z - GZ / 2) * 2; }
+  const gg = new THREE.BufferGeometry(); gg.setAttribute('position', new THREE.BufferAttribute(gpos, 3));
+  const gm = new THREE.ShaderMaterial({ uniforms:{ uTime:{ value:0 }, uScale:{ value:150 }, uColor:{ value:new THREE.Color(0x7c6cff) }, uOpacity:{ value:.7 } },
+    vertexShader:'uniform float uTime; uniform float uScale; void main(){ vec3 p = position; p.y = sin(p.x*.22 + uTime*1.1)*1.1 + cos(p.z*.35 + uTime*.9)*.8 + sin((p.x+p.z)*.12 + uTime*.5)*.9; vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_PointSize = uScale / -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader:'uniform vec3 uColor; uniform float uOpacity; void main(){ if(length(gl_PointCoord - vec2(.5)) > .5) discard; gl_FragColor = vec4(uColor, uOpacity); }', transparent:true, depthWrite:false });
+  const grid = new THREE.Points(gg, gm); grid.frustumCulled = false; grid.position.z = -14; scene.add(grid);
+  window.__recolor = () => { const pal = palette(), dark = document.documentElement.dataset.theme === 'dark';
+    items.forEach((m, i) => { m.material.color.setHex(pal[i % pal.length]); m.material.opacity = dark ? .5 : .34; m.children[0].material.color.setHex(dark ? 0xffffff : 0x0d1b33); m.children[0].material.opacity = dark ? .25 : .2; });
+    pm.color.setHex(pal[0]); pm.opacity = dark ? .7 : .5; l1.color.setHex(pal[0]); l2.color.setHex(pal[1]); gm.uniforms.uColor.value.setHex(pal[1]); gm.uniforms.uOpacity.value = dark ? .7 : .5; };
+  window.__recolor();
+  let mx = 0, my = 0, sy = 0, vis = true, running = false, lowFps = 0, last = performance.now(), frames = 0, lastDraw = 0;
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive:true });
+  addEventListener('scroll', () => sy = scrollY, { passive:true });
+  document.addEventListener('visibilitychange', () => { vis = !document.hidden; if(vis) loop(); });
+  function resize(){ const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); gm.uniforms.uScale.value = .2 * h * pr / (2 * Math.tan(27.5 * Math.PI / 180)); }
+  let rz = 0; addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(resize, 120); }); resize();
+  const clock = new THREE.Clock(), gap = lowEnd ? 30 : 0;
+  function frame(){
+    const t = clock.getElapsedTime();
+    items.forEach(m => { const u = m.userData; m.rotation.x += u.rx; m.rotation.y += u.ry; m.position.y = u.base + Math.sin(t * u.sp + u.fy) * 1.4; });
+    pts.rotation.y = t * .012; cam.position.x += (mx * 5 - cam.position.x) * .04; cam.position.y += ((-my * 4 - sy * .012) - cam.position.y) * .04;
+    group.rotation.y = sy * .0006 + t * .01; cam.lookAt(0, -sy * .006, 0); grid.position.y = cam.position.y - 17; gm.uniforms.uTime.value = t;
+    renderer.render(scene, cam);
+  }
+  function loop(){
+    if(running) return; running = true; last = performance.now(); frames = 0;
+    (function step(ts){
+      if(!vis){ running = false; return; }
+      if(gap && ts - lastDraw < gap){ requestAnimationFrame(step); return; }
+      lastDraw = ts; frame(); frames++; const now = performance.now();
+      if(now - last > 2000){ const fps = frames * 1000 / (now - last); frames = 0; last = now;
+        if(fps < (gap ? 24 : 40)){ if(++lowFps >= 2){ lowFps = 0; if(pr > 1){ pr = 1; renderer.setPixelRatio(1); resize(); } else document.documentElement.classList.add('lite'); } } else lowFps = 0; }
+      if(!reduce) requestAnimationFrame(step); else running = false;
+    })(performance.now());
+  }
+  requestAnimationFrame(() => canvas.classList.add('ready')); loop();
+}
+(function(){
+  const load = () => { if(typeof THREE !== 'undefined'){ init3D(); return; } const sc = document.createElement('script'); sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'; sc.async = true; sc.onload = init3D; document.head.appendChild(sc); };
+  const idle = () => (window.requestIdleCallback || (f => setTimeout(f, 300)))(load, { timeout:1500 });
+  if(document.readyState === 'complete') idle(); else addEventListener('load', idle);
+})();
+
+</script>
+</body>
+</html>

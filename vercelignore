@@ -1,0 +1,7 @@
+data/
+.env
+node_modules/
+.vercel
+Dockerfile
+render.yaml
+.vercel

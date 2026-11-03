@@ -1,0 +1,17 @@
+{
+  "functions": { "api/index.js": { "maxDuration": 30 } },
+  "rewrites": [
+    { "source": "/", "destination": "/fixora.html" },
+    { "source": "/admin", "destination": "/admin.html" },
+    { "source": "/tech", "destination": "/tech.html" },
+    { "source": "/api/:path*", "destination": "/api" },
+    { "source": "/invoice/:id", "destination": "/api" }
+  ],
+  "headers": [
+    { "source": "/(admin|tech)(.html)?", "headers": [
+      { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'" },
+      { "key": "X-Content-Type-Options", "value": "nosniff" },
+      { "key": "Referrer-Policy", "value": "no-referrer" }
+    ]}
+  ]
+}

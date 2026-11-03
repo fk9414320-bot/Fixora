@@ -1,0 +1,2262 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-mode="auto">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fixora — Home Services, Booked in Minutes</title>
+<meta name="description" content="Book trusted plumbers, electricians and AC technicians at your door. Upfront pricing, verified pros, 90-day guarantee.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230f9d8a'/%3E%3Cpath d='M14 32 32 16l18 16v16a3 3 0 0 1-3 3H17a3 3 0 0 1-3-3Z' fill='white'/%3E%3Cpath d='M34 24 26 36h6l-2 8 8-12h-6Z' fill='%23f59e0b'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>
+(function(){try{var m=localStorage.getItem('fx-theme')||'auto';var d=m==='auto'?(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;document.documentElement.dataset.theme=d;document.documentElement.dataset.mode=m;}catch(e){}})();
+</script>
+<style>
+:root{
+  --bg:#070b1a;--bg2:#0b1226;--surface:rgba(255,255,255,.055);--surface-solid:#111a33;--border:rgba(255,255,255,.12);
+  --text:#eef2ff;--muted:#a3adc9;--primary:#3ee0c4;--primary-ink:#04201b;--accent:#ffb547;--violet:#7c6cff;
+  --shadow:0 20px 60px rgba(0,0,0,.45);--glow:0 0 40px rgba(62,224,196,.25);--nav:rgba(7,11,26,.7);
+  --radius:20px;--font-d:'Sora',system-ui,sans-serif;--font-b:'Inter',system-ui,sans-serif;
+}
+[data-theme="light"]{
+  --bg:#f3f7fc;--bg2:#e9f0f9;--surface:rgba(255,255,255,.7);--surface-solid:#ffffff;--border:rgba(15,40,80,.12);
+  --text:#0d1b33;--muted:#53627f;--primary:#0f9d8a;--primary-ink:#ffffff;--accent:#f59e0b;--violet:#5b4bdb;
+  --shadow:0 18px 50px rgba(30,60,110,.14);--glow:0 0 40px rgba(15,157,138,.18);--nav:rgba(243,247,252,.75);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--font-b);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;transition:background .4s,color .4s}
+h1,h2,h3,h4{font-family:var(--font-d);line-height:1.15;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+input,select,textarea{font:inherit;color:inherit}
+img,svg{display:block;max-width:100%}
+.icon{width:1.25em;height:1.25em;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#bg3d{position:fixed;inset:0;z-index:-2;width:100%;height:100%;pointer-events:none}
+.bg-fade{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(1200px 700px at 80% -10%,color-mix(in srgb,var(--violet) 22%,transparent),transparent 60%),radial-gradient(900px 600px at -10% 20%,color-mix(in srgb,var(--primary) 18%,transparent),transparent 60%)}
+.wrap{width:min(1200px,92%);margin-inline:auto}
+section{padding:96px 0;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--primary);margin-bottom:14px}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--primary);border-radius:2px}
+.sec-head{max-width:680px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-bottom:14px}
+.sec-head p{color:var(--muted);font-size:1.05rem}
+.grad{background:linear-gradient(120deg,var(--primary),var(--violet) 60%,var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--shadow)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:14px 26px;border-radius:14px;font-weight:600;font-size:.98rem;transition:transform .25s,box-shadow .25s,background .25s}
+.btn-primary{background:linear-gradient(135deg,var(--primary),color-mix(in srgb,var(--primary) 55%,var(--violet)));color:var(--primary-ink);box-shadow:var(--glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px color-mix(in srgb,var(--primary) 40%,transparent)}
+.btn-ghost{border:1px solid var(--border);background:var(--surface)}
+.btn-ghost:hover{transform:translateY(-3px);border-color:var(--primary)}
+.btn-sm{padding:9px 16px;font-size:.88rem;border-radius:11px}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--primary),var(--violet),var(--accent));z-index:200}
+
+/* NAV */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--nav);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+.logo{display:flex;align-items:center;gap:11px;font-family:var(--font-d);font-weight:800;font-size:1.35rem;letter-spacing:-.03em}
+.logo svg{width:38px;height:38px;filter:drop-shadow(0 6px 14px color-mix(in srgb,var(--primary) 45%,transparent))}
+.logo small{display:block;font-family:var(--font-b);font-weight:500;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:-3px}
+.nav-links{display:flex;gap:6px}
+.nav-links a{padding:8px 13px;border-radius:10px;font-size:.92rem;color:var(--muted);font-weight:500;transition:.2s}
+.nav-links a:hover,.nav-links a.active{color:var(--text);background:var(--surface)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.theme{display:flex;padding:4px;border-radius:12px;background:var(--surface);border:1px solid var(--border)}
+.theme button{width:34px;height:30px;border-radius:9px;display:grid;place-items:center;color:var(--muted);transition:.2s}
+.theme button:hover{color:var(--text)}
+.theme button[aria-pressed="true"]{background:var(--primary);color:var(--primary-ink)}
+.burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--border);background:var(--surface);place-items:center}
+@media(max-width:980px){
+  .nav-links{position:fixed;top:70px;left:0;right:0;flex-direction:column;padding:16px 4%;background:var(--surface-solid);border-bottom:1px solid var(--border);transform:translateY(-130%);transition:transform .35s;gap:2px}
+  .nav-links.open{transform:none}
+  .burger{display:grid}
+  .nav-cta{display:none}
+}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 70px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 14px;border-radius:99px;background:var(--surface);border:1px solid var(--border);font-size:.84rem;color:var(--muted);margin-bottom:22px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#34d399;box-shadow:0 0 0 0 rgba(52,211,153,.7);animation:pulse 2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(52,211,153,0)}100%{box-shadow:0 0 0 0 rgba(52,211,153,0)}}
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;margin-bottom:22px}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:540px;margin-bottom:30px}
+.quick{display:flex;flex-wrap:wrap;gap:10px;padding:10px;border-radius:20px;max-width:620px;margin-bottom:28px}
+.quick select,.quick input{flex:1 1 150px;min-width:0;padding:13px 14px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);outline:none}
+.quick select:focus,.quick input:focus,.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 25%,transparent)}
+.stats{display:flex;flex-wrap:wrap;gap:34px}
+.stat b{display:block;font-family:var(--font-d);font-size:2rem}
+.stat span{font-size:.85rem;color:var(--muted)}
+.scene{perspective:1100px;height:460px;display:grid;place-items:center;position:relative}
+.cube{position:relative;width:210px;height:210px;transform-style:preserve-3d;animation:spin 22s linear infinite}
+.scene:hover .cube{animation-play-state:paused}
+@keyframes spin{from{transform:rotateX(-18deg) rotateY(0)}to{transform:rotateX(-18deg) rotateY(360deg)}}
+.face{position:absolute;inset:0;border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;font-family:var(--font-d);font-weight:700;border:1px solid var(--border);backdrop-filter:blur(8px);background:linear-gradient(145deg,color-mix(in srgb,var(--c) 38%,transparent),color-mix(in srgb,var(--c) 8%,transparent));box-shadow:inset 0 0 40px color-mix(in srgb,var(--c) 28%,transparent),0 0 30px color-mix(in srgb,var(--c) 22%,transparent)}
+.face .icon{width:56px;height:56px;color:var(--c);stroke-width:1.5}
+.face small{font-family:var(--font-b);font-weight:500;font-size:.75rem;color:var(--muted)}
+.f1{--c:#3ee0c4;transform:translateZ(105px)}
+.f2{--c:#ffb547;transform:rotateY(90deg) translateZ(105px)}
+.f3{--c:#7c6cff;transform:rotateY(180deg) translateZ(105px)}
+.f4{--c:#ff6b8b;transform:rotateY(-90deg) translateZ(105px)}
+.f5{--c:#3ee0c4;transform:rotateX(90deg) translateZ(105px)}
+.f6{--c:#7c6cff;transform:rotateX(-90deg) translateZ(105px)}
+.float-card{position:absolute;padding:12px 16px;border-radius:16px;display:flex;align-items:center;gap:12px;font-size:.84rem;animation:bob 6s ease-in-out infinite}
+.float-card b{display:block;font-family:var(--font-d);font-size:.95rem}
+.float-card .dot{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--primary) 22%,transparent);color:var(--primary)}
+.fc1{top:8%;left:0}.fc2{bottom:12%;right:0;animation-delay:-3s}.fc3{bottom:2%;left:6%;animation-delay:-1.5s}
+@keyframes bob{50%{transform:translateY(-14px)}}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.scene{height:380px}.fc1{left:-2%}.fc2{right:-2%}}
+
+/* TRUST BAR */
+.marquee{overflow:hidden;border-block:1px solid var(--border);padding:22px 0;background:var(--surface)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:slide 32s linear infinite}
+.marquee-track span{display:flex;align-items:center;gap:10px;color:var(--muted);font-weight:500;white-space:nowrap}
+.marquee-track .icon{color:var(--primary)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* SERVICES */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;perspective:1200px}
+.tilt{transform-style:preserve-3d;transition:transform .15s ease-out,box-shadow .3s;will-change:transform}
+.svc{padding:32px;display:flex;flex-direction:column;gap:14px}
+.svc .ico{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;background:linear-gradient(135deg,color-mix(in srgb,var(--c) 35%,transparent),color-mix(in srgb,var(--c) 8%,transparent));color:var(--c);transform:translateZ(40px)}
+.svc .ico .icon{width:32px;height:32px}
+.svc h3{font-size:1.4rem;transform:translateZ(25px)}
+.svc p{color:var(--muted);font-size:.96rem}
+.svc ul{list-style:none;display:grid;gap:7px;font-size:.9rem;color:var(--muted)}
+.svc li{display:flex;gap:10px;align-items:center}
+.svc li::before{content:"";width:6px;height:6px;border-radius:2px;background:var(--c);transform:rotate(45deg);flex:none}
+.svc .meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:16px;border-top:1px solid var(--border);font-size:.86rem;color:var(--muted)}
+.svc .meta b{color:var(--text);font-family:var(--font-d);font-size:1.15rem}
+
+/* HOW */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;counter-reset:s}
+.step{padding:28px;position:relative;counter-increment:s}
+.step::after{content:"0" counter(s);position:absolute;top:18px;right:22px;font-family:var(--font-d);font-weight:800;font-size:2.6rem;color:color-mix(in srgb,var(--text) 7%,transparent)}
+.step .icon{width:34px;height:34px;color:var(--primary);margin-bottom:16px}
+.step h3{font-size:1.15rem;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.93rem}
+
+/* ESTIMATOR + BOOKING */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+@media(max-width:900px){.two{grid-template-columns:1fr}}
+.panel{padding:32px}
+.panel h3{font-size:1.35rem;margin-bottom:6px}
+.panel>p{color:var(--muted);margin-bottom:22px;font-size:.95rem}
+.field{display:grid;gap:7px;margin-bottom:16px}
+.field label,.lbl{font-size:.84rem;font-weight:600;color:var(--muted)}
+.field input,.field select,.field textarea{padding:13px 14px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);outline:none;width:100%}
+.field textarea{min-height:90px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button,.chip{padding:10px 16px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);font-size:.9rem;font-weight:500;transition:.2s}
+.seg button:hover,.chip:hover{border-color:var(--primary)}
+.seg button[aria-pressed="true"],.chip[aria-pressed="true"]{background:color-mix(in srgb,var(--primary) 20%,var(--surface-solid));border-color:var(--primary);color:var(--text);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 18%,transparent)}
+.seg button[disabled]{opacity:.35;pointer-events:none}
+.qty{display:flex;align-items:center;gap:14px}
+.qty button{width:40px;height:40px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);font-size:1.2rem}
+.qty output{min-width:30px;text-align:center;font-family:var(--font-d);font-weight:700;font-size:1.2rem}
+.quote{padding:32px;position:sticky;top:96px}
+.quote .big{font-family:var(--font-d);font-size:3rem;font-weight:800}
+.lines{display:grid;gap:10px;margin:18px 0;font-size:.93rem}
+.lines div{display:flex;justify-content:space-between;color:var(--muted)}
+.lines div.total{padding-top:12px;border-top:1px dashed var(--border);color:var(--text);font-weight:700;font-size:1.05rem}
+.note{font-size:.8rem;color:var(--muted)}
+.svc-pick{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+@media(max-width:560px){.svc-pick{grid-template-columns:1fr}}
+.pick{padding:18px 14px;border-radius:16px;background:var(--surface-solid);border:1px solid var(--border);text-align:center;display:grid;gap:8px;justify-items:center;transition:.25s}
+.pick .icon{width:30px;height:30px;color:var(--c)}
+.pick:hover{transform:translateY(-4px);border-color:var(--c)}
+.pick[aria-pressed="true"]{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--surface-solid));box-shadow:0 0 0 3px color-mix(in srgb,var(--c) 22%,transparent)}
+.stepper{display:flex;align-items:center;gap:8px;margin-bottom:26px}
+.stepper .dot{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-d);font-weight:700;font-size:.85rem;background:var(--surface-solid);border:1px solid var(--border);color:var(--muted);transition:.3s;flex:none}
+.stepper .dot.on{background:var(--primary);color:var(--primary-ink);border-color:var(--primary)}
+.stepper .dot.done{background:color-mix(in srgb,var(--primary) 30%,var(--surface-solid));border-color:var(--primary);color:var(--text)}
+.stepper .bar{flex:1;height:2px;background:var(--border);border-radius:2px;overflow:hidden}
+.stepper .bar i{display:block;height:100%;width:0;background:var(--primary);transition:width .4s}
+.wiz-step{display:none;animation:fadeUp .45s ease}
+.wiz-step.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}}
+.wiz-nav{display:flex;justify-content:space-between;gap:12px;margin-top:10px}
+.err{color:#ff6b8b;font-size:.84rem;min-height:1.2em;margin-bottom:8px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.review{display:grid;gap:10px;font-size:.95rem}
+.review div{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px solid var(--border)}
+.review span:first-child{color:var(--muted)}
+.review span:last-child{text-align:right;font-weight:500}
+.success{text-align:center;padding:10px 0}
+.success .ring{width:84px;height:84px;margin:0 auto 18px;border-radius:50%;display:grid;place-items:center;background:color-mix(in srgb,var(--primary) 22%,transparent);color:var(--primary);animation:pop .6s cubic-bezier(.2,1.4,.4,1)}
+.success .ring .icon{width:40px;height:40px}
+@keyframes pop{from{transform:scale(.3);opacity:0}}
+.bid{display:inline-block;padding:8px 16px;border-radius:10px;border:1px dashed var(--primary);font-family:var(--font-d);font-weight:700;letter-spacing:.06em;margin:10px 0 18px}
+.bk-list{display:grid;gap:14px;margin-top:8px}
+.bk{padding:20px 24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+.bk h4{font-size:1.05rem;margin-bottom:2px}
+.bk p{font-size:.88rem;color:var(--muted)}
+.badge{padding:5px 12px;border-radius:99px;font-size:.76rem;font-weight:600;background:color-mix(in srgb,var(--primary) 20%,transparent);color:var(--primary)}
+.badge.x{background:color-mix(in srgb,#ff6b8b 20%,transparent);color:#ff6b8b}
+.empty{padding:34px;text-align:center;color:var(--muted)}
+
+/* TECHS */
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;perspective:1200px}
+.tech{padding:26px;text-align:center}
+.avatar{width:84px;height:84px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-d);font-weight:800;font-size:1.6rem;color:#fff;background:linear-gradient(135deg,var(--c1),var(--c2));box-shadow:0 12px 30px color-mix(in srgb,var(--c1) 40%,transparent);transform:translateZ(40px)}
+.tech h4{font-size:1.1rem}
+.tech .role{color:var(--primary);font-size:.85rem;font-weight:600}
+.tech .nums{display:flex;justify-content:center;gap:18px;margin:14px 0;font-size:.8rem;color:var(--muted)}
+.tech .nums b{display:block;color:var(--text);font-family:var(--font-d);font-size:1.05rem}
+.stars{color:var(--accent);letter-spacing:2px;font-size:.9rem}
+
+/* PLANS */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;align-items:stretch}
+.plan{padding:34px;display:flex;flex-direction:column;gap:12px}
+.plan.pop{border-color:var(--primary);box-shadow:var(--glow),var(--shadow);position:relative}
+.plan.pop::before{content:"Most popular";position:absolute;top:-13px;left:50%;transform:translateX(-50%);padding:5px 14px;border-radius:99px;background:var(--primary);color:var(--primary-ink);font-size:.74rem;font-weight:700}
+.plan .price{font-family:var(--font-d);font-size:2.6rem;font-weight:800}
+.plan .price small{font-size:.9rem;font-weight:500;color:var(--muted)}
+.plan ul{list-style:none;display:grid;gap:10px;color:var(--muted);font-size:.93rem;margin:8px 0 18px}
+.plan li{display:flex;gap:10px;align-items:flex-start}
+.plan li::before{content:"";width:7px;height:7px;margin-top:8px;border-radius:50%;background:var(--primary);flex:none}
+.plan .btn{margin-top:auto}
+
+/* KNOWLEDGE HUB */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.acc{display:grid;gap:12px}
+.acc-item{border-radius:16px;overflow:hidden}
+.acc-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px;text-align:left;font-weight:600;font-family:var(--font-d);font-size:1rem}
+.acc-q .icon{transition:transform .3s;color:var(--primary)}
+.acc-item.open .acc-q .icon{transform:rotate(180deg)}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.acc-a div{padding:0 24px 22px;color:var(--muted);font-size:.95rem}
+.acc-a ol,.acc-a ul{padding-left:20px;display:grid;gap:6px;margin-top:6px}
+.alert{display:flex;gap:14px;padding:18px 22px;border-radius:16px;border:1px solid color-mix(in srgb,#ff6b8b 50%,transparent);background:color-mix(in srgb,#ff6b8b 10%,transparent);margin-bottom:26px;font-size:.93rem}
+.alert .icon{color:#ff6b8b;width:26px;height:26px}
+
+/* REVIEWS */
+.rev-wrap{position:relative;overflow:hidden}
+.rev-track{display:flex;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.rev{min-width:100%;padding:6px}
+.rev .card{padding:38px;max-width:820px;margin:auto;text-align:center}
+.rev q{display:block;font-family:var(--font-d);font-size:clamp(1.1rem,2.4vw,1.5rem);line-height:1.5;margin:14px 0 22px;quotes:none}
+.rev .who{color:var(--muted);font-size:.9rem}
+.rev-ctl{display:flex;justify-content:center;gap:10px;margin-top:22px}
+.rev-ctl button{width:11px;height:11px;border-radius:50%;background:var(--border);transition:.3s}
+.rev-ctl button[aria-pressed="true"]{width:32px;border-radius:99px;background:var(--primary)}
+
+/* AREAS + CONTACT */
+.areas{display:flex;flex-wrap:wrap;gap:10px}
+.area{padding:10px 16px;border-radius:99px;background:var(--surface);border:1px solid var(--border);font-size:.9rem;display:flex;align-items:center;gap:8px}
+.area .icon{color:var(--primary);width:1em;height:1em}
+.cta{padding:56px 40px;text-align:center;background:linear-gradient(135deg,color-mix(in srgb,var(--primary) 22%,var(--surface-solid)),color-mix(in srgb,var(--violet) 22%,var(--surface-solid)))}
+.cta h2{font-size:clamp(1.8rem,4vw,2.6rem);margin-bottom:12px}
+.cta p{color:var(--muted);max-width:560px;margin:0 auto 26px}
+.cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--border);padding:60px 0 30px;background:var(--surface)}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:36px;margin-bottom:40px}
+@media(max-width:860px){.f-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.f-grid{grid-template-columns:1fr}}
+footer h5{font-family:var(--font-d);margin-bottom:14px;font-size:.95rem}
+footer ul{list-style:none;display:grid;gap:9px;color:var(--muted);font-size:.9rem}
+footer ul a:hover{color:var(--primary)}
+footer p{color:var(--muted);font-size:.9rem;margin-top:14px}
+.news{display:flex;gap:8px;margin-top:12px}
+.news input{flex:1;min-width:0;padding:11px 13px;border-radius:11px;background:var(--surface-solid);border:1px solid var(--border);outline:none}
+.copy{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:24px;border-top:1px solid var(--border);color:var(--muted);font-size:.83rem}
+
+/* FLOATERS */
+#toTop{position:fixed;right:22px;bottom:96px;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--surface-solid);border:1px solid var(--border);box-shadow:var(--shadow);opacity:0;transform:translateY(20px);pointer-events:none;transition:.3s;z-index:90}
+#toTop.show{opacity:1;transform:none;pointer-events:auto}
+#chatBtn{position:fixed;right:22px;bottom:22px;width:58px;height:58px;border-radius:18px;display:grid;place-items:center;background:linear-gradient(135deg,var(--primary),var(--violet));color:#fff;box-shadow:var(--glow),var(--shadow);z-index:95;transition:transform .25s}
+#chatBtn:hover{transform:scale(1.08) rotate(-4deg)}
+#chat{position:fixed;right:22px;bottom:94px;width:min(360px,calc(100vw - 44px));max-height:70vh;display:none;flex-direction:column;z-index:96;overflow:hidden}
+#chat.open{display:flex;animation:fadeUp .35s ease}
+.chat-h{padding:16px 18px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;font-family:var(--font-d);font-weight:700}
+.chat-h small{display:block;font-family:var(--font-b);font-weight:400;color:var(--muted);font-size:.76rem}
+.chat-b{padding:16px;overflow:auto;display:grid;gap:10px;flex:1;min-height:200px;align-content:start}
+.msg{padding:10px 14px;border-radius:14px;font-size:.9rem;max-width:88%}
+.msg.bot{background:var(--surface-solid);border:1px solid var(--border)}
+.msg.me{background:var(--primary);color:var(--primary-ink);justify-self:end}
+.chat-q{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}
+.chat-q button{padding:6px 11px;font-size:.78rem;border-radius:99px;border:1px solid var(--border);background:var(--surface-solid)}
+.chat-q button:hover{border-color:var(--primary)}
+.chat-f{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)}
+.chat-f input{flex:1;min-width:0;padding:11px 13px;border-radius:11px;background:var(--surface-solid);border:1px solid var(--border);outline:none}
+#toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,40px);padding:14px 22px;border-radius:14px;background:var(--surface-solid);border:1px solid var(--primary);box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.4s;z-index:300;font-size:.92rem}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#faqAcc{grid-template-columns:repeat(auto-fit,minmax(420px,1fr));align-items:start;gap:16px}
+@media(max-width:520px){#faqAcc{grid-template-columns:1fr}}
+.pick{padding:14px 10px}
+.trk{position:fixed;inset:0;z-index:250;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(3,6,16,.6);backdrop-filter:blur(6px)}
+.trk.open{display:flex;animation:fadeUp .3s ease}
+.trk-card{width:min(760px,100%);max-height:92vh;overflow:auto;padding:26px;background:var(--surface-solid)}
+.trk-h{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}
+.trk-h h3{font-size:1.3rem}
+.trk-h p{color:var(--muted);font-size:.88rem}
+.trk-x{width:38px;height:38px;border-radius:11px;border:1px solid var(--border);flex:none}
+.map{width:100%;border-radius:16px;border:1px solid var(--border);background:var(--bg2);display:block}
+.map .road{stroke:var(--border);fill:none;stroke-width:8;stroke-linecap:round}
+.map .route{stroke:var(--muted);fill:none;stroke-width:3;stroke-dasharray:2 10;stroke-linecap:round;opacity:.7}
+.map .trail{stroke:var(--primary);fill:none;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.map .home{fill:var(--accent)}
+.map .tech{fill:var(--primary)}
+.trk-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.trk-info div{padding:12px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--border);font-size:.82rem;color:var(--muted)}
+.trk-info b{display:block;color:var(--text);font-family:var(--font-d);font-size:1.05rem}
+.trk-steps{display:flex;gap:6px;margin:6px 0 10px}
+.trk-steps span{flex:1;padding:9px 4px;border-radius:10px;text-align:center;font-size:.72rem;font-weight:600;background:var(--surface);border:1px solid var(--border);color:var(--muted);transition:.3s}
+.trk-steps span.on{background:color-mix(in srgb,var(--primary) 20%,var(--surface-solid));border-color:var(--primary);color:var(--text)}
+.rate{margin-top:16px;padding:18px;border-radius:16px;border:1px dashed var(--primary);display:none}
+.rate.show{display:block}
+.stars-in{display:flex;gap:6px;margin:8px 0 12px}
+.stars-in button{font-size:2rem;line-height:1;color:var(--border);transition:.2s}
+.stars-in button.lit{color:var(--accent);transform:scale(1.1)}
+.field .drop{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;border:1px dashed var(--primary);cursor:pointer;width:fit-content;color:var(--text)}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap}
+.thumbs div{position:relative;width:72px;height:72px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.thumbs img{width:100%;height:100%;object-fit:cover}
+.thumbs button{position:absolute;top:3px;right:3px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.65);color:#fff;font-size:.85rem;line-height:1}
+@media(max-width:560px){.trk-steps span{font-size:.62rem}}
+:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+#progress{width:100%;transform-origin:0 50%;transform:scaleX(0);will-change:transform}
+.tilt{will-change:auto}.tilt:hover{will-change:transform}
+.card{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.lite .card,.lite header.nav,.lite .quick,.lite .dots{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.lite .float-card{animation:none}
+.skip{position:fixed;left:12px;top:-70px;z-index:400;padding:10px 16px;border-radius:10px;background:var(--primary);color:var(--primary-ink);font-weight:600;transition:top .2s}
+.skip:focus{top:12px}
+/* section dots */
+.dots{position:fixed;right:14px;top:50%;transform:translateY(-50%);z-index:80;display:flex;flex-direction:column;gap:4px;padding:8px 5px;border-radius:99px;background:var(--surface);border:1px solid var(--border);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.dots a{position:relative;width:16px;height:16px;display:grid;place-items:center}
+.dots a i{width:7px;height:7px;border-radius:50%;background:var(--muted);opacity:.5;transition:.25s}
+.dots a:hover i{opacity:1;transform:scale(1.4)}
+.dots a.on i{background:var(--primary);opacity:1;transform:scale(1.6);box-shadow:0 0 0 4px color-mix(in srgb,var(--primary) 25%,transparent)}
+.dots a span{position:absolute;right:28px;top:50%;transform:translateY(-50%) translateX(6px);padding:5px 10px;border-radius:8px;background:var(--surface-solid);border:1px solid var(--border);font-size:.76rem;white-space:nowrap;opacity:0;pointer-events:none;transition:.2s}
+.dots a:hover span,.dots a:focus-visible span{opacity:1;transform:translateY(-50%)}
+@media(max-width:980px){.dots{display:none}}
+/* search */
+.srch{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:var(--surface);border:1px solid var(--border);color:var(--muted);font-size:.86rem;transition:.2s}
+.srch:hover{color:var(--text);border-color:var(--primary)}
+kbd{font-family:var(--font-b);font-size:.7rem;padding:2px 6px;border-radius:6px;border:1px solid var(--border);background:var(--surface-solid);color:var(--muted)}
+@media(max-width:700px){.srch span,.srch kbd{display:none}}
+.cmdk{position:fixed;inset:0;z-index:260;display:none;align-items:flex-start;justify-content:center;padding:12vh 16px 16px;background:rgba(3,6,16,.6);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.cmdk.open{display:flex;animation:fadeUp .25s ease}
+.cmdk-box{width:min(640px,100%);background:var(--surface-solid);overflow:hidden}
+.cmdk-in{display:flex;align-items:center;gap:12px;padding:16px 18px;border-bottom:1px solid var(--border)}
+.cmdk-in input{flex:1;min-width:0;background:none;border:0;outline:none;font-size:1.05rem}
+.cmdk-list{max-height:52vh;overflow:auto;padding:8px}
+.cmdk-g{padding:10px 12px 4px;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.cmdk-i{display:flex;align-items:center;gap:12px;width:100%;padding:11px 12px;border-radius:12px;text-align:left}
+.cmdk-i small{display:block;color:var(--muted);font-size:.78rem;line-height:1.4}
+.cmdk-i .icon{color:var(--primary)}
+.cmdk-i.sel,.cmdk-i:hover{background:color-mix(in srgb,var(--primary) 14%,transparent)}
+.cmdk-foot{display:flex;gap:16px;padding:10px 16px;border-top:1px solid var(--border);font-size:.74rem;color:var(--muted)}
+.cmdk-empty{padding:28px;text-align:center;color:var(--muted)}
+/* accessibility */
+#a11yBtn{position:fixed;left:22px;bottom:22px;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:var(--surface-solid);border:1px solid var(--border);box-shadow:var(--shadow);z-index:95;color:var(--primary);transition:transform .25s}
+#a11yBtn:hover{transform:scale(1.08)}
+#a11y{position:fixed;left:22px;bottom:92px;width:min(340px,calc(100vw - 44px));max-height:75vh;overflow:auto;padding:20px;z-index:96;display:none;background:var(--surface-solid)}
+#a11y.open{display:block;animation:fadeUp .3s ease}
+.a11y-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;font-family:var(--font-d);font-size:1.05rem}
+.a11y-h button{width:32px;height:32px;border-radius:9px;border:1px solid var(--border)}
+#a11y .lbl{display:flex;justify-content:space-between;margin:14px 0 8px}
+.a11y-row{display:flex;gap:8px}
+.a11y-row .chip{flex:1;padding:10px 8px}
+.a11y-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.a11y-grid .chip{padding:10px 8px;font-size:.84rem}
+html.a11y-contrast{--bg:#000;--bg2:#000;--surface:#0a0a0a;--surface-solid:#000;--border:#fff;--text:#fff;--muted:#e8e8e8;--primary:#ffe600;--primary-ink:#000;--accent:#00ffd5;--violet:#ffe600;--nav:#000}
+html.a11y-contrast .card,html.a11y-contrast header.nav{-webkit-backdrop-filter:none;backdrop-filter:none}
+html.a11y-contrast #bg3d,html.a11y-contrast .bg-fade{opacity:.12}
+html.a11y-font,html.a11y-font *{font-family:Verdana,Tahoma,Arial,sans-serif!important;letter-spacing:.02em!important}
+html.a11y-links a{text-decoration:underline!important;text-underline-offset:3px}
+html.a11y-space p,html.a11y-space li,html.a11y-space .acc-a div,html.a11y-space .msg{line-height:1.9!important;letter-spacing:.04em;word-spacing:.1em}
+html.a11y-motion *,html.a11y-motion *::before,html.a11y-motion *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html.a11y-motion .reveal{opacity:1;transform:none}
+html.a11y-no3d #bg3d{display:none}
+html.a11y-cursor,html.a11y-cursor *{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l16 9-7 2-3 7Z' fill='black' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 4 2,auto!important}
+html.a11y-focus :focus-visible{outline:4px solid var(--accent)!important;outline-offset:3px!important}
+#bg3d{opacity:0;transition:opacity 1.2s ease}
+#bg3d.ready{opacity:1}
+.offscreen,.offscreen *{animation-play-state:paused!important}
+#how,#pros,#plans,#help,#reviews,#faq,#areas{content-visibility:auto;contain-intrinsic-size:auto 800px}
+.dx-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.dx-chips button{padding:8px 13px;border-radius:99px;border:1px solid var(--border);background:var(--surface-solid);font-size:.82rem;color:var(--muted);transition:.2s}
+.dx-chips button:hover{border-color:var(--primary);color:var(--text)}
+.dx-res{min-height:320px}
+.dx-empty{display:grid;place-items:center;text-align:center;gap:12px;min-height:280px;color:var(--muted)}
+.dx-empty .icon{width:48px;height:48px;color:var(--primary)}
+.dx-top{display:flex;gap:14px;align-items:center;margin-bottom:12px}
+.dx-top .ico{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c);flex:none}
+.dx-top .ico .icon{width:28px;height:28px}
+.dx-top small{color:var(--muted);display:block}
+.dx-top h4{font-size:1.2rem}
+.dx-bar{height:6px;border-radius:99px;background:var(--border);overflow:hidden;margin:6px 0 16px}
+.dx-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--primary),var(--violet));transition:width .6s}
+.dx-do{display:grid;gap:8px;margin:10px 0 18px;padding-left:20px;color:var(--muted);font-size:.92rem}
+.dx-alt{display:grid;gap:8px;margin-top:16px}
+.dx-alt button{display:flex;justify-content:space-between;gap:12px;padding:11px 14px;border-radius:12px;border:1px solid var(--border);background:var(--surface-solid);font-size:.88rem;text-align:left}
+.dx-alt button:hover{border-color:var(--primary)}
+.dx-safe{display:flex;gap:12px;padding:14px 16px;border-radius:14px;margin-bottom:16px;border:1px solid color-mix(in srgb,#ff6b8b 55%,transparent);background:color-mix(in srgb,#ff6b8b 10%,transparent);font-size:.9rem}
+.dx-safe .icon{color:#ff6b8b;width:24px;height:24px}
+/* animated dropdowns */
+.dd{position:relative;width:100%}
+.quick .dd{flex:1 1 150px;min-width:0;width:auto}
+.dd-btn{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:13px 14px;border-radius:12px;background:var(--surface-solid);border:1px solid var(--border);text-align:left;transition:border-color .2s,box-shadow .2s}
+.dd-btn:hover{border-color:color-mix(in srgb,var(--primary) 60%,var(--border))}
+.dd.open .dd-btn,.dd-btn:focus-visible{border-color:var(--primary);box-shadow:0 0 0 3px color-mix(in srgb,var(--primary) 25%,transparent)}
+.dd-v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dd-chev{transition:transform .3s;color:var(--primary)}
+.dd.open .dd-chev{transform:rotate(180deg)}
+.dd-menu{position:absolute;left:0;right:0;top:calc(100% + 8px);max-height:280px;overflow:auto;padding:6px;border-radius:14px;background:var(--surface-solid);border:1px solid var(--border);box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-10px) scale(.97);transform-origin:top center;transition:opacity .22s ease,transform .28s cubic-bezier(.2,.8,.2,1),visibility 0s linear .28s;z-index:60}
+.dd.up .dd-menu{top:auto;bottom:calc(100% + 8px);transform-origin:bottom center;transform:translateY(10px) scale(.97)}
+.dd.open{z-index:70}
+.dd.open .dd-menu{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.dd-o{padding:10px 12px;border-radius:10px;cursor:pointer;font-size:.93rem;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.dd.open .dd-o{animation:ddIn .32s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i) * 22ms)}
+@keyframes ddIn{from{opacity:0;transform:translateX(-8px)}}
+.dd-o.hi{background:color-mix(in srgb,var(--primary) 14%,transparent)}
+.dd-o.sel{color:var(--primary);font-weight:600}
+.dd-o.sel::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--primary);flex:none}
+.dd-native{position:absolute!important;width:1px!important;height:1px!important;opacity:0!important;pointer-events:none!important;padding:0!important;border:0!important;margin:0!important;overflow:hidden}
+.card:has(.dd.open){position:relative;z-index:50}
+section:has(.dd.open){z-index:50}
+/* rewards */
+.rw-big{font-family:var(--font-d);font-size:3.4rem;font-weight:800;line-height:1.1}
+.rw-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:8px 0 6px}
+.rw-code{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:6px 0 16px}
+/* planner */
+.pl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;perspective:1200px}
+.pl{padding:26px;display:flex;flex-direction:column;gap:10px}
+.pl .ico{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--c) 22%,transparent);color:var(--c);transform:translateZ(30px)}
+.pl .ico .icon{width:26px;height:26px}
+.pl small{color:var(--muted)}
+.pl h4{font-size:1.1rem}
+.pl p{color:var(--muted);font-size:.9rem}
+.pl .foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:14px;border-top:1px solid var(--border);font-size:.84rem;color:var(--muted)}
+.pl .foot b{color:var(--text);font-family:var(--font-d);font-size:1.05rem}
+.pl-note{color:var(--muted);margin-bottom:22px;max-width:760px}
+/* chat upgrades */
+.chat-cats{display:flex;gap:6px;overflow-x:auto;padding:0 16px 8px;scrollbar-width:none}
+.chat-cats::-webkit-scrollbar{display:none}
+.chat-cats button{flex:none;padding:6px 12px;font-size:.78rem;font-weight:600;border-radius:99px;border:1px solid var(--border);background:var(--surface-solid);transition:.2s}
+.chat-cats button[aria-pressed="true"]{background:color-mix(in srgb,var(--primary) 20%,var(--surface-solid));border-color:var(--primary)}
+#chatQ{max-height:112px;overflow:auto}
+.typing span{display:inline-block;width:6px;height:6px;margin:0 2px;border-radius:50%;background:var(--muted);animation:tdot 1s infinite}
+.typing span:nth-child(2){animation-delay:.15s}
+.typing span:nth-child(3){animation-delay:.3s}
+@keyframes tdot{50%{transform:translateY(-4px);opacity:.5}}
+.msg .btn{margin-top:8px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<canvas id="bg3d" aria-hidden="true"></canvas>
+<div class="bg-fade"></div>
+
+<!-- ICON SPRITE -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3s6 6.2 6 10.5A6 6 0 0 1 6 13.5C6 9.2 12 3 12 3Z"/><path d="M9.5 14.5a2.6 2.6 0 0 0 2.5 2"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11L10 22l9-12h-6.5Z"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M4 7l16 10M20 7 4 17M9 3.5 12 6l3-2.5M9 20.5 12 18l3 2.5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5"/><path d="M10 21v-6h4v6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4.5 3.2 8 8 9 4.8-1 8-4.5 8-9V6Z"/><path d="M12 8v5M12 16v.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9Z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6 7-11.5a7 7 0 0 0-14 0C5 15 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-up" viewBox="0 0 24 24"><path d="m6 15 6-6 6 6"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5Z"/></symbol>
+  <symbol id="i-auto" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5 4V6a1 1 0 0 1 1-1Z"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20Z"/><path d="M12 10v4M12 17.5v.5"/></symbol>
+  <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9Z"/><circle cx="8" cy="8" r="1.5"/></symbol>
+  <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M3 10h18M16 15h2"/></symbol>
+  <symbol id="i-send" viewBox="0 0 24 24"><path d="m4 12 16-8-6 16-3-7Z"/></symbol>
+  <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.5 8.5a2.1 2.1 0 0 1-3-3L12 9"/><path d="M17.6 15 22 10.6l-3.5-3.5-.8-2.4a1 1 0 0 0-1.6-.4L12 8.5Z"/></symbol>
+  <symbol id="i-brush" viewBox="0 0 24 24"><rect x="3" y="3" width="15" height="6" rx="1.5"/><path d="M18 6h2a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1h-8a1 1 0 0 0-1 1v2"/><rect x="9" y="15" width="4" height="7" rx="1"/></symbol>
+  <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v6M15 2v6M6 8h12v3a6 6 0 0 1-12 0Z"/><path d="M12 17v5"/></symbol>
+  <symbol id="i-sparkle" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8Z"/><path d="M19 17v4M17 19h4"/></symbol>
+  <symbol id="i-bug" viewBox="0 0 24 24"><rect x="8" y="8" width="8" height="11" rx="4"/><path d="M12 8V5M9 5l1.5 1.5M15 5l-1.5 1.5M4 12h4M16 12h4M5 18l3-2M19 18l-3-2M5 6l3 3M19 6l-3 3"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><rect x="2" y="7" width="14" height="10" rx="2"/><path d="m16 11 6-3v8l-6-3"/></symbol>
+  <symbol id="i-logo" viewBox="0 0 64 64">
+    <defs><linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3ee0c4"/><stop offset="1" stop-color="#7c6cff"/></linearGradient></defs>
+    <rect width="64" height="64" rx="18" fill="url(#lg1)"/>
+    <path d="M12 32 32 14l20 18v17a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3Z" fill="#fff" fill-opacity=".95"/>
+    <path d="M35 22 25 37h7l-3 11 11-16h-7.5Z" fill="#f59e0b"/>
+  </symbol>
+</svg>
+
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="logo" aria-label="Fixora home">
+      <svg><use href="#i-logo"/></svg>
+      <span>Fixora<small>Home services</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#estimate">Estimate</a>
+      <a href="#book">Book</a>
+      <a href="#pros">Pros</a>
+      <a href="#plans">Plans</a>
+      <a href="#help">Help hub</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="theme" role="group" aria-label="Theme">
+        <button data-mode="light" aria-pressed="false" aria-label="Light mode" title="Light"><svg class="icon"><use href="#i-sun"/></svg></button>
+        <button data-mode="dark" aria-pressed="false" aria-label="Dark mode" title="Dark"><svg class="icon"><use href="#i-moon"/></svg></button>
+        <button data-mode="auto" aria-pressed="true" aria-label="Auto mode" title="Auto (system)"><svg class="icon"><use href="#i-auto"/></svg></button>
+      </div>
+      <a href="#book" class="btn btn-primary btn-sm nav-cta">Book now</a>
+      <button class="burger" id="burger" aria-label="Menu"><svg class="icon"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill"><i></i> 214 pros online now · arriving in ~45 min</div>
+      <h1>Home repairs, <span class="grad">booked in minutes.</span></h1>
+      <p class="lead">Verified plumbers, electricians, AC technicians and six more trades at your door. Upfront pricing, live tracking and a 90-day workmanship guarantee on every job.</p>
+      <form class="card quick" id="quickForm">
+        <select id="qService" aria-label="Service"></select>
+        <input type="date" id="qDate" aria-label="Date">
+        <button class="btn btn-primary" type="submit">Find a pro</button>
+      </form>
+      <div class="stats">
+        <div class="stat"><b data-count="48000" data-suffix="+">0</b><span>Jobs completed</span></div>
+        <div class="stat"><b data-count="4.9" data-dec="1">0</b><span>Average rating</span></div>
+        <div class="stat"><b data-count="45" data-suffix=" min">0</b><span>Avg. arrival</span></div>
+      </div>
+    </div>
+    <div class="scene" id="scene">
+      <div class="cube">
+        <div class="face f1"><svg class="icon"><use href="#i-drop"/></svg>Plumbing<small>Leaks · Drains</small></div>
+        <div class="face f2"><svg class="icon"><use href="#i-bolt"/></svg>Electrical<small>Wiring · Fixtures</small></div>
+        <div class="face f3"><svg class="icon"><use href="#i-snow"/></svg>AC Repair<small>Cooling · Service</small></div>
+        <div class="face f4"><svg class="icon"><use href="#i-shield"/></svg>Guaranteed<small>90-day cover</small></div>
+        <div class="face f5"><svg class="icon"><use href="#i-clock"/></svg>Fast<small>Same-day</small></div>
+        <div class="face f6"><svg class="icon"><use href="#i-home"/></svg>Fixora<small>Your home, sorted</small></div>
+      </div>
+      <div class="card float-card fc1"><span class="dot"><svg class="icon"><use href="#i-star"/></svg></span><div><b>4.9 / 5</b>12,400 reviews</div></div>
+      <div class="card float-card fc2"><span class="dot"><svg class="icon"><use href="#i-shield"/></svg></span><div><b>Background-checked</b>Every technician</div></div>
+      <div class="card float-card fc3"><span class="dot"><svg class="icon"><use href="#i-wallet"/></svg></span><div><b>No hidden fees</b>Price before you pay</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true"><div class="marquee-track" id="marquee"></div></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">What we fix</div><h2>Nine trades. <span class="grad">One trusted app.</span></h2><p>From a dripping tap to a dead AC in peak summer, our certified pros handle it with transparent pricing.</p></div>
+    <div class="svc-grid" id="svcGrid"></div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">How it works</div><h2>From problem to <span class="grad">fixed</span> in four steps</h2></div>
+    <div class="steps">
+      <div class="card step tilt reveal"><svg class="icon"><use href="#i-tag"/></svg><h3>Pick &amp; get a price</h3><p>Choose the service and issue. See an instant, upfront estimate with no surprises.</p></div>
+      <div class="card step tilt reveal"><svg class="icon"><use href="#i-cal"/></svg><h3>Choose your time</h3><p>Same-day, scheduled, or emergency dispatch. Pick the slot that fits your day.</p></div>
+      <div class="card step tilt reveal"><svg class="icon"><use href="#i-user"/></svg><h3>Pro arrives</h3><p>A verified technician is matched to your job and arrives with the right parts.</p></div>
+      <div class="card step tilt reveal"><svg class="icon"><use href="#i-shield"/></svg><h3>Pay &amp; stay covered</h3><p>Pay after the work is done. Every repair carries a 90-day guarantee.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSE -->
+<section id="diagnose">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Smart diagnosis</div><h2>Not sure what's wrong? <span class="grad">Just describe it.</span></h2><p>Tell us what you see, hear or smell. We'll suggest the likely problem, the right pro and a price, plus what to do right now.</p></div>
+    <div class="two">
+      <div class="card panel reveal">
+        <h3>What's happening?</h3><p>Write it the way you'd tell a friend.</p>
+        <div class="field"><label for="dxText">Describe the problem</label><textarea id="dxText" placeholder="e.g. Water is dripping from the pipe under my kitchen sink"></textarea></div>
+        <button class="btn btn-primary" id="dxGo" style="width:100%">Diagnose the problem</button>
+        <div class="err" id="dxErr" style="margin-top:10px"></div>
+        <span class="lbl">Or try an example</span>
+        <div class="dx-chips" id="dxChips"></div>
+      </div>
+      <div class="card quote dx-res reveal" id="dxOut"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ESTIMATOR -->
+<section id="estimate">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Instant estimate</div><h2>Know the price <span class="grad">before you book</span></h2><p>Adjust the options and watch the estimate update live. This is the same pricing engine used at checkout.</p></div>
+    <div class="two">
+      <div class="card panel reveal">
+        <h3>Build your estimate</h3><p>Takes under 20 seconds.</p>
+        <div class="field"><label>Service</label><select id="eService"></select></div>
+        <div class="field"><label>Issue</label><select id="eIssue"></select></div>
+        <div class="field"><label>How many units / points?</label>
+          <div class="qty"><button type="button" id="eMinus" aria-label="Fewer">−</button><output id="eQty">1</output><button type="button" id="ePlus" aria-label="More">+</button><span class="note">Taps, sockets, AC units…</span></div>
+        </div>
+        <div class="field"><span class="lbl">Urgency</span>
+          <div class="seg" id="eUrg"></div>
+        </div>
+        <div class="field"><span class="lbl">Add-ons</span><div class="seg" id="eAddons"></div></div>
+      </div>
+      <div class="card quote reveal">
+        <span class="note">Estimated total</span>
+        <div class="big grad" id="eTotal">$0</div>
+        <div class="lines" id="eLines"></div>
+        <button class="btn btn-primary" style="width:100%" id="eBook">Book this service</button>
+        <p class="note" style="margin-top:12px">Final price is confirmed by your technician on arrival, before any work begins. Parts are charged at cost.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Book a pro</div><h2>Your booking, <span class="grad">done in 4 steps</span></h2><p>No account needed. Bookings are saved on this device, so you can review or cancel them below.</p></div>
+    <div class="two">
+      <div class="card panel reveal" id="wizard">
+        <div class="stepper" id="stepper"></div>
+
+        <div class="wiz-step on" data-s="1">
+          <h3>What do you need fixed?</h3><p>Select a service, then the issue.</p>
+          <div class="svc-pick" id="bPick"></div>
+          <div class="field"><label>Issue</label><select id="bIssue"></select></div>
+          <div class="field"><label>Units / points</label>
+            <div class="qty"><button type="button" id="bMinus" aria-label="Fewer">−</button><output id="bQty">1</output><button type="button" id="bPlus" aria-label="More">+</button></div>
+          </div>
+          <div class="err" id="err1"></div>
+        </div>
+
+        <div class="wiz-step" data-s="2">
+          <h3>When should we come?</h3><p>Choose urgency, date and a time window.</p>
+          <div class="field"><span class="lbl">Urgency</span><div class="seg" id="bUrg"></div></div>
+          <div class="field" id="dateField"><label for="bDate">Date</label><input type="date" id="bDate"></div>
+          <div class="field" id="slotField"><span class="lbl">Time window</span><div class="slots seg" id="bSlots"></div></div>
+          <div class="err" id="err2"></div>
+        </div>
+
+        <div class="wiz-step" data-s="3">
+          <h3>Your details</h3><p>So our pro knows where to go.</p>
+          <div class="row2">
+            <div class="field"><label for="bName">Full name</label><input id="bName" autocomplete="name" placeholder="Your name"></div>
+            <div class="field"><label for="bPhone">Phone</label><input id="bPhone" type="tel" autocomplete="tel" placeholder="Phone number"></div>
+          </div>
+          <div class="field"><label for="bEmail">Email (optional)</label><input id="bEmail" type="email" autocomplete="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="bAddr">Service address</label><input id="bAddr" autocomplete="street-address" placeholder="House no., street, area"></div>
+          <div class="field"><label for="bTech">Preferred technician</label><select id="bTech"></select></div>
+          <div class="field"><span class="lbl">Add-ons</span><div class="seg" id="bAddons"></div></div>
+          <div class="row2">
+            <div class="field"><label for="bPromo">Promo code</label><input id="bPromo" placeholder="Try FIXORA10"></div>
+            <div class="field"><label>&nbsp;</label><button type="button" class="btn btn-ghost" id="bApply">Apply code</button></div>
+          </div>
+          <div class="field"><span class="lbl">Rewards points</span>
+            <button type="button" class="btn btn-ghost" id="bPts" aria-pressed="false">Use my points</button>
+            <span class="note" id="bPtsNote"></span></div>
+          <div class="field"><label>Photos of the problem (optional, up to 3)</label>
+            <label class="drop" for="bPhotos"><svg class="icon"><use href="#i-cam"/></svg> Add photos</label>
+            <input type="file" id="bPhotos" accept="image/*" multiple hidden>
+            <div class="thumbs" id="bThumbs"></div></div>
+          <div class="field"><label for="bNotes">Notes for the technician</label><textarea id="bNotes" placeholder="Gate code, pets, what happened…"></textarea></div>
+          <div class="err" id="err3"></div>
+        </div>
+
+        <div class="wiz-step" data-s="4">
+          <h3>Review &amp; confirm</h3><p>Everything look right?</p>
+          <div class="review" id="review"></div>
+        </div>
+
+        <div class="wiz-step" data-s="5" id="doneStep">
+          <div class="success">
+            <div class="ring"><svg class="icon"><use href="#i-shield"/></svg></div>
+            <h3>You're booked!</h3>
+            <p style="color:var(--muted)">A technician will be assigned shortly. We'll call to confirm.</p>
+            <div class="bid" id="doneId"></div>
+            <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+              <button class="btn btn-primary btn-sm" id="icsBtn">Add to calendar</button>
+              <button class="btn btn-ghost btn-sm" id="newBtn">Book another</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wiz-nav" id="wizNav">
+          <button class="btn btn-ghost" id="backBtn">Back</button>
+          <button class="btn btn-primary" id="nextBtn">Continue</button>
+        </div>
+      </div>
+
+      <div class="card quote reveal">
+        <span class="note">Your price</span>
+        <div class="big grad" id="bTotal">$0</div>
+        <div class="lines" id="bLines"></div>
+        <p class="note">Pay after the job is done. Cash or card accepted.</p>
+        <div style="display:grid;gap:10px;margin-top:16px;font-size:.86rem;color:var(--muted)">
+          <span style="display:flex;gap:10px;align-items:center"><svg class="icon" style="color:var(--primary)"><use href="#i-shield"/></svg> 90-day workmanship guarantee</span>
+          <span style="display:flex;gap:10px;align-items:center"><svg class="icon" style="color:var(--primary)"><use href="#i-clock"/></svg> Free cancellation up to 2 hours before</span>
+          <span style="display:flex;gap:10px;align-items:center"><svg class="icon" style="color:var(--primary)"><use href="#i-user"/></svg> Background-checked professionals</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:56px" class="reveal">
+      <h3 style="font-size:1.5rem">My bookings</h3>
+      <div class="bk-list" id="bkList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHS -->
+<section id="pros">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Meet the pros</div><h2>Skilled, vetted, <span class="grad">and local</span></h2><p>Every technician passes ID, skills and background checks, and is rated by real customers after each job.</p></div>
+    <div class="chips" id="techFilter"></div>
+    <div class="tech-grid" id="techGrid"></div>
+  </div>
+</section>
+
+<!-- PLANS -->
+<section id="plans">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Care plans</div><h2>Prevent problems, <span class="grad">save money</span></h2><p>Annual home care plans with priority booking and discounted repairs.</p></div>
+    <div class="plans" id="planGrid"></div>
+  </div>
+</section>
+
+<!-- PLANNER -->
+<section id="planner">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Home care planner</div><h2>The right fix, <span class="grad">at the right season</span></h2><p>Weather changes what your home needs. Pick a season to see what to service now, and book each task in a tap.</p></div>
+    <div class="chips reveal" id="plTabs"></div>
+    <p class="pl-note" id="plNote"></p>
+    <div class="pl-grid" id="plGrid"></div>
+  </div>
+</section>
+
+<!-- REWARDS -->
+<section id="rewards">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Fixora Rewards</div><h2>Every job <span class="grad">pays you back</span></h2><p>Earn points on completed jobs, climb the tiers, and spend your points as instant discounts at checkout.</p></div>
+    <div class="two">
+      <div class="card panel reveal">
+        <span class="note">Your points balance</span>
+        <div class="rw-big grad" id="rwPts">0</div>
+        <div class="rw-row"><span class="badge" id="rwTier">Member</span><span class="note" id="rwWorth"></span></div>
+        <div class="dx-bar"><i id="rwBar" style="width:0"></i></div>
+        <p class="note" id="rwNext" style="margin-bottom:18px"></p>
+        <div class="lines">
+          <div><span>Every completed job</span><span>1 point per $ spent</span></div>
+          <div><span>Rate your technician</span><span>+20 points</span></div>
+          <div><span>Redeem at checkout</span><span>Up to 50% of a booking</span></div>
+          <div><span>Higher tiers</span><span>Each point is worth more</span></div>
+        </div>
+      </div>
+      <div class="card panel reveal">
+        <h3>Refer a friend</h3>
+        <p>Share your code and a ready-made message. Your friend gets 10% off their first booking with code FIXORA10.</p>
+        <div class="rw-code"><span class="bid" id="rwCode" style="margin:0"></span><button class="btn btn-ghost btn-sm" id="rwCopy">Copy code</button></div>
+        <button class="btn btn-primary" id="rwShare" style="width:100%">Share on WhatsApp</button>
+        <p class="note" style="margin-top:14px">Referral bonuses are credited automatically once a backend tracks sign-ups. Until then, points come from your own completed jobs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HELP HUB -->
+<section id="help">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Help hub</div><h2>Smart tips &amp; <span class="grad">emergency guides</span></h2><p>Know what to do while you wait for your technician.</p></div>
+    <div class="alert reveal"><svg class="icon"><use href="#i-alert"/></svg><div><b>Smell gas, see sparks or smoke?</b> Leave the area first, do not switch anything on or off, and call your local emergency number. Book a pro only once it's safe.</div></div>
+    <div class="tabs" id="helpTabs"></div>
+    <div class="acc" id="helpAcc"></div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Customer love</div><h2>Trusted by <span class="grad">thousands of homes</span></h2></div>
+    <div class="rev-wrap reveal"><div class="rev-track" id="revTrack"></div></div>
+    <div class="rev-ctl" id="revCtl"></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">FAQ</div><h2>Questions, <span class="grad">answered</span></h2></div>
+    <div class="acc" id="faqAcc"></div>
+  </div>
+</section>
+
+<!-- AREAS + CTA -->
+<section id="areas" style="padding-top:20px">
+  <div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Coverage</div><h2>Where we <span class="grad">operate</span></h2><p>Edit this list in the AREAS array to match the neighborhoods you serve.</p></div>
+    <div class="areas reveal" id="areaList"></div>
+    <div class="card cta reveal" style="margin-top:70px">
+      <h2>Something broken right now?</h2>
+      <p>Emergency dispatch is available around the clock. Tell us what's wrong and we'll send the nearest pro.</p>
+      <div class="btns"><a href="#book" class="btn btn-primary" id="ctaEmerg">Emergency booking</a><a href="tel:+10000000000" class="btn btn-ghost"><svg class="icon"><use href="#i-phone"/></svg> Call support</a><a href="#" id="waCta" class="btn btn-ghost" target="_blank" rel="noopener"><svg class="icon"><use href="#i-chat"/></svg> WhatsApp us</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div><a href="#top" class="logo"><svg><use href="#i-logo"/></svg><span>Fixora<small>Home services</small></span></a><p>Trusted home repair professionals, on demand. Upfront prices. Guaranteed work.</p></div>
+      <div><h5>Services</h5><ul><li><a href="#services">Plumbing</a></li><li><a href="#services">Electrical</a></li><li><a href="#services">AC repair</a></li><li><a href="#plans">Care plans</a></li></ul></div>
+      <div><h5>Company</h5><ul><li><a href="#pros">Our pros</a></li><li><a href="#help">Help hub</a></li><li><a href="#faq">FAQ</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+      <div><h5>Stay in the loop</h5><p style="margin-top:0">Seasonal tips and offers. No spam.</p>
+        <form class="news" id="newsForm"><input type="email" required placeholder="Email address" aria-label="Email"><button class="btn btn-primary btn-sm" type="submit">Join</button></form></div>
+    </div>
+    <div class="copy"><span>© <span id="yr"></span> Fixora. All rights reserved.</span><span>Licensed · Insured · Guaranteed</span></div>
+  </div>
+</footer>
+
+<button id="toTop" aria-label="Back to top"><svg class="icon"><use href="#i-up"/></svg></button>
+<button id="chatBtn" aria-label="Open chat"><svg class="icon" style="width:26px;height:26px"><use href="#i-chat"/></svg></button>
+<div class="card" id="chat" role="dialog" aria-label="Fixora assistant">
+  <div class="chat-h"><div>Fixora assistant<small>Instant answers</small></div><button id="chatX" aria-label="Close">✕</button></div>
+  <div class="chat-b" id="chatB"></div>
+  <div class="chat-q" id="chatQ"></div>
+  <form class="chat-f" id="chatF"><input id="chatI" placeholder="Ask about pricing, timing…" aria-label="Message"><button class="btn btn-primary btn-sm" aria-label="Send"><svg class="icon"><use href="#i-send"/></svg></button></form>
+</div>
+<div class="trk" id="trk" role="dialog" aria-modal="true" aria-label="Live job tracking">
+  <div class="card trk-card">
+    <div class="trk-h"><div><h3 id="trkTitle">Live tracking</h3><p id="trkSub"></p></div><button class="trk-x" id="trkX" aria-label="Close">✕</button></div>
+    <svg class="map" viewBox="0 0 600 300" role="img" aria-label="Map showing the technician route to your home">
+      <path class="road" d="M20 60H580M20 90H580M20 170H580M20 250H580M50 20V290M210 20V290M400 20V290M530 20V290"/>
+      <path id="trkRoute" class="route" d="M50 250 L50 170 L210 170 L210 90 L400 90 L400 60 L530 60"/>
+      <path id="trkTrail" class="trail" d=""/>
+      <g transform="translate(530 60)"><circle r="18" class="home" opacity=".25"/><circle r="9" class="home"/></g>
+      <g id="trkDot" transform="translate(50 250)"><circle r="18" class="tech" opacity=".25"><animate attributeName="r" values="14;24;14" dur="1.8s" repeatCount="indefinite"/></circle><circle r="9" class="tech"/></g>
+    </svg>
+    <div class="trk-info"><div>Status<b id="trkState">Assigned</b></div><div>Arrives in<b id="trkEta">--</b></div><div>Technician<b id="trkWho">--</b></div></div>
+    <div class="trk-steps" id="trkSteps"></div>
+    <p class="note">Demo simulation. Connect a real dispatch backend to show live technician positions.</p>
+    <div class="rate" id="rate">
+      <b>How was the service?</b>
+      <div class="stars-in" id="rateStars"></div>
+      <div class="field" style="margin-bottom:12px"><textarea id="rateText" placeholder="Tell others about your experience (optional)"></textarea></div>
+      <button class="btn btn-primary btn-sm" id="rateSend">Submit review</button>
+    </div>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+
+<script>
+/* ==================== CONFIG ==================== */
+const CUR = '$';              // change currency symbol here
+const VISIT_FEE = 15;         // fixed call-out fee
+const PROMOS = { FIXORA10: 0.10, WELCOME15: 0.15 };
+const AREAS = ['Downtown','Northside','Riverside','Old Town','Greenfield','Lakeview','University District','Harbor Bay','Maple Heights','Westgate','Sunset Park','Industrial Zone'];
+
+const SERVICES = [
+  { id:'plumbing', name:'Plumbing', icon:'drop', color:'#3ee0c4', time:'60–90 min', from:40,
+    desc:'Leaks, blockages, heaters and fixtures fixed fast, with the right parts on the van.',
+    points:['Leak and burst-pipe repair','Drain and toilet unblocking','Water heater service','Tap, shower and basin fitting'],
+    issues:[{id:'leak',name:'Leaking pipe or tap',price:40},{id:'drain',name:'Blocked drain or toilet',price:55},{id:'heater',name:'Water heater repair',price:70},{id:'fixture',name:'Fixture installation',price:60},{id:'tank',name:'Water pump / tank issue',price:80}] },
+  { id:'electrical', name:'Electrical', icon:'bolt', color:'#ffb547', time:'45–90 min', from:35,
+    desc:'Safe, code-compliant electrical work from a flickering light to a full rewire.',
+    points:['Fault finding and rewiring','Switch, socket and fan fitting','Circuit breaker and DB repair','Lighting and inverter setup'],
+    issues:[{id:'fault',name:'Power fault / tripping',price:50},{id:'socket',name:'Switch or socket repair',price:35},{id:'fan',name:'Fan or light installation',price:45},{id:'board',name:'Distribution board repair',price:90},{id:'rewire',name:'Partial rewiring',price:140}] },
+  { id:'ac', name:'AC Repair', icon:'snow', color:'#7c6cff', time:'60–120 min', from:45,
+    desc:'Cooling problems solved. Servicing, gas top-ups, repairs and installation for all brands.',
+    points:['Full AC service and cleaning','Gas leak check and refill','Compressor and PCB repair','Split and window AC installation'],
+    issues:[{id:'service',name:'Full AC service',price:45},{id:'notcool',name:'Not cooling properly',price:65},{id:'gas',name:'Gas leak / refill',price:85},{id:'noise',name:'Noise or water leakage',price:50},{id:'install',name:'AC installation',price:120}] },
+  { id:'carpentry', name:'Carpentry', icon:'hammer', color:'#ff9f43', time:'90–180 min', from:45,
+    desc:'Doors, cabinets, shelves and custom woodwork built or repaired by skilled carpenters.',
+    points:['Door, lock and hinge repair','Furniture assembly and repair','Cabinet and shelf fitting','Custom woodwork'],
+    issues:[{id:'door',name:'Door or lock repair',price:45},{id:'furn',name:'Furniture assembly / repair',price:50},{id:'cabinet',name:'Cabinet and shelf fitting',price:80},{id:'floor',name:'Wood floor / frame repair',price:110},{id:'custom',name:'Custom woodwork',price:150}] },
+  { id:'painting', name:'Painting', icon:'brush', color:'#ff6b8b', time:'3–8 hrs', from:60,
+    desc:'Clean, even finishes for interiors and exteriors, with surface prep and tidy-up included.',
+    points:['Room and full-home painting','Touch-ups and patch repair','Damp and seepage treatment','Wood polish and varnish'],
+    issues:[{id:'room',name:'Single room painting',price:120},{id:'touch',name:'Touch-up and patch repair',price:60},{id:'exterior',name:'Exterior wall painting',price:260},{id:'damp',name:'Damp / seepage treatment',price:140},{id:'polish',name:'Wood polish and varnish',price:90}] },
+  { id:'appliance', name:'Appliance Repair', icon:'plug', color:'#4b8cff', time:'45–90 min', from:35,
+    desc:'Washing machines, fridges, ovens and more, diagnosed and fixed at home.',
+    points:['Washing machine and dryer','Refrigerator and freezer','Oven and microwave','Dishwasher and small appliances'],
+    issues:[{id:'washer',name:'Washing machine repair',price:55},{id:'fridge',name:'Refrigerator repair',price:65},{id:'oven',name:'Oven / microwave repair',price:50},{id:'dish',name:'Dishwasher repair',price:60},{id:'small',name:'TV / small appliance repair',price:40}] },
+  { id:'cleaning', name:'Cleaning', icon:'sparkle', color:'#34d399', time:'2–5 hrs', from:50,
+    desc:'Deep cleaning crews with professional equipment and safe, effective products.',
+    points:['Deep home cleaning','Kitchen and bathroom deep clean','Sofa and carpet shampooing','Water tank cleaning'],
+    issues:[{id:'deep',name:'Deep home cleaning',price:120},{id:'kb',name:'Kitchen and bathroom clean',price:80},{id:'sofa',name:'Sofa / carpet shampoo',price:60},{id:'tank',name:'Water tank cleaning',price:70},{id:'move',name:'Move-in / move-out clean',price:150}] },
+  { id:'pest', name:'Pest Control', icon:'bug', color:'#a3e635', time:'60–120 min', from:40,
+    desc:'Safe, targeted treatments that remove pests and help keep them from coming back.',
+    points:['Cockroach and ant control','Termite treatment','Bed bug treatment','Rodent and mosquito control'],
+    issues:[{id:'roach',name:'Cockroach and ant control',price:45},{id:'termite',name:'Termite treatment',price:130},{id:'bed',name:'Bed bug treatment',price:90},{id:'rodent',name:'Rodent control',price:70},{id:'mosq',name:'Mosquito fogging',price:55}] },
+  { id:'security', name:'Security & CCTV', icon:'cam', color:'#22d3ee', time:'90–180 min', from:55,
+    desc:'Cameras, smart locks and alarms installed neatly and set up on your phone.',
+    points:['CCTV installation','Smart lock fitting','Alarm system setup','Video doorbell and intercom'],
+    issues:[{id:'cctv',name:'CCTV camera installation',price:110},{id:'lock',name:'Smart lock installation',price:85},{id:'alarm',name:'Alarm system setup',price:130},{id:'bell',name:'Video doorbell / intercom',price:75},{id:'camfix',name:'Camera fault repair',price:55}] }
+];
+const URGENCY = [
+  { id:'standard', name:'Scheduled', mult:1, note:'Pick any date' },
+  { id:'sameday', name:'Same day', mult:1.25, note:'Within hours' },
+  { id:'emergency', name:'Emergency', mult:1.6, note:'Within 60 min' }
+];
+const ADDONS = [
+  { id:'parts', name:'Parts check', price:10 },
+  { id:'clean', name:'Cleanup service', price:12 },
+  { id:'inspect', name:'Safety inspection', price:20 },
+  { id:'warranty', name:'Extended 1-year warranty', price:25 }
+];
+const SLOTS = ['08:00 – 10:00','10:00 – 12:00','12:00 – 14:00','14:00 – 16:00','16:00 – 18:00','18:00 – 20:00'];
+const TECHS = [
+  { n:'Daniel Reyes', s:'plumbing', yrs:11, jobs:2140, r:4.9, c1:'#3ee0c4', c2:'#0f9d8a' },
+  { n:'Amira Hassan', s:'electrical', yrs:9, jobs:1860, r:4.9, c1:'#ffb547', c2:'#f26b3a' },
+  { n:'Lucas Meyer', s:'ac', yrs:8, jobs:1520, r:4.8, c1:'#7c6cff', c2:'#4b8cff' },
+  { n:'Priya Nair', s:'electrical', yrs:12, jobs:2480, r:5.0, c1:'#ff6b8b', c2:'#ffb547' },
+  { n:'Omar Farouk', s:'plumbing', yrs:7, jobs:1190, r:4.8, c1:'#4b8cff', c2:'#3ee0c4' },
+  { n:'Sofia Marino', s:'ac', yrs:10, jobs:1970, r:4.9, c1:'#3ee0c4', c2:'#7c6cff' },
+  { n:'Haroon Shah', s:'carpentry', yrs:13, jobs:2210, r:4.9, c1:'#ff9f43', c2:'#f26b3a' },
+  { n:'Elena Petrova', s:'painting', yrs:9, jobs:1640, r:4.8, c1:'#ff6b8b', c2:'#7c6cff' },
+  { n:'Tariq Aziz', s:'appliance', yrs:11, jobs:2050, r:4.9, c1:'#4b8cff', c2:'#3ee0c4' },
+  { n:'Grace Okafor', s:'cleaning', yrs:6, jobs:1380, r:4.8, c1:'#34d399', c2:'#4b8cff' },
+  { n:'Viktor Lang', s:'pest', yrs:8, jobs:1420, r:4.9, c1:'#a3e635', c2:'#34d399' },
+  { n:'Noah Bennett', s:'security', yrs:7, jobs:1110, r:4.8, c1:'#22d3ee', c2:'#7c6cff' }
+];
+const PLANS = [
+  { name:'Essential', price:9, desc:'Peace of mind for small homes.', pts:['1 safety inspection per year','10% off all repairs','Standard booking','Phone support'] },
+  { name:'Home Care', price:19, pop:true, desc:'Our most-loved plan for families.', pts:['2 inspections + 1 AC service','20% off all repairs','Priority same-day booking','Waived call-out fee','Extended 1-year warranty'] },
+  { name:'Premium', price:34, desc:'Complete cover for larger homes.', pts:['4 inspections + 2 AC services','30% off all repairs','24/7 emergency priority','Free parts up to $60 per year','Dedicated account manager'] }
+];
+const HELP = {
+  Emergency:[
+    ['I smell gas','<ol><li>Do not switch anything on or off, and do not use flames or phones inside.</li><li>Open doors and windows if you can do it in seconds.</li><li>Leave the building with everyone, pets included.</li><li>Close the main gas valve only if it is outside and easy to reach.</li><li>Call your gas utility or emergency number from outside. Do not go back in until it is cleared.</li></ol>'],
+    ['Sparks, burning smell or electrical fire','<ol><li>Never use water on an electrical fire.</li><li>If it is safe to reach, switch off the main power.</li><li>Use a dry-powder or CO2 extinguisher only on a small fire, with your exit behind you.</li><li>Otherwise leave and call emergency services.</li><li>Book an electrician for an inspection before restoring power.</li></ol>'],
+    ['Flooding or a burst pipe','<ol><li>Close the main water valve.</li><li>If water is near sockets, switch off power at the board only if you can do so without standing in water.</li><li>Open taps to drain the pipes and move valuables up.</li><li>Photograph the damage for insurance.</li><li>Book an emergency plumber.</li></ol>'],
+    ['Power outage','Check if neighbours are also out and whether your main breaker has tripped. Unplug sensitive electronics, keep the fridge shut, and never run a generator indoors or in a garage. If only your home is affected and the breaker will not reset, book an electrician.'],
+    ['Burning smell from an AC or appliance','Switch it off at the wall or breaker and unplug it if safe. Open windows to ventilate and do not use it again until a technician has inspected it. Persistent smoke means leave and call emergency services.'],
+    ['Headache, dizziness or nausea at home','These can be signs of carbon monoxide from faulty gas or fuel appliances. Get everyone into fresh air immediately, call emergency services, and do not go back in until the source is checked.']
+  ],
+  Plumbing:[
+    ['A pipe has burst. What do I do?','<ol><li>Shut off the main water valve immediately.</li><li>Switch off the water heater and any nearby electrics if safe.</li><li>Open taps to drain remaining water.</li><li>Move valuables and mop standing water.</li><li>Book an emergency plumber.</li></ol>'],
+    ['How can I prevent clogged drains?','<ul><li>Never pour grease or oil down the sink.</li><li>Use drain strainers in kitchen and bathroom.</li><li>Flush hot water through drains weekly.</li><li>Avoid flushing wipes, even "flushable" ones.</li></ul>'],
+    ['Why is my water pressure low?','Common causes are clogged aerators, a partly closed valve, hidden leaks or scale in pipes. Clean the aerators first. If the whole house is affected, a technician should check the main line and pump.'],
+    ['How do I find a hidden leak?','Turn off every tap and appliance, then watch your water meter for a few minutes. If it still moves, there is a leak. Damp patches, mould smells and unexplained bill rises are other signs.']
+  ],
+  Electrical:[
+    ['My breaker keeps tripping','A tripping breaker usually means an overloaded circuit, a faulty appliance or a short. Unplug everything on that circuit, reset once, then plug items in one by one. If it trips again with nothing connected, stop and book an electrician.'],
+    ['Signs of dangerous wiring','<ul><li>Burning smell or warm switch plates</li><li>Flickering lights across several rooms</li><li>Buzzing or crackling from sockets</li><li>Dark marks around outlets</li></ul>Turn off the affected circuit and book an inspection.'],
+    ['How do I save on electricity?','Switch to LED bulbs, unplug standby devices, service your AC regularly and use timers on heavy appliances. Our safety inspection also finds hidden energy leaks.'],
+    ['Can I replace a switch myself?','Only if you switch off the breaker and confirm the circuit is dead with a voltage tester. If the wiring is old, brittle, aluminium or unlabelled, leave it to a professional.']
+  ],
+  'AC Care':[
+    ['AC is running but not cooling','Check the thermostat mode, clean the filter, and make sure the outdoor unit is not blocked. If it still blows warm air, low refrigerant or a failing compressor is likely. Book a technician rather than topping up gas yourself.'],
+    ['How often should I service my AC?','Clean the filters every month in heavy use, and book a full professional service at least once a year, ideally just before summer. It improves cooling and cuts power bills.'],
+    ['Why is my AC leaking water?','A clogged drain line is the most common cause. Frozen coils and bad installation tilt can also drip. Turn the unit off to prevent damage and schedule a service.'],
+    ['What temperature should I set?','Setting the thermostat a few degrees higher, around 24 to 26 °C, is comfortable for most people and noticeably lowers power use. Pair it with a fan for even cooling.']
+  ],
+  Carpentry:[
+    ['My door is stuck or swollen','Humidity makes wood expand. Check the hinges for loose screws first, then look for rubbing marks on the edge. Sanding or planing a small amount is a job for a carpenter, and sealing the edges stops it returning.'],
+    ['Why does my wooden floor squeak?','Squeaks come from boards rubbing on nails or joists as humidity changes. A carpenter can fix them with screws from below or lubricant between boards. Keep indoor humidity steady to prevent it.'],
+    ['How do I care for wooden furniture?','Dust with a soft cloth, wipe spills at once, keep it out of direct sun and away from heaters, and use coasters. Re-polish once a year.']
+  ],
+  Painting:[
+    ['How should I prepare walls for painting?','<ol><li>Move or cover furniture and floors.</li><li>Repair holes and cracks, then sand smooth.</li><li>Wash off dust and grease.</li><li>Apply primer, especially over dark colours or patches.</li></ol>'],
+    ['There are damp patches on my wall','Find and fix the source first, such as a leaking pipe or roof gap, and let the wall dry fully. Painting over damp only hides it and the paint will peel again. We offer damp treatment before repainting.'],
+    ['Which finish should I choose?','Matte hides imperfections and suits bedrooms and ceilings. Satin and semi-gloss are easier to wipe and suit kitchens, bathrooms and trim. Allow each coat to dry fully before the next.']
+  ],
+  Appliances:[
+    ['My washing machine will not drain','Pause the cycle and check the drain filter and hose for blockages, such as coins or lint. Make sure the hose is not kinked. If it still holds water, the pump may need replacing.'],
+    ['My fridge is not cold enough','Check the door seal, avoid overpacking, and clean the condenser coils. If the compressor is silent or the freezer is frosted over, book a technician. Move food to a cooler meanwhile.'],
+    ['Repair or replace?','If the repair costs more than about half the price of a new unit, or the appliance is near the end of its life, replacing is usually smarter. Our technician will tell you honestly.']
+  ],
+  Cleaning:[
+    ['How often should I deep clean?','A full deep clean once or twice a year works for most homes, with kitchens and bathrooms every few months. Do it before a season change or special occasion.'],
+    ['How do I handle bathroom mould?','Ventilate the room, wipe with a suitable mould cleaner and dry the surface. Never mix bleach with vinegar, ammonia or other cleaners, because it can release toxic fumes.'],
+    ['How often should I clean my water tank?','About every six months. Dirty tanks cause odour, sediment and health risks. A professional clean also checks the lid and inlet for leaks.']
+  ],
+  'Pest Control':[
+    ['How do I prevent pests at home?','<ul><li>Seal gaps around pipes, doors and windows.</li><li>Store food in airtight containers.</li><li>Fix leaks and avoid standing water.</li><li>Take out rubbish daily.</li></ul>'],
+    ['Signs of termites','Mud tubes on walls, hollow-sounding wood, discarded wings near windows and fine wood dust are common signs. Termites cause hidden structural damage, so book an inspection early.'],
+    ['Is treatment safe for kids and pets?','Our technicians use approved products and will explain the re-entry time. Usually people and pets stay out until surfaces are dry, and food and toys are covered or removed first.']
+  ],
+  Security:[
+    ['Where should I place cameras?','Cover entrances, ground-floor windows, driveways and blind spots. Mount them high enough to avoid tampering, with a clear view and good lighting. Avoid pointing them into neighbours\' private areas.'],
+    ['Are smart locks safe?','Good ones use encrypted connections and let you issue temporary codes. Choose a reputable brand, keep firmware updated, change default codes and keep a backup key.'],
+    ['Do I still need an alarm with CCTV?','They do different jobs. Cameras record and deter, while an alarm raises the alert instantly. Together with good lighting they give the strongest protection.']
+  ]
+};
+const FAQS = [
+  ['How fast can a technician arrive?','Emergency bookings are typically dispatched within 60 minutes. Same-day slots are confirmed within a few hours, and scheduled jobs arrive in your chosen window.'],
+  ['How does pricing work?','You see an upfront estimate before you book. The call-out fee and labour are fixed. Any parts needed are charged at cost, and your technician confirms the final price before starting.'],
+  ['Are your technicians verified?','Yes. Every pro passes ID verification, a background check and a hands-on skills test, and keeps a rolling customer rating.'],
+  ['What if the problem comes back?','Every repair is covered by a 90-day workmanship guarantee. If the same issue returns, we send a pro back at no labour cost.'],
+  ['Can I cancel or reschedule?','You can cancel for free up to 2 hours before your slot from the My bookings section. Cancellations after that may incur the call-out fee.'],
+  ['How do I pay?','Pay after the job is complete, by cash or card. You get a digital receipt for every job.'],
+  ['Which services do you offer?','Nine trades today: plumbing, electrical, AC repair, carpentry, painting, appliance repair, cleaning, pest control and security installation. Choose any of them in the booking form.'],
+  ['Do I need to be at home?','An adult should be present at the start and end of the visit, or you can nominate a trusted contact. Add access notes in the booking form.'],
+  ['Do your technicians bring parts?','Yes. They carry common parts. For special parts, they quote you first and return as soon as the parts are available.'],
+  ['Do you work on weekends and holidays?','Yes. Emergency dispatch runs 24/7 and scheduled slots are available from 8am to 8pm every day.']
+];
+const REVIEWS = [
+  ['The AC died in the middle of a heatwave. Fixora had someone here in 40 minutes, and it was blowing cold within the hour. Honest price, too.','Hannah L.','AC repair'],
+  ['Booked an electrician for a tripping breaker. The tech explained everything, found a faulty socket and fixed it the same visit.','Marcus T.','Electrical'],
+  ['A burst pipe at 11pm. The emergency plumber was calm, fast and tidy. I would not use anyone else now.','Sara K.','Plumbing'],
+  ['The estimate matched the final bill exactly. That alone makes Fixora different from everyone else I have tried.','Jon P.','Plumbing']
+];
+const MARQUEE = [['shield','Background-checked pros'],['clock','Same-day service'],['wallet','Upfront pricing'],['star','4.9 average rating'],['tag','Seasonal discounts'],['phone','24/7 support'],['shield','90-day guarantee']];
+
+/* ==================== HELPERS ==================== */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const ic = (n, cls='') => `<svg class="icon ${cls}"><use href="#i-${n}"/></svg>`;
+const money = n => CUR + (Math.round(n * 100) / 100).toFixed(n % 1 ? 2 : 0);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const svcById = id => SERVICES.find(s => s.id === id);
+const todayStr = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0,10); };
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove('show'),3200); }
+
+/* generic pricing engine used by estimator and booking */
+function calcPrice(o){
+  const svc = svcById(o.service); if(!svc) return null;
+  const issue = svc.issues.find(i => i.id === o.issue) || svc.issues[0];
+  const qty = Math.max(1, o.qty || 1);
+  const labour = issue.price + (qty - 1) * issue.price * 0.6;
+  const urg = URGENCY.find(u => u.id === o.urgency) || URGENCY[0];
+  const urgFee = labour * (urg.mult - 1);
+  const addons = (o.addons || []).reduce((s,id) => s + (ADDONS.find(a => a.id === id)?.price || 0), 0);
+  const sub = labour + urgFee + addons + VISIT_FEE;
+  const rate = o.promo ? (PROMOS[o.promo] || 0) : 0;
+  const disc = sub * rate;
+  return { issue, labour, urgFee, addons, visit: VISIT_FEE, disc, rate, total: sub - disc };
+}
+function linesHTML(p, o){
+  if(!p) return '<div><span>Pick a service to see pricing</span></div>';
+  let h = `<div><span>${esc(p.issue.name)}${o.qty>1?` × ${o.qty}`:''}</span><span>${money(p.labour)}</span></div>`;
+  h += `<div><span>Call-out fee</span><span>${money(p.visit)}</span></div>`;
+  if(p.urgFee) h += `<div><span>Urgency surcharge</span><span>${money(p.urgFee)}</span></div>`;
+  if(p.addons) h += `<div><span>Add-ons</span><span>${money(p.addons)}</span></div>`;
+  if(p.disc) h += `<div><span>Promo (${Math.round(p.rate*100)}% off)</span><span>−${money(p.disc)}</span></div>`;
+  return h + `<div class="total"><span>Total</span><span>${money(p.total)}</span></div>`;
+}
+
+/* ==================== THEME ==================== */
+const mq = matchMedia('(prefers-color-scheme: dark)');
+function applyTheme(mode){
+  const eff = mode === 'auto' ? (mq.matches ? 'dark' : 'light') : mode;
+  document.documentElement.dataset.theme = eff;
+  document.documentElement.dataset.mode = mode;
+  $$('.theme button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === mode)));
+  try{ localStorage.setItem('fx-theme', mode); }catch(e){}
+  if(window.__recolor) window.__recolor();
+}
+$$('.theme button').forEach(b => b.addEventListener('click', () => { applyTheme(b.dataset.mode); toast('Theme: ' + b.dataset.mode); }));
+mq.addEventListener('change', () => { if(document.documentElement.dataset.mode === 'auto') applyTheme('auto'); });
+applyTheme(document.documentElement.dataset.mode || 'auto');
+
+/* ==================== NAV / SCROLL ==================== */
+$('#burger').onclick = () => $('#navLinks').classList.toggle('open');
+$$('#navLinks a').forEach(a => a.addEventListener('click', () => $('#navLinks').classList.remove('open')));
+let scrollTick = false;
+addEventListener('scroll', () => {
+  if(scrollTick) return; scrollTick = true;
+  requestAnimationFrame(() => {
+    scrollTick = false;
+    const h = document.documentElement;
+    $('#progress').style.transform = `scaleX(${h.scrollTop / ((h.scrollHeight - h.clientHeight) || 1)})`;
+    $('#toTop').classList.toggle('show', scrollY > 700);
+  });
+}, { passive:true });
+$('#toTop').onclick = () => scrollTo({ top:0, behavior:'smooth' });
+$('#yr').textContent = new Date().getFullYear();
+
+/* reveal + counters */
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold:.12 });
+function watchReveal(){ $$('.reveal:not(.in)').forEach(el => io.observe(el)); }
+const cio = new IntersectionObserver(es => es.forEach(e => {
+  if(!e.isIntersecting) return; cio.unobserve(e.target);
+  const el = e.target, end = +el.dataset.count, dec = +(el.dataset.dec || 0), suf = el.dataset.suffix || '';
+  const t0 = performance.now();
+  (function tick(t){ const p = Math.min(1,(t-t0)/1600), v = end * (1 - Math.pow(1-p,3));
+    el.textContent = (dec ? v.toFixed(dec) : Math.round(v).toLocaleString()) + suf; if(p<1) requestAnimationFrame(tick); })(t0);
+}), { threshold:.6 });
+$$('[data-count]').forEach(el => cio.observe(el));
+
+/* 3D tilt for cards */
+function bindTilt(root=document){
+  if(matchMedia('(hover: none)').matches) return;
+  $$('.tilt', root).forEach(el => {
+    if(el.dataset.tilt) return; el.dataset.tilt = 1;
+    let r = null, raf = 0, ex = 0, ey = 0;
+    el.addEventListener('mouseenter', () => { r = el.getBoundingClientRect(); });
+    el.addEventListener('mousemove', e => {
+      if(!r) r = el.getBoundingClientRect();
+      ex = e.clientX; ey = e.clientY;
+      if(raf) return;
+      raf = requestAnimationFrame(() => { raf = 0; if(!r) return;
+        const x = (ex - r.left)/r.width - .5, y = (ey - r.top)/r.height - .5;
+        el.style.transform = `rotateY(${x*12}deg) rotateX(${-y*12}deg) translateZ(8px)`; });
+    });
+    el.addEventListener('mouseleave', () => { r = null; cancelAnimationFrame(raf); raf = 0; el.style.transform = ''; });
+  });
+}
+
+/* ==================== STATIC RENDER ==================== */
+$('#marquee').innerHTML = [...MARQUEE, ...MARQUEE].map(([i,t]) => `<span>${ic(i)}${t}</span>`).join('');
+$('#svcGrid').innerHTML = SERVICES.map(s => `
+  <article class="card svc tilt reveal" style="--c:${s.color}">
+    <div class="ico">${ic(s.icon)}</div><h3>${s.name}</h3><p>${s.desc}</p>
+    <ul>${s.points.map(p => `<li>${p}</li>`).join('')}</ul>
+    <div class="meta"><span>From <b>${money(s.from)}</b><br>~${s.time}</span><button class="btn btn-primary btn-sm" data-book="${s.id}">Book ${s.name}</button></div>
+  </article>`).join('');
+$('#techFilter').innerHTML = ['all',...SERVICES.map(s=>s.id)].map((id,i) => `<button class="chip" aria-pressed="${i===0}" data-f="${id}">${id==='all'?'All pros':svcById(id).name}</button>`).join('');
+function renderTechs(f='all'){
+  $('#techGrid').innerHTML = TECHS.filter(t => f==='all' || t.s===f).map(t => `
+    <article class="card tech tilt">
+      <div class="avatar" style="--c1:${t.c1};--c2:${t.c2}">${t.n.split(' ').map(w=>w[0]).join('')}</div>
+      <h4>${t.n}</h4><div class="role">${svcById(t.s).name} specialist</div>
+      <div class="stars">★★★★★ <span style="color:var(--muted);letter-spacing:0">${t.r.toFixed(1)}</span></div>
+      <div class="nums"><div><b>${t.yrs}</b>years</div><div><b>${t.jobs.toLocaleString()}</b>jobs</div></div>
+      <button class="btn btn-ghost btn-sm" data-tech="${esc(t.n)}" data-book="${t.s}">Book ${t.n.split(' ')[0]}</button>
+    </article>`).join('');
+  bindTilt($('#techGrid'));
+}
+$('#techFilter').addEventListener('click', e => { const b = e.target.closest('[data-f]'); if(!b) return;
+  $$('#techFilter .chip').forEach(c => c.setAttribute('aria-pressed', String(c===b))); renderTechs(b.dataset.f); });
+renderTechs();
+$('#planGrid').innerHTML = PLANS.map(p => `
+  <div class="card plan tilt reveal ${p.pop?'pop':''}"><h3>${p.name}</h3><p style="color:var(--muted)">${p.desc}</p>
+    <div class="price">${money(p.price)}<small> / month</small></div>
+    <ul>${p.pts.map(x=>`<li>${x}</li>`).join('')}</ul>
+    <button class="btn ${p.pop?'btn-primary':'btn-ghost'}" data-plan="${p.name}">Choose ${p.name}</button></div>`).join('');
+$('#planGrid').addEventListener('click', e => { const b=e.target.closest('[data-plan]'); if(b) toast(b.dataset.plan + ' plan selected. Connect your payment backend to complete signup.'); });
+$('#areaList').innerHTML = AREAS.map(a => `<span class="area">${ic('pin')}${a}</span>`).join('');
+
+/* accordions */
+function accHTML(items){ return items.map(([q,a]) => `<div class="card acc-item"><button class="acc-q" aria-expanded="false">${q}${ic('down')}</button><div class="acc-a"><div>${a}</div></div></div>`).join(''); }
+function bindAcc(root){ root.addEventListener('click', e => { const q = e.target.closest('.acc-q'); if(!q) return;
+  const item = q.parentElement, a = $('.acc-a', item), open = item.classList.toggle('open');
+  q.setAttribute('aria-expanded', open); a.style.maxHeight = open ? a.scrollHeight + 'px' : 0; }); }
+$('#faqAcc').innerHTML = accHTML(FAQS); bindAcc($('#faqAcc'));
+const tabKeys = Object.keys(HELP);
+$('#helpTabs').innerHTML = tabKeys.map((k,i) => `<button class="chip" aria-pressed="${i===0}" data-t="${k}">${k}</button>`).join('');
+function showHelp(k){ $('#helpAcc').innerHTML = accHTML(HELP[k]); }
+showHelp(tabKeys[0]); bindAcc($('#helpAcc'));
+$('#helpTabs').addEventListener('click', e => { const b=e.target.closest('[data-t]'); if(!b) return;
+  $$('#helpTabs .chip').forEach(c => c.setAttribute('aria-pressed', String(c===b))); showHelp(b.dataset.t); });
+
+/* reviews slider */
+$('#revTrack').innerHTML = REVIEWS.map(([q,n,s]) => `<div class="rev"><div class="card"><div class="stars" style="font-size:1.2rem">★★★★★</div><q>${q}</q><div class="who"><b style="color:var(--text)">${n}</b> · ${s}</div></div></div>`).join('');
+$('#revCtl').innerHTML = REVIEWS.map((_,i) => `<button aria-label="Review ${i+1}" aria-pressed="${i===0}" data-i="${i}"></button>`).join('');
+let revI = 0, revT;
+function goRev(i){ revI = (i + REVIEWS.length) % REVIEWS.length; $('#revTrack').style.transform = `translateX(-${revI*100}%)`;
+  $$('#revCtl button').forEach((b,k) => b.setAttribute('aria-pressed', String(k===revI))); }
+function autoRev(){ clearInterval(revT); revT = setInterval(() => goRev(revI+1), 6000); }
+$('#revCtl').addEventListener('click', e => { const b=e.target.closest('[data-i]'); if(b){ goRev(+b.dataset.i); autoRev(); } }); autoRev();
+
+/* newsletter */
+$('#newsForm').addEventListener('submit', e => { e.preventDefault(); e.target.reset(); toast('Thanks for joining. Watch your inbox.'); });
+
+/* ==================== SHARED SELECTORS ==================== */
+const svcOptions = SERVICES.map(s => `<option value="${s.id}">${s.name}</option>`).join('');
+$('#qService').innerHTML = svcOptions; $('#eService').innerHTML = svcOptions;
+$('#qDate').min = todayStr(); $('#qDate').value = todayStr();
+function issueOptions(sid){ return svcById(sid).issues.map(i => `<option value="${i.id}">${i.name} — from ${money(i.price)}</option>`).join(''); }
+function segHTML(items, sel, attr){ return items.map(i => `<button type="button" aria-pressed="${sel.includes(i.id)}" data-${attr}="${i.id}">${i.name}${i.price?` (+${money(i.price)})`:''}</button>`).join(''); }
+
+/* ==================== ESTIMATOR ==================== */
+const E = { service:'plumbing', issue:'leak', qty:1, urgency:'standard', addons:[] };
+function renderE(){
+  $('#eService').value = E.service;
+  $('#eIssue').innerHTML = issueOptions(E.service); $('#eIssue').value = E.issue;
+  $('#eQty').textContent = E.qty;
+  $('#eUrg').innerHTML = URGENCY.map(u => `<button type="button" aria-pressed="${E.urgency===u.id}" data-u="${u.id}">${u.name}<br><small style="color:var(--muted)">${u.note}</small></button>`).join('');
+  $('#eAddons').innerHTML = segHTML(ADDONS, E.addons, 'a');
+  const p = calcPrice(E); $('#eTotal').textContent = money(p.total); $('#eLines').innerHTML = linesHTML(p, E);
+}
+$('#eService').onchange = e => { E.service = e.target.value; E.issue = svcById(E.service).issues[0].id; renderE(); };
+$('#eIssue').onchange = e => { E.issue = e.target.value; renderE(); };
+$('#eMinus').onclick = () => { E.qty = Math.max(1, E.qty-1); renderE(); };
+$('#ePlus').onclick = () => { E.qty = Math.min(8, E.qty+1); renderE(); };
+$('#eUrg').onclick = e => { const b=e.target.closest('[data-u]'); if(b){ E.urgency=b.dataset.u; renderE(); } };
+$('#eAddons').onclick = e => { const b=e.target.closest('[data-a]'); if(!b) return; const id=b.dataset.a;
+  E.addons = E.addons.includes(id) ? E.addons.filter(x=>x!==id) : [...E.addons,id]; renderE(); };
+$('#eBook').onclick = () => { Object.assign(B, { service:E.service, issue:E.issue, qty:E.qty, urgency:E.urgency, addons:[...E.addons] }); goStep(1); renderB(); scrollToEl('#book'); };
+renderE();
+
+/* ==================== BOOKING WIZARD ==================== */
+const STEP_NAMES = ['Service','Schedule','Details','Review'];
+const B = { service:'', issue:'', qty:1, urgency:'standard', date:'', slot:'', tech:'any', addons:[], promo:'', name:'', phone:'', email:'', addr:'', notes:'' };
+let step = 1, lastBooking = null;
+function scrollToEl(sel){ document.querySelector(sel).scrollIntoView({ behavior:'smooth' }); }
+
+function renderStepper(){
+  let h = '';
+  STEP_NAMES.forEach((n,i) => { const k=i+1; h += `<span class="dot ${k===step?'on':''} ${k<step?'done':''}" title="${n}">${k}</span>`;
+    if(k<4) h += `<span class="bar"><i style="width:${k<step?100:0}%"></i></span>`; });
+  $('#stepper').innerHTML = h;
+}
+function goStep(n){
+  step = n; $$('.wiz-step').forEach(s => s.classList.toggle('on', +s.dataset.s === n)); renderStepper();
+  $('#wizNav').style.display = n === 5 ? 'none' : 'flex';
+  $('#backBtn').style.visibility = n === 1 ? 'hidden' : 'visible';
+  $('#nextBtn').textContent = n === 4 ? 'Confirm booking' : 'Continue';
+  $('#stepper').style.display = n === 5 ? 'none' : 'flex';
+  if(n === 4) renderReview();
+}
+function renderTechSelect(){
+  const list = TECHS.filter(t => !B.service || t.s === B.service);
+  $('#bTech').innerHTML = `<option value="any">Any available pro (fastest)</option>` + list.map(t => `<option value="${esc(t.n)}">${esc(t.n)} · ${t.r.toFixed(1)} rating</option>`).join('');
+  $('#bTech').value = list.some(t => t.n === B.tech) ? B.tech : 'any'; B.tech = $('#bTech').value;
+}
+function renderSlots(){
+  const isToday = B.date === todayStr(), nowH = new Date().getHours();
+  $('#bSlots').innerHTML = SLOTS.map(s => { const startH = parseInt(s); const off = isToday && startH <= nowH;
+    return `<button type="button" ${off?'disabled':''} aria-pressed="${B.slot===s}" data-slot="${s}">${s}</button>`; }).join('');
+}
+function renderB(){
+  $('#bPick').innerHTML = SERVICES.map(s => `<button type="button" class="pick" style="--c:${s.color}" aria-pressed="${B.service===s.id}" data-svc="${s.id}">${ic(s.icon)}<b>${s.name}</b><small style="color:var(--muted)">from ${money(s.from)}</small></button>`).join('');
+  $('#bIssue').innerHTML = B.service ? issueOptions(B.service) : '<option value="">Select a service first</option>';
+  if(B.service) $('#bIssue').value = B.issue;
+  $('#bQty').textContent = B.qty;
+  $('#bUrg').innerHTML = URGENCY.map(u => `<button type="button" aria-pressed="${B.urgency===u.id}" data-u="${u.id}">${u.name}<br><small style="color:var(--muted)">${u.note}</small></button>`).join('');
+  const em = B.urgency === 'emergency';
+  $('#dateField').style.display = em ? 'none' : ''; $('#slotField').style.display = em ? 'none' : '';
+  const dateInp = $('#bDate'); dateInp.min = todayStr();
+  if(B.urgency === 'sameday'){ B.date = todayStr(); dateInp.max = todayStr(); } else dateInp.removeAttribute('max');
+  dateInp.value = B.date; renderSlots();
+  $('#bAddons').innerHTML = segHTML(ADDONS, B.addons, 'a');
+  renderTechSelect(); updateQuote();
+}
+function updateQuote(){
+  if(!B.service){ $('#bTotal').textContent = money(0); $('#bLines').innerHTML = linesHTML(null); return; }
+  const p = calcPrice(B); $('#bTotal').textContent = money(p.total); $('#bLines').innerHTML = linesHTML(p, B);
+}
+$('#bPick').onclick = e => { const b=e.target.closest('[data-svc]'); if(!b) return; B.service=b.dataset.svc; B.issue=svcById(B.service).issues[0].id; B.tech='any'; renderB(); };
+$('#bIssue').onchange = e => { B.issue=e.target.value; updateQuote(); };
+$('#bMinus').onclick = () => { B.qty=Math.max(1,B.qty-1); $('#bQty').textContent=B.qty; updateQuote(); };
+$('#bPlus').onclick = () => { B.qty=Math.min(8,B.qty+1); $('#bQty').textContent=B.qty; updateQuote(); };
+$('#bUrg').onclick = e => { const b=e.target.closest('[data-u]'); if(!b) return; B.urgency=b.dataset.u;
+  if(B.urgency==='emergency'){ B.slot='ASAP (within 60 min)'; B.date=todayStr(); } else if(B.slot.startsWith('ASAP')){ B.slot=''; } renderB(); };
+$('#bDate').onchange = e => { B.date=e.target.value; B.slot=''; renderSlots(); };
+$('#bSlots').onclick = e => { const b=e.target.closest('[data-slot]'); if(!b) return; B.slot=b.dataset.slot; renderSlots(); };
+$('#bAddons').onclick = e => { const b=e.target.closest('[data-a]'); if(!b) return; const id=b.dataset.a;
+  B.addons = B.addons.includes(id) ? B.addons.filter(x=>x!==id) : [...B.addons,id]; $('#bAddons').innerHTML = segHTML(ADDONS,B.addons,'a'); updateQuote(); };
+$('#bTech').onchange = e => B.tech = e.target.value;
+$('#bApply').onclick = () => { const c = $('#bPromo').value.trim().toUpperCase();
+  if(PROMOS[c]){ B.promo=c; toast(`Code ${c} applied: ${Math.round(PROMOS[c]*100)}% off`); } else { B.promo=''; toast(c ? 'That code is not valid.' : 'Enter a promo code first.'); } updateQuote(); };
+
+function validate(n){
+  const set = (id,m) => { $(id).textContent = m; return !m; };
+  if(n===1){ if(!B.service) return set('#err1','Please select a service.'); if(!B.issue) return set('#err1','Please select the issue.'); return set('#err1',''); }
+  if(n===2){ if(B.urgency==='emergency') return set('#err2','');
+    if(!B.date) return set('#err2','Please choose a date.'); if(B.date < todayStr()) return set('#err2','That date is in the past.');
+    if(!B.slot) return set('#err2','Please choose a time window.'); return set('#err2',''); }
+  if(n===3){ B.name=$('#bName').value.trim(); B.phone=$('#bPhone').value.trim(); B.email=$('#bEmail').value.trim(); B.addr=$('#bAddr').value.trim(); B.notes=$('#bNotes').value.trim();
+    if(B.name.length<2) return set('#err3','Please enter your name.');
+    if(B.phone.replace(/\D/g,'').length<7) return set('#err3','Please enter a valid phone number.');
+    if(B.email && !/^\S+@\S+\.\S+$/.test(B.email)) return set('#err3','That email does not look right.');
+    if(B.addr.length<6) return set('#err3','Please enter your full address.'); return set('#err3',''); }
+  return true;
+}
+function renderReview(){
+  const svc = svcById(B.service), p = calcPrice(B), urg = URGENCY.find(u=>u.id===B.urgency);
+  const rows = [['Service',`${svc.name} · ${p.issue.name}${B.qty>1?` × ${B.qty}`:''}`],['When',B.urgency==='emergency'?'Emergency, within 60 min':`${B.date} · ${B.slot}`],['Urgency',urg.name],['Technician',B.tech==='any'?'Any available pro':B.tech],
+    ['Name',B.name],['Phone',B.phone],['Address',B.addr],['Add-ons',B.addons.length?B.addons.map(id=>ADDONS.find(a=>a.id===id).name).join(', '):'None'],['Promo',B.promo||'None'],['Total',money(p.total)]];
+  $('#review').innerHTML = rows.map(([a,b]) => `<div><span>${a}</span><span>${esc(b)}</span></div>`).join('');
+}
+$('#nextBtn').onclick = () => {
+  if(step < 4){ if(!validate(step)) return; goStep(step+1); }
+  else confirmBooking();
+};
+$('#backBtn').onclick = () => goStep(Math.max(1, step-1));
+$('#newBtn').onclick = () => { Object.assign(B, { service:'',issue:'',qty:1,urgency:'standard',date:'',slot:'',tech:'any',addons:[],promo:'',notes:'' }); $('#bNotes').value=''; $('#bPromo').value=''; goStep(1); renderB(); };
+
+function confirmBooking(){
+  const p = calcPrice(B), svc = svcById(B.service);
+  const bk = { id:'FX-' + Math.floor(100000 + Math.random()*900000), created:Date.now(), status:'Scheduled', service:svc.id, serviceName:svc.name, issue:p.issue.name, qty:B.qty,
+    urgency:B.urgency, date:B.date, slot:B.slot, tech:B.tech, name:B.name, phone:B.phone, email:B.email, addr:B.addr, notes:B.notes, total:Math.round(p.total*100)/100 };
+  const all = loadBookings(); all.unshift(bk); saveBookings(all); lastBooking = bk;
+  $('#doneId').textContent = bk.id; goStep(5); renderBookings(); toast('Booking confirmed: ' + bk.id);
+}
+const loadBookings = () => { try{ return JSON.parse(localStorage.getItem('fx-bookings') || '[]'); }catch(e){ return []; } };
+const saveBookings = a => { try{ localStorage.setItem('fx-bookings', JSON.stringify(a)); }catch(e){} };
+function renderBookings(){
+  const all = loadBookings(), el = $('#bkList');
+  if(!all.length){ el.innerHTML = '<div class="card empty">No bookings yet. Your confirmed bookings will appear here.</div>'; return; }
+  el.innerHTML = all.map(b => `<div class="card bk"><div><h4>${esc(b.serviceName)} · ${esc(b.issue)}</h4>
+    <p>${b.urgency==='emergency'?'Emergency dispatch':esc(b.date)+' · '+esc(b.slot)} · ${esc(b.addr)}</p><p>${esc(b.id)} · ${money(b.total)} · ${b.tech==='any'?'Any pro':esc(b.tech)}</p></div>
+    <div style="display:flex;gap:10px;align-items:center"><span class="badge ${b.status==='Cancelled'?'x':''}">${b.status}</span>
+    ${b.status==='Scheduled'?`<button class="btn btn-ghost btn-sm" data-cancel="${esc(b.id)}">Cancel</button>`:''}
+    <button class="btn btn-ghost btn-sm" data-del="${esc(b.id)}" aria-label="Remove">Remove</button></div></div>`).join('');
+}
+$('#bkList').addEventListener('click', e => {
+  const c = e.target.closest('[data-cancel]'), d = e.target.closest('[data-del]'); let all = loadBookings();
+  if(c){ all = all.map(b => b.id===c.dataset.cancel ? {...b,status:'Cancelled'} : b); saveBookings(all); renderBookings(); toast('Booking cancelled.'); }
+  if(d){ all = all.filter(b => b.id!==d.dataset.del); saveBookings(all); renderBookings(); }
+});
+/* calendar download */
+$('#icsBtn').onclick = () => {
+  const b = lastBooking; if(!b) return;
+  const d = new Date(b.date + 'T' + ((parseInt(b.slot) || new Date().getHours()+1)+'').padStart(2,'0') + ':00:00'); const end = new Date(d.getTime() + 2*3600e3);
+  const f = x => x.getFullYear() + String(x.getMonth()+1).padStart(2,'0') + String(x.getDate()).padStart(2,'0') + 'T' + String(x.getHours()).padStart(2,'0') + String(x.getMinutes()).padStart(2,'0') + '00';
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Fixora//EN','BEGIN:VEVENT','UID:'+b.id+'@fixora','DTSTAMP:'+f(new Date()),'DTSTART:'+f(d),'DTEND:'+f(end),
+    'SUMMARY:Fixora '+b.serviceName+' visit','LOCATION:'+b.addr.replace(/[,;]/g,' '),'DESCRIPTION:Booking '+b.id+' - '+b.issue,'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([ics],{type:'text/calendar'})); a.download = b.id + '.ics'; a.click(); URL.revokeObjectURL(a.href);
+};
+
+/* entry points: any [data-book] button, hero quick form, emergency CTA */
+document.addEventListener('click', e => {
+  const b = e.target.closest('[data-book]'); if(!b) return;
+  B.service = b.dataset.book; B.issue = svcById(B.service).issues[0].id; if(b.dataset.tech) B.tech = b.dataset.tech; else B.tech = 'any';
+  goStep(1); renderB(); scrollToEl('#book');
+});
+$('#quickForm').addEventListener('submit', e => { e.preventDefault(); B.service=$('#qService').value; B.issue=svcById(B.service).issues[0].id; B.date=$('#qDate').value || todayStr(); B.tech='any';
+  goStep(1); renderB(); scrollToEl('#book'); toast('Great. Tell us what needs fixing.'); });
+$('#ctaEmerg').addEventListener('click', () => { B.urgency='emergency'; B.slot='ASAP (within 60 min)'; B.date=todayStr(); renderB(); });
+goStep(1); renderB(); renderBookings();
+
+/* ==================== CHAT ASSISTANT ==================== */
+const chat = $('#chat'), chatB = $('#chatB');
+const BOT = [
+  [/price|cost|how much|fee|rate/, `Prices start at ${money(35)}. A ${money(VISIT_FEE)} call-out fee applies. Use the Estimate section for an exact quote before you book.`],
+  [/emergenc|burst|spark|urgent|asap/, 'For emergencies choose "Emergency" when booking and we dispatch the nearest pro within about 60 minutes. If you smell gas or see smoke, leave the building and call emergency services first.'],
+  [/cancel|resched/, 'You can cancel for free up to 2 hours before your slot from the My bookings section.'],
+  [/warrant|guarantee/, 'Every repair carries a 90-day workmanship guarantee. Add the extended 1-year warranty at checkout.'],
+  [/pay|card|cash/, 'You pay after the work is done, by cash or card.'],
+  [/promo|code|discount|coupon/, 'Try the code FIXORA10 for 10% off your first booking.'],
+  [/area|where|location|cover/, 'We cover all the neighborhoods listed in the Coverage section near the bottom of the page.'],
+  [/hi|hello|hey/, 'Hello! How can I help with your home repair today?']
+];
+function say(t, me){ const d = document.createElement('div'); d.className = 'msg ' + (me?'me':'bot'); d.textContent = t; chatB.appendChild(d); chatB.scrollTop = chatB.scrollHeight; }
+function reply(q){ say(q, true); const hit = BOT.find(([r]) => r.test(q.toLowerCase()));
+  setTimeout(() => say(hit ? hit[1] : 'I can help with pricing, timing, guarantees and bookings. For anything else, use the Book section and add a note for the technician.'), 450); }
+say('Hi, I am the Fixora assistant. Ask me anything about pricing, timing or bookings.');
+$('#chatQ').innerHTML = ['How much does it cost?','Emergency help','Cancel a booking','Promo code'].map(q => `<button type="button">${q}</button>`).join('');
+$('#chatQ').onclick = e => { if(e.target.tagName==='BUTTON') reply(e.target.textContent); };
+$('#chatF').onsubmit = e => { e.preventDefault(); const v = $('#chatI').value.trim(); if(v){ reply(v); $('#chatI').value=''; } };
+$('#chatBtn').onclick = () => chat.classList.toggle('open'); $('#chatX').onclick = () => chat.classList.remove('open');
+
+bindTilt(); watchReveal();
+let moq = 0;
+new MutationObserver(() => { if(moq) return; moq = requestAnimationFrame(() => { moq = 0; watchReveal(); bindTilt(); }); }).observe($('main'), { childList:true, subtree:true });
+/* ==================== EXTRA FEATURES: tracking, reviews, photos, WhatsApp ==================== */
+const WA_NUMBER = '10000000000';   // your WhatsApp number: digits only, with country code
+(function(){
+  /* WhatsApp */
+  $('#waCta').href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent('Hi Fixora, I need help with a home repair.');
+  $('#icsBtn').insertAdjacentHTML('beforebegin', '<button class="btn btn-primary btn-sm" id="trackNow">Track technician</button><button class="btn btn-ghost btn-sm" id="waShare">Share on WhatsApp</button>');
+  $('#waShare').onclick = () => { const b = lastBooking; if(!b) return;
+    const msg = `Hi Fixora, my booking ${b.id}: ${b.serviceName} - ${b.issue}. ${b.urgency==='emergency' ? 'Emergency' : b.date + ' ' + b.slot}. Address: ${b.addr}`;
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank', 'noopener'); };
+
+  /* photos (previews only until you add a backend) */
+  const photos = [];
+  function drawThumbs(){ $('#bThumbs').innerHTML = photos.map((p,i) => `<div><img src="${p.url}" alt="Photo ${i+1}"><button type="button" data-rm="${i}" aria-label="Remove photo">×</button></div>`).join(''); }
+  $('#bPhotos').addEventListener('change', e => {
+    for(const f of e.target.files){
+      if(photos.length >= 3){ toast('You can add up to 3 photos.'); break; }
+      if(!f.type.startsWith('image/') || f.size > 8e6){ toast('Please choose images under 8 MB.'); continue; }
+      photos.push({ f, url:URL.createObjectURL(f) });
+    }
+    e.target.value = ''; drawThumbs();
+  });
+  $('#bThumbs').addEventListener('click', e => { const b = e.target.closest('[data-rm]'); if(!b) return;
+    URL.revokeObjectURL(photos[+b.dataset.rm].url); photos.splice(+b.dataset.rm, 1); drawThumbs(); });
+  const baseReview = renderReview;
+  renderReview = function(){ baseReview(); if(photos.length) $('#review').insertAdjacentHTML('beforeend', `<div><span>Photos</span><span>${photos.length} attached</span></div>`); };
+  $('#newBtn').addEventListener('click', () => { photos.splice(0).forEach(p => URL.revokeObjectURL(p.url)); drawThumbs(); });
+
+  /* my bookings: Track / Rate buttons */
+  const baseRender = renderBookings;
+  renderBookings = function(){
+    baseRender();
+    const all = loadBookings();
+    $$('#bkList .bk').forEach(card => {
+      const del = card.querySelector('[data-del]'); if(!del) return;
+      const b = all.find(x => x.id === del.dataset.del); if(!b) return;
+      let html = '';
+      if(b.status === 'Scheduled') html = `<button class="btn btn-primary btn-sm" data-track="${esc(b.id)}">Track</button>`;
+      else if(b.status === 'Completed') html = b.rating ? `<span class="badge">${'★'.repeat(b.rating)}</span>` : `<button class="btn btn-primary btn-sm" data-track="${esc(b.id)}">Rate</button>`;
+      del.insertAdjacentHTML('beforebegin', html);
+    });
+  };
+  $('#bkList').addEventListener('click', e => { const t = e.target.closest('[data-track]'); if(!t) return;
+    const b = loadBookings().find(x => x.id === t.dataset.track); if(b) openTrack(b); });
+  $('#trackNow').onclick = () => { if(lastBooking) openTrack(lastBooking); };
+
+  /* live tracking simulation */
+  const modal = $('#trk'), route = $('#trkRoute'), trail = $('#trkTrail'), dot = $('#trkDot');
+  const STAGES = ['Assigned','On the way','Arrived','Working','Completed'];
+  const T = { assign:3, travel:22, arrive:3, work:8 };
+  let timer = null, cur = null, rating = 0;
+  const techFor = b => b.tech !== 'any' ? b.tech : ((TECHS.find(x => x.s === b.service) || {}).n || 'Your technician');
+  function paint(stage, p, eta){
+    const sh = STAGES.map((s,i) => `<span class="${i <= stage ? 'on' : ''}">${s}</span>`).join('');
+    if($('#trkSteps').dataset.h !== sh){ $('#trkSteps').dataset.h = sh; $('#trkSteps').innerHTML = sh; }
+    $('#trkState').textContent = STAGES[stage];
+    $('#trkEta').textContent = stage >= 2 ? 'Here' : eta + ' min';
+    const len = route.getTotalLength(), pt = route.getPointAtLength(len * p);
+    dot.setAttribute('transform', `translate(${pt.x} ${pt.y})`);
+    trail.setAttribute('d', route.getAttribute('d')); trail.style.strokeDasharray = `${len * p} ${len + 10}`;
+  }
+  function drawStars(){ $('#rateStars').innerHTML = [1,2,3,4,5].map(i => `<button type="button" class="${i <= rating ? 'lit' : ''}" data-v="${i}" aria-label="${i} star${i > 1 ? 's' : ''}">★</button>`).join(''); }
+  function showRate(b){ $('#rate').classList.toggle('show', !b.rating); if(!b.rating){ rating = 0; drawStars(); $('#rateText').value = ''; } }
+  function openTrack(b0){
+    const b = loadBookings().find(x => x.id === b0.id) || b0; cur = b; clearInterval(timer);
+    modal.classList.add('open'); document.body.style.overflow = 'hidden';
+    $('#trkTitle').textContent = `${b.serviceName} · ${b.id}`;
+    $('#trkSub').textContent = b.urgency === 'emergency' ? 'Emergency dispatch' : `${b.date} · ${b.slot}`;
+    $('#trkWho').textContent = techFor(b);
+    const base = { emergency:12, sameday:30, standard:45 }[b.urgency] || 45;
+    $('#rate').classList.remove('show');
+    if(b.status === 'Completed'){ paint(4, 1, 0); showRate(b); return; }
+    if(b.token && typeof serverOn !== 'undefined' && serverOn){ liveTrack(b, base); return; }
+    const t0 = performance.now(), total = T.assign + T.travel + T.arrive + T.work;
+    timer = setInterval(() => {
+      const e = (performance.now() - t0) / 1000;
+      if(e < T.assign) paint(0, 0, base);
+      else if(e < T.assign + T.travel){ const p = (e - T.assign) / T.travel; paint(1, p, Math.max(1, Math.ceil(base * (1 - p)))); }
+      else if(e < T.assign + T.travel + T.arrive) paint(2, 1, 0);
+      else if(e < total) paint(3, 1, 0);
+      else { clearInterval(timer); finish(); }
+    }, 120);
+  }
+    function liveTrack(b, base){
+    let st = b.status, startedAt = null, etaMin = base, off = 0, done = false;
+    const sync = async () => {
+      const r = await api('/api/bookings/' + b.id, { headers:{ 'x-token': b.token } });
+      if(!r.ok || cur !== b) return;
+      const u = r.data; st = u.status; startedAt = u.startedAt ? Date.parse(u.startedAt) : null; etaMin = u.etaMin || base;
+      if(u.now) off = u.now - Date.now();
+    };
+    const draw = () => {
+      if(done || cur !== b) return;
+      if(st === 'Completed'){ done = true; clearInterval(timer); clearInterval(poll); finish(); return; }
+      if(st === 'Cancelled'){ done = true; clearInterval(timer); clearInterval(poll); $('#trkState').textContent = 'Cancelled'; $('#trkEta').textContent = '—'; return; }
+      if(st === 'In progress') return paint(3, 1, 0);
+      if(st === 'Arrived') return paint(2, 1, 0);
+      if(st === 'On the way' && startedAt){
+        const p = Math.min(.97, Math.max(0, (Date.now() + off - startedAt) / (etaMin * 60000)));
+        return p >= .97 ? paint(2, 1, 0) : paint(1, p, Math.max(1, Math.ceil(etaMin * (1 - p))));
+      }
+      paint(0, 0, base);
+    };
+    const poll = setInterval(sync, 2000);
+    const stop = timer; clearInterval(timer);
+    timer = setInterval(draw, 400);
+    const old = closeTrack; sync().then(draw);
+    modal.addEventListener('click', e => { if(e.target.closest('#trkX')) clearInterval(poll); }, { once:true });
+  }
+  function finish(){
+    const all = loadBookings().map(x => x.id === cur.id ? { ...x, status:'Completed' } : x); saveBookings(all);
+    cur = all.find(x => x.id === cur.id); renderBookings(); paint(4, 1, 0); showRate(cur); toast('Job completed. Please rate your technician.');
+  }
+  function closeTrack(){ clearInterval(timer); modal.classList.remove('open'); document.body.style.overflow = ''; }
+  $('#trkX').onclick = closeTrack;
+  modal.addEventListener('click', e => { if(e.target === modal) closeTrack(); });
+  addEventListener('keydown', e => { if(e.key === 'Escape' && modal.classList.contains('open')) closeTrack(); });
+
+  /* ratings and public reviews */
+  function rebuildReviews(){
+    $('#revTrack').innerHTML = REVIEWS.map(([q,n,s,r]) => `<div class="rev"><div class="card"><div class="stars" style="font-size:1.2rem">${'★'.repeat(r || 5)}</div><q>${esc(q)}</q><div class="who"><b style="color:var(--text)">${esc(n)}</b> · ${esc(s)}</div></div></div>`).join('');
+    $('#revCtl').innerHTML = REVIEWS.map((_,i) => `<button aria-label="Review ${i+1}" aria-pressed="${i === 0}" data-i="${i}"></button>`).join('');
+    goRev(0);
+  }
+  function addUserReview(b){ if(!b.rating || b.rating < 4 || !b.review) return false;
+    REVIEWS.unshift([b.review, (b.name || 'Customer').split(' ')[0], b.serviceName, b.rating]); return true; }
+  $('#rateStars').addEventListener('click', e => { const b = e.target.closest('[data-v]'); if(b){ rating = +b.dataset.v; drawStars(); } });
+  $('#rateSend').onclick = () => {
+    if(!rating){ toast('Please choose a star rating.'); return; }
+    const text = $('#rateText').value.trim();
+    const all = loadBookings().map(x => x.id === cur.id ? { ...x, rating, review:text } : x); saveBookings(all);
+    cur = all.find(x => x.id === cur.id); $('#rate').classList.remove('show'); renderBookings();
+    if(addUserReview(cur)) rebuildReviews();
+    toast('Thanks for your review!');
+  };
+  if(loadBookings().filter(addUserReview).length) rebuildReviews();
+  renderBookings();
+})();
+/* ==================== EXTRA: accessibility, search (Ctrl+K), section dots ==================== */
+(function(){
+  document.body.insertAdjacentHTML('beforeend', '<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol><symbol id="i-access" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="2"/><path d="M5 8.5h14M12 8.5v5M9 21l3-7.5 3 7.5"/></symbol></svg>');
+  document.body.insertAdjacentHTML('afterbegin', '<a class="skip" href="#services">Skip to content</a>');
+
+  /* ---------- section dots + nav highlight ---------- */
+  const SECS = [['top','Home'],['services','Services'],['how','How it works'],['diagnose','Diagnose'],['estimate','Estimate'],['book','Book'],['pros','Pros'],['plans','Plans'],['planner','Planner'],['rewards','Rewards'],['help','Help hub'],['reviews','Reviews'],['faq','FAQ'],['areas','Coverage']];
+  const elFor = id => id === 'top' ? $('.hero') : document.getElementById(id);
+  const goSec = id => { if(id === 'top') scrollTo({ top:0, behavior:'smooth' }); else elFor(id).scrollIntoView({ behavior:'smooth' }); };
+  let activeId = 'top';
+  const dots = document.createElement('nav'); dots.className = 'dots'; dots.setAttribute('aria-label', 'Page sections');
+  dots.innerHTML = SECS.map(([id,n]) => `<a href="#${id}" data-id="${id}" aria-label="${n}"><i></i><span>${n}</span></a>`).join('');
+  document.body.appendChild(dots);
+  dots.addEventListener('click', e => { const a = e.target.closest('a'); if(!a) return; e.preventDefault(); goSec(a.dataset.id); });
+  function setActive(id){
+    activeId = id;
+    $$('a', dots).forEach(a => a.classList.toggle('on', a.dataset.id === id));
+    $$('#navLinks a').forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  }
+  const io2 = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) setActive(e.target.classList.contains('hero') ? 'top' : e.target.id); }), { rootMargin:'-45% 0px -50% 0px' });
+  SECS.forEach(([id]) => { const el = elFor(id); if(el) io2.observe(el); });
+  setActive('top');
+
+  /* ---------- accessibility panel ---------- */
+  const KEY = 'fx-a11y', root = document.documentElement;
+  const DEF = { size:100, contrast:0, font:0, links:0, space:0, motion:0, no3d:0, cursor:0, focus:0 };
+  const CLS = { contrast:'a11y-contrast', font:'a11y-font', links:'a11y-links', space:'a11y-space', motion:'a11y-motion', no3d:'a11y-no3d', cursor:'a11y-cursor', focus:'a11y-focus' };
+  const LAB = { contrast:'High contrast', font:'Readable font', links:'Underline links', space:'Wide spacing', motion:'Stop animations', no3d:'Hide 3D background', cursor:'Big cursor', focus:'Strong focus ring' };
+  let st; try{ st = { ...DEF, ...JSON.parse(localStorage.getItem(KEY) || '{}') }; }catch(e){ st = { ...DEF }; }
+  document.body.insertAdjacentHTML('beforeend', `
+    <button id="a11yBtn" aria-label="Accessibility options" aria-expanded="false" aria-controls="a11y"><svg class="icon" style="width:26px;height:26px"><use href="#i-access"/></svg></button>
+    <div class="card" id="a11y" role="dialog" aria-label="Accessibility options">
+      <div class="a11y-h"><b>Accessibility</b><button id="a11yX" aria-label="Close">✕</button></div>
+      <div class="lbl"><span>Text size</span><output id="a11ySize">100%</output></div>
+      <div class="a11y-row"><button class="chip" data-size="-10" aria-label="Smaller text">A−</button><button class="chip" data-size="0" aria-label="Reset text size">Reset</button><button class="chip" data-size="10" aria-label="Larger text">A+</button></div>
+      <div class="lbl"><span>Display</span></div>
+      <div class="a11y-grid" id="a11yGrid">${Object.keys(CLS).map(k => `<button class="chip" data-k="${k}" aria-pressed="false">${LAB[k]}</button>`).join('')}</div>
+      <div class="lbl"><span>Read aloud</span></div>
+      <div class="a11y-row"><button class="chip" id="ttsOn">Read section</button><button class="chip" id="ttsOff">Stop</button></div>
+      <button class="btn btn-ghost btn-sm" id="a11yReset" style="width:100%;margin-top:14px">Reset all</button>
+    </div>`);
+  const panel = $('#a11y'), abtn = $('#a11yBtn');
+  function applyA11y(save){
+    Object.keys(CLS).forEach(k => root.classList.toggle(CLS[k], !!st[k]));
+    root.style.fontSize = st.size === 100 ? '' : st.size + '%';
+    $('#a11ySize').textContent = st.size + '%';
+    $$('#a11yGrid [data-k]').forEach(b => b.setAttribute('aria-pressed', String(!!st[b.dataset.k])));
+    window.__bgOff = !!(st.motion || st.no3d);
+    if(window.__bgPause) window.__bgPause(window.__bgOff);
+    if(save){ try{ localStorage.setItem(KEY, JSON.stringify(st)); }catch(e){} }
+  }
+  const setPanel = on => { panel.classList.toggle('open', on); abtn.setAttribute('aria-expanded', String(on)); };
+  abtn.onclick = () => setPanel(!panel.classList.contains('open'));
+  $('#a11yX').onclick = () => setPanel(false);
+  document.addEventListener('click', e => { if(panel.classList.contains('open') && !panel.contains(e.target) && !abtn.contains(e.target)) setPanel(false); });
+  panel.addEventListener('click', e => {
+    const z = e.target.closest('[data-size]'), k = e.target.closest('[data-k]');
+    if(z){ st.size = z.dataset.size === '0' ? 100 : Math.max(80, Math.min(160, st.size + +z.dataset.size)); applyA11y(true); }
+    if(k){ st[k.dataset.k] = st[k.dataset.k] ? 0 : 1; applyA11y(true); }
+  });
+  $('#a11yReset').onclick = () => { st = { ...DEF }; applyA11y(true); if('speechSynthesis' in window) speechSynthesis.cancel(); toast('Accessibility settings reset.'); };
+  $('#ttsOn').onclick = () => {
+    if(!('speechSynthesis' in window)){ toast('Read aloud is not supported in this browser.'); return; }
+    speechSynthesis.cancel();
+    const sel = String(getSelection()).trim(), el = elFor(activeId);
+    const text = (sel || (el ? el.innerText : '')).replace(/\s+/g, ' ').slice(0, 2500);
+    if(!text){ toast('Nothing to read here.'); return; }
+    speechSynthesis.speak(new SpeechSynthesisUtterance(text));
+  };
+  $('#ttsOff').onclick = () => { if('speechSynthesis' in window) speechSynthesis.cancel(); };
+  applyA11y(false);
+  setTimeout(() => applyA11y(false), 0);   /* re-apply once the 3D scene exists */
+
+  /* ---------- Ctrl+K search ---------- */
+  $('.nav-right').insertAdjacentHTML('afterbegin', '<button class="srch" id="srchBtn" aria-label="Search (Ctrl+K)"><svg class="icon"><use href="#i-search"/></svg><span>Search</span><kbd>Ctrl K</kbd></button>');
+  document.body.insertAdjacentHTML('beforeend', `
+    <div class="cmdk" id="cmdk" role="dialog" aria-modal="true" aria-label="Search">
+      <div class="card cmdk-box">
+        <div class="cmdk-in"><svg class="icon"><use href="#i-search"/></svg><input id="cmdkIn" placeholder="Search services, tips, pros, FAQs…" autocomplete="off" aria-label="Search"><kbd>Esc</kbd></div>
+        <div class="cmdk-list" id="cmdkList"></div>
+        <div class="cmdk-foot"><span>↑ ↓ to move</span><span>Enter to open</span><span>Esc to close</span></div>
+      </div>
+    </div>`);
+  const box = $('#cmdk'), inp = $('#cmdkIn'), list = $('#cmdkList');
+  let idx = [], res = [], sel = 0;
+  const strip = h => String(h).replace(/<[^>]+>/g, ' ');
+  function bookSvc(id, issue, tech){ B.service = id; B.issue = issue || svcById(id).issues[0].id; B.tech = tech || 'any'; goStep(1); renderB(); scrollToEl('#book'); }
+  function openHelpItem(cat, q){
+    const tab = $(`#helpTabs [data-t="${cat}"]`); if(tab) tab.click();
+    goSec('help');
+    setTimeout(() => { const b = $$('#helpAcc .acc-q').find(x => x.textContent.trim() === q); if(b){ b.click(); b.scrollIntoView({ block:'center', behavior:'smooth' }); } }, 350);
+  }
+  function openFaqItem(q){
+    goSec('faq');
+    setTimeout(() => { const b = $$('#faqAcc .acc-q').find(x => x.textContent.trim() === q); if(b){ b.click(); b.scrollIntoView({ block:'center', behavior:'smooth' }); } }, 350);
+  }
+  function build(){
+    const a = [];
+    SECS.forEach(([id,n]) => a.push({ g:'Go to', t:n, s:'Section', icon:'home', run:() => goSec(id) }));
+    a.push({ g:'Actions', t:'Emergency booking', s:'Dispatch within about 60 minutes', k:'urgent asap burst', icon:'alert', run:() => { B.urgency = 'emergency'; B.slot = 'ASAP (within 60 min)'; B.date = todayStr(); goStep(1); renderB(); scrollToEl('#book'); } });
+    a.push({ g:'Actions', t:'Smart diagnosis', s:'Describe a problem, get a suggestion', k:'what is wrong problem symptom', icon:'search', run:() => goSec('diagnose') });
+    a.push({ g:'Actions', t:'Rewards and referral', s:'Points, tiers and your referral code', k:'points loyalty refer friend discount', icon:'tag', run:() => goSec('rewards') });
+    a.push({ g:'Actions', t:'Seasonal home care planner', s:'What to service this season', k:'season summer monsoon winter autumn maintenance', icon:'cal', run:() => goSec('planner') });
+    a.push({ g:'Actions', t:'My bookings', s:'Track, rate or cancel', k:'track cancel rate', icon:'cal', run:() => $('#bkList').scrollIntoView({ behavior:'smooth', block:'center' }) });
+    a.push({ g:'Actions', t:'Light theme', s:'Switch appearance', k:'mode day', icon:'sun', run:() => applyTheme('light') });
+    a.push({ g:'Actions', t:'Dark theme', s:'Switch appearance', k:'mode night', icon:'moon', run:() => applyTheme('dark') });
+    a.push({ g:'Actions', t:'Auto theme', s:'Follow your system', k:'mode system', icon:'auto', run:() => applyTheme('auto') });
+    a.push({ g:'Actions', t:'Chat assistant', s:'Ask about pricing and timing', k:'help support', icon:'chat', run:() => $('#chat').classList.add('open') });
+    a.push({ g:'Actions', t:'Accessibility options', s:'Text size, contrast, read aloud', k:'a11y font contrast', icon:'shield', run:() => setPanel(true) });
+    SERVICES.forEach(s => {
+      a.push({ g:'Services', t:s.name, s:s.desc, k:s.points.join(' '), icon:s.icon, run:() => bookSvc(s.id) });
+      s.issues.forEach(i => a.push({ g:'Book a repair', t:i.name, s:`${s.name} · from ${money(i.price)}`, icon:s.icon, run:() => bookSvc(s.id, i.id) }));
+    });
+    Object.entries(HELP).forEach(([cat,items]) => items.forEach(([q,ans]) => a.push({ g:'Help hub', t:q, s:cat, k:strip(ans), icon:cat === 'Emergency' ? 'alert' : 'shield', run:() => openHelpItem(cat, q) })));
+    FAQS.forEach(([q,ans]) => a.push({ g:'FAQ', t:q, s:'', k:ans, icon:'chat', run:() => openFaqItem(q) }));
+    TECHS.forEach(t => a.push({ g:'Pros', t:t.n, s:`${svcById(t.s).name} · ${t.r.toFixed(1)} rating`, icon:'user', run:() => bookSvc(t.s, null, t.n) }));
+    AREAS.forEach(n => a.push({ g:'Coverage', t:n, s:'Service area', icon:'pin', run:() => goSec('areas') }));
+    return a;
+  }
+  function search(q){
+    q = q.trim().toLowerCase();
+    if(!q) return idx.filter(x => x.g === 'Go to' || x.g === 'Actions');
+    const tk = q.split(/\s+/);
+    return idx.map(x => {
+      const t = x.t.toLowerCase(), h = (t + ' ' + (x.s || '') + ' ' + (x.k || '')).toLowerCase();
+      if(!tk.every(w => h.includes(w))) return null;
+      let sc = 0; if(t === q) sc += 10; if(t.startsWith(q)) sc += 6; if(t.includes(q)) sc += 4; tk.forEach(w => { if(t.includes(w)) sc += 2; });
+      return { x, sc };
+    }).filter(Boolean).sort((a,b) => b.sc - a.sc).slice(0, 24).map(r => r.x);
+  }
+  function render(found){
+    const groups = new Map();
+    found.forEach(x => { if(!groups.has(x.g)) groups.set(x.g, []); groups.get(x.g).push(x); });
+    res = [...groups.values()].flat();
+    let html = '', n = 0;
+    groups.forEach((arr, g) => {
+      html += `<div class="cmdk-g">${esc(g)}</div>`;
+      arr.forEach(x => { html += `<button class="cmdk-i ${n === sel ? 'sel' : ''}" data-n="${n}">${ic(x.icon)}<span><b>${esc(x.t)}</b><small>${esc((x.s || '').slice(0, 90))}</small></span></button>`; n++; });
+    });
+    list.innerHTML = html || '<div class="cmdk-empty">No results. Try "leak", "AC" or "emergency".</div>';
+  }
+  function mark(){ $$('.cmdk-i', list).forEach((b,i) => b.classList.toggle('sel', i === sel)); const c = $('.cmdk-i.sel', list); if(c) c.scrollIntoView({ block:'nearest' }); }
+  function openSearch(){ idx = build(); box.classList.add('open'); document.body.style.overflow = 'hidden'; inp.value = ''; sel = 0; render(search('')); inp.focus(); }
+  function closeSearch(){ box.classList.remove('open'); document.body.style.overflow = ''; }
+  function runItem(x){ closeSearch(); setTimeout(x.run, 80); }
+  inp.addEventListener('input', () => { sel = 0; render(search(inp.value)); });
+  inp.addEventListener('keydown', e => {
+    if(e.key === 'ArrowDown'){ e.preventDefault(); sel = Math.min(res.length - 1, sel + 1); mark(); }
+    else if(e.key === 'ArrowUp'){ e.preventDefault(); sel = Math.max(0, sel - 1); mark(); }
+    else if(e.key === 'Enter'){ e.preventDefault(); if(res[sel]) runItem(res[sel]); }
+  });
+  list.addEventListener('click', e => { const b = e.target.closest('[data-n]'); if(b && res[+b.dataset.n]) runItem(res[+b.dataset.n]); });
+  box.addEventListener('click', e => { if(e.target === box) closeSearch(); });
+  $('#srchBtn').onclick = openSearch;
+  addEventListener('keydown', e => {
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k'){ e.preventDefault(); box.classList.contains('open') ? closeSearch() : openSearch(); return; }
+    if(e.key === '/' && !box.classList.contains('open') && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName) && !document.activeElement.isContentEditable){ e.preventDefault(); openSearch(); return; }
+    if(e.key === 'Escape'){ if(box.classList.contains('open')) closeSearch(); else if(panel.classList.contains('open')) setPanel(false); }
+  });
+})();
+/* ==================== SMART DIAGNOSIS ==================== */
+(function(){
+  /* [service, issue, keywords, safe things to do while you wait] */
+  const RULES = [
+    ['plumbing','leak','leak drip dripping water tap pipe under sink wet puddle seep faucet',['Close the valve under the sink or the main valve.','Place a bucket and wipe the area to prevent damage.','Take a photo of the leak for the technician.']],
+    ['plumbing','drain','blocked clog clogged drain toilet overflow gurgling slow sink standing water smell sewage',['Stop using the affected fixture.','Do not pour chemical cleaners; they can damage pipes.','Keep the area ventilated.']],
+    ['plumbing','heater','geyser water heater no hot water cold water lukewarm boiler heating',['Switch the heater off at the wall.','Do not open the tank or valve while hot.','Check that the breaker has not tripped.']],
+    ['plumbing','fixture','install new tap shower basin sink faucet fitting replace mixer commode',['Buy the fixture first, or ask the pro to bring one.','Know where your shut-off valve is.']],
+    ['plumbing','tank','pump motor tank overhead low pressure no water pressure not filling',['Check whether the pump switch or breaker is on.','Do not run the pump dry.']],
+    ['electrical','fault','power cut tripping trips breaker fuse blown no power outage short circuit flicker flickering lights',['Unplug devices on the affected circuit.','Reset the breaker once only.','If it trips again, leave it off.']],
+    ['electrical','socket','socket switch plug outlet loose button broken sparks plate hot',['Stop using that socket or switch.','Switch the breaker for that area off.','Do not touch it with wet hands.']],
+    ['electrical','fan','ceiling fan light bulb lamp chandelier led install fitting spotlight tube',['Turn the power off at the breaker before anything else.']],
+    ['electrical','board','distribution board db panel mcb main board meter earthing',['Do not open the panel yourself.','Keep the area around the board clear.']],
+    ['electrical','rewire','rewire wiring old wires aluminium wiring extension new room cables',['Avoid overloading extension boards.']],
+    ['ac','service','ac service servicing clean filter yearly maintenance before summer dirty',['Switch the AC off before cleaning the visible filter.']],
+    ['ac','notcool','ac not cooling warm air hot room weak cooling blowing warm compressor',['Check thermostat mode and set temperature.','Clean the filter and clear the outdoor unit.','Do not keep restarting the compressor.']],
+    ['ac','gas','ac gas leak refill refrigerant ice frozen coil freezing hissing',['Switch the AC off while the coil thaws.','Do not try to refill gas yourself.']],
+    ['ac','noise','ac noise loud rattle vibration water dripping leaking indoor unit smell',['Switch the AC off and place a towel under the drip.','Clean the filter if it is clogged.']],
+    ['ac','install','install ac new split window installation relocate shift move ac mount',['Choose the indoor and outdoor unit positions beforehand.']],
+    ['carpentry','door','door lock hinge stuck jammed handle latch window frame squeak',['Do not force a jammed lock; use a little graphite or soap on the latch.']],
+    ['carpentry','furn','furniture assemble assembly bed wardrobe table chair broken wobbly drawer',['Keep all screws and parts together.']],
+    ['carpentry','cabinet','cabinet shelf shelves kitchen cabinet cupboard fitting wall unit',['Measure the wall space and keep the manual handy.']],
+    ['carpentry','floor','wood floor wooden flooring parquet frame skirting laminate boards squeaky floor',['Keep the area dry until it is inspected.']],
+    ['carpentry','custom','custom made built-in wardrobe wood work design carpentry project tv unit',['Prepare a rough sketch or reference photos.']],
+    ['painting','room','paint room painting repaint walls bedroom living room colour color ceiling',['Move small items out of the room.']],
+    ['painting','touch','touch up patch scratches marks peeling small crack hole fill',['Take a photo of the damaged area.']],
+    ['painting','exterior','exterior outside facade boundary weather balcony outer',['Check the weather forecast for the visit.']],
+    ['painting','damp','damp dampness seepage moisture mould mold stain ceiling wet patches peeling bubbling efflorescence',['Find and stop the water source first.','Do not paint over damp.','Ventilate the room.']],
+    ['painting','polish','polish varnish wood finish lacquer door polish furniture shine',['Clear the surface of items.']],
+    ['appliance','washer','washing machine washer not draining not spinning drum laundry dryer leaking',['Switch the machine off and unplug it.','Check the drain filter and hose.']],
+    ['appliance','fridge','fridge refrigerator freezer not cold not cooling frost ice noise compressor',['Keep the door closed to hold the cold.','Move perishables to a cooler.']],
+    ['appliance','oven','oven microwave stove burner not heating gas stove cooker hob',['Turn off the gas supply if a burner will not light.']],
+    ['appliance','dish','dishwasher dish washer not cleaning not draining detergent',['Clean the filter at the bottom of the tub.']],
+    ['appliance','small','tv television blender iron kettle toaster mixer fan heater small appliance',['Unplug the device.']],
+    ['cleaning','deep','deep clean cleaning whole house home cleaning dirty dust spring clean',['Pick a day when the rooms can be accessed.']],
+    ['cleaning','kb','kitchen bathroom cleaning grease limescale tiles toilet scrub stains',['Do not mix cleaning chemicals.']],
+    ['cleaning','sofa','sofa carpet rug shampoo upholstery stain mattress',['Blot spills, do not rub.']],
+    ['cleaning','tank','water tank cleaning dirty tank sediment smell water tank',['Avoid drinking tank water until it is cleaned.']],
+    ['cleaning','move','move in move out moving shift new house after construction renovation cleaning',['Share the move date so we can schedule.']],
+    ['pest','roach','cockroach cockroaches ants ant insects bugs kitchen pest crawling',['Store food in sealed containers.','Keep rubbish covered.']],
+    ['pest','termite','termite termites wood dust hollow wood mud tubes white ants',['Do not disturb the affected wood.','Keep it dry and take photos.']],
+    ['pest','bed','bed bug bed bugs bites itchy mattress blood spots',['Wash bedding in hot water.','Do not move infested furniture to other rooms.']],
+    ['pest','rodent','rat rats mouse mice rodent droppings gnawing scratching attic',['Seal food, and avoid touching droppings without gloves.']],
+    ['pest','mosq','mosquito mosquitoes dengue fogging stagnant water flies',['Remove standing water from pots and buckets.']],
+    ['security','cctv','cctv camera cameras surveillance install security cameras recording dvr nvr',['Note which areas you want to cover.']],
+    ['security','lock','smart lock digital lock fingerprint lock keypad door lock install',['Keep a backup key available.']],
+    ['security','alarm','alarm burglar siren sensor security system motion sensor',['Test that your internet and power are stable.']],
+    ['security','bell','doorbell video doorbell intercom bell not ringing visitors',['Check the power supply and Wi-Fi signal.']],
+    ['security','camfix','camera not working offline no signal black screen cctv fault no recording blurry',['Check the power and network cable.']]
+  ];
+  const DANGER = /gas smell|smell gas|smell of gas|gas leak|smoke|smoking|spark|sparking|burning smell|burnt smell|electric shock|shocked|flood|flooding|burst|carbon monoxide|fire/i;
+  const EXAMPLES = ['Water is dripping from the pipe under my sink','AC is running but the room is still hot','Breaker keeps tripping when I use the kettle','Bad smell of gas near the stove','Cockroaches in my kitchen at night','Wall has damp patches and the paint is peeling','My washing machine will not drain','Need CCTV cameras fitted outside'];
+
+  function diagnose(text){
+    const t = ' ' + text.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ') + ' ';
+    const words = new Set(t.split(/\s+/).filter(Boolean));
+    const scored = RULES.map(r => {
+      let sc = 0;
+      r[2].split(' ').forEach(k => { if(k.length < 3) return; if(words.has(k)) sc += 2; else if(t.includes(' ' + k)) sc += 1; });
+      if(t.includes(' ' + r[2].split(' ').slice(0,2).join(' '))) sc += 2;
+      return { r, sc };
+    }).filter(x => x.sc > 0).sort((a,b) => b.sc - a.sc);
+    return scored;
+  }
+  function show(text){
+    const out = $('#dxOut'), danger = DANGER.test(text) || !!window.__dxAIUrgent, res = window.__dxAIRes || diagnose(text);
+    if(!res.length){
+      out.innerHTML = `<div class="dx-empty">${ic('search')}<b>We couldn't match that yet</b><p>Try adding what you see or hear, or where it is (for example "kitchen sink" or "bedroom AC"). You can also chat with our assistant or book and add notes.</p><button class="btn btn-ghost btn-sm" id="dxChat">Open chat</button></div>`;
+      $('#dxChat').onclick = () => $('#chat').classList.add('open'); return;
+    }
+    const top = res[0], svc = svcById(top.r[0]), issue = svc.issues.find(i => i.id === top.r[1]);
+    const max = Math.max(8, top.sc), conf = Math.min(96, Math.round(40 + (top.sc / max) * 50));
+    const urgency = danger ? 'emergency' : 'standard';
+    const p = calcPrice({ service:svc.id, issue:issue.id, qty:1, urgency, addons:[], promo:'' });
+    const alts = res.slice(1, 3);
+    out.innerHTML = `
+      ${danger ? `<div class="dx-safe">${ic('alert')}<div><b>Safety first.</b> If you smell gas, see smoke or sparks, or there is flooding near electrics, leave the area and call your local emergency number before anything else. Book a pro only once it is safe.</div></div>` : ''}
+      <span class="note">Most likely</span>
+      <div class="dx-top" style="--c:${svc.color}"><div class="ico">${ic(svc.icon)}</div><div><small>${esc(svc.name)}</small><h4>${esc(issue.name)}</h4></div></div>
+      <div class="note">Match strength ${conf}%</div><div class="dx-bar"><i style="width:${conf}%"></i></div>
+      <b style="font-family:var(--font-d)">What to do right now</b>
+      <ol class="dx-do">${top.r[3].map(x => `<li>${esc(x)}</li>`).join('')}</ol>
+      <div class="lines"><div><span>Estimated total${danger ? ' (emergency)' : ''}</span><span>${money(p.total)}</span></div></div>
+      <button class="btn btn-primary" style="width:100%" id="dxBook">${danger ? 'Book emergency pro' : 'Book this service'}</button>
+      <p class="note" style="margin-top:10px">This is guidance, not a final diagnosis. Your technician confirms the problem and price on site.</p>
+      ${alts.length ? `<div class="dx-alt"><span class="note">Could also be</span>${alts.map((a,i) => { const s2 = svcById(a.r[0]), i2 = s2.issues.find(x => x.id === a.r[1]); return `<button data-alt="${i}"><span>${esc(i2.name)}</span><span style="color:var(--muted)">${esc(s2.name)}</span></button>`; }).join('')}</div>` : ''}`;
+    const go = (r, urg) => {
+      B.service = r[0]; B.issue = r[1]; B.tech = 'any'; B.qty = 1; B.addons = [];
+      if(urg === 'emergency'){ B.urgency = 'emergency'; B.slot = 'ASAP (within 60 min)'; B.date = todayStr(); }
+      else { B.urgency = 'standard'; if(B.slot && B.slot.startsWith('ASAP')) B.slot = ''; }
+      goStep(1); renderB(); scrollToEl('#book');
+    };
+    $('#dxBook').onclick = () => go(top.r, urgency);
+    $$('[data-alt]', out).forEach(b => b.onclick = () => go(alts[+b.dataset.alt].r, 'standard'));
+  }
+  $('#dxOut').innerHTML = `<div class="dx-empty">${ic('search')}<b>Your diagnosis will appear here</b><p>Describe the problem on the left, or tap an example.</p></div>`;
+  $('#dxChips').innerHTML = EXAMPLES.map(x => `<button type="button">${esc(x)}</button>`).join('');
+  $('#dxChips').onclick = e => { const b = e.target.closest('button'); if(!b) return; $('#dxText').value = b.textContent; $('#dxErr').textContent = ''; show(b.textContent); };
+  $('#dxGo').onclick = () => {
+    const v = $('#dxText').value.trim();
+    if(v.length < 6){ $('#dxErr').textContent = 'Please describe the problem in a few words.'; return; }
+    $('#dxErr').textContent = '';
+    (window.__aiDiagnose ? window.__aiDiagnose(v) : Promise.resolve(null)).then(ai => { window.__dxAIRes = ai ? ai.res : null; window.__dxAIUrgent = ai ? ai.urgent : false; show(v); window.__dxAIRes = null; window.__dxAIUrgent = false; });
+  };
+  $('#dxText').addEventListener('keydown', e => { if((e.ctrlKey || e.metaKey) && e.key === 'Enter') $('#dxGo').click(); });
+})();
+/* ==================== REWARDS & POINTS ==================== */
+const TIERS = [['Member',0,.05],['Silver',200,.055],['Gold',600,.06],['Platinum',1200,.07]];
+const getSpent = () => { try{ return parseInt(localStorage.getItem('fx-spent') || '0', 10) || 0; }catch(e){ return 0; } };
+const setSpent = n => { try{ localStorage.setItem('fx-spent', String(Math.max(0, n))); }catch(e){} };
+const earnedPts = () => loadBookings().reduce((a,b) => b.status === 'Completed' ? a + Math.round(b.total || 0) + (b.rating ? 20 : 0) : a, 0);
+const balancePts = () => Math.max(0, earnedPts() - getSpent());
+const tierIdx = e => e >= 1200 ? 3 : e >= 600 ? 2 : e >= 200 ? 1 : 0;
+const ptsRate = () => TIERS[tierIdx(earnedPts())][2];
+B.usePoints = 0;
+
+const baseCalc = calcPrice;
+calcPrice = function(o){
+  const p = baseCalc(o);
+  if(p && o.usePoints){
+    const bal = balancePts(), rate = ptsRate(), used = Math.min(bal, Math.floor((p.total * .5) / rate));
+    if(used > 0){ p.ptsUsed = used; p.ptsDisc = used * rate; p.total -= p.ptsDisc; }
+  }
+  return p;
+};
+const baseLines = linesHTML;
+linesHTML = function(p, o){
+  let h = baseLines(p, o);
+  if(p && p.ptsDisc) h = h.replace('<div class="total">', `<div><span>Rewards (${p.ptsUsed} pts)</span><span>−${money(p.ptsDisc)}</span></div><div class="total">`);
+  return h;
+};
+function syncPts(){
+  const btn = $('#bPts'), note = $('#bPtsNote'), bal = balancePts();
+  const p = B.service ? calcPrice(B) : null;
+  if(!bal){ B.usePoints = 0; btn.disabled = true; btn.textContent = 'No points yet'; btn.setAttribute('aria-pressed', 'false'); note.textContent = 'Complete a job to start earning points.'; return; }
+  btn.disabled = false;
+  btn.setAttribute('aria-pressed', String(!!B.usePoints));
+  btn.textContent = B.usePoints ? 'Using points. Tap to remove' : `Use my points (${bal})`;
+  note.textContent = B.usePoints && p && p.ptsUsed ? `Saving ${money(p.ptsDisc)} with ${p.ptsUsed} points.` : `Worth up to ${money(bal * ptsRate())}. Redeems up to 50% of a booking.`;
+}
+const baseUQ = updateQuote;
+updateQuote = function(){ baseUQ(); syncPts(); };
+$('#bPts').onclick = () => { B.usePoints = B.usePoints ? 0 : 1; updateQuote(); };
+const baseConfirm = confirmBooking;
+confirmBooking = function(){
+  const pre = calcPrice(B), used = (pre && pre.ptsUsed) || 0;
+  baseConfirm();
+  if(used) setSpent(getSpent() + used);
+  B.usePoints = 0; renderRewards(); updateQuote();
+};
+
+function refCode(){
+  let c = ''; try{ c = localStorage.getItem('fx-ref') || ''; }catch(e){}
+  if(!c){ const ch = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789'; c = 'FIX-'; for(let i = 0; i < 5; i++) c += ch[Math.floor(Math.random() * ch.length)]; try{ localStorage.setItem('fx-ref', c); }catch(e){} }
+  return c;
+}
+function renderRewards(){
+  const e = earnedPts(), bal = balancePts(), t = tierIdx(e), cur = TIERS[t], nxt = TIERS[t + 1];
+  $('#rwPts').textContent = bal.toLocaleString();
+  $('#rwTier').textContent = cur[0] + ' tier';
+  $('#rwWorth').textContent = `Worth ${money(bal * cur[2])} off`;
+  if(nxt){ $('#rwBar').style.width = Math.min(100, Math.round((e - cur[1]) / (nxt[1] - cur[1]) * 100)) + '%'; $('#rwNext').textContent = `${nxt[1] - e} more points to reach ${nxt[0]}, where each point is worth more.`; }
+  else { $('#rwBar').style.width = '100%'; $('#rwNext').textContent = 'You have reached the top tier. Each point is worth the most.'; }
+  $('#rwCode').textContent = refCode();
+}
+const baseRB = renderBookings;
+renderBookings = function(){ baseRB(); renderRewards(); };
+$('#rwCopy').onclick = () => {
+  const c = refCode();
+  if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(c).then(() => toast('Code copied: ' + c), () => toast('Your code is ' + c));
+  else toast('Your code is ' + c);
+};
+$('#rwShare').onclick = () => {
+  const msg = `Book trusted home repair pros with Fixora. Use code FIXORA10 for 10% off your first booking. My referral code: ${refCode()}`;
+  window.open('https://wa.me/?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+};
+renderRewards(); syncPts();
+
+/* ==================== ANIMATED DROPDOWNS ==================== */
+(function(){
+  const valDesc = Object.getOwnPropertyDescriptor(HTMLSelectElement.prototype, 'value');
+  const openOnes = new Set();
+  function closeAll(except){ openOnes.forEach(fn => { if(fn !== except) fn(); }); }
+  function enhance(sel){
+    if(sel.dataset.dd) return; sel.dataset.dd = 1;
+    const lab = document.querySelector(`label[for="${sel.id}"]`);
+    const name = ((lab && lab.textContent) || sel.getAttribute('aria-label') || 'Select').trim();
+    const wrap = document.createElement('div'); wrap.className = 'dd';
+    wrap.innerHTML = `<button type="button" class="dd-btn" aria-haspopup="listbox" aria-expanded="false" aria-label="${esc(name)}"><span class="dd-v"></span>${ic('down', 'dd-chev')}</button><div class="dd-menu" role="listbox" aria-label="${esc(name)}"></div>`;
+    sel.after(wrap); sel.classList.add('dd-native'); sel.tabIndex = -1; sel.setAttribute('aria-hidden', 'true');
+    const btn = $('.dd-btn', wrap), menu = $('.dd-menu', wrap), vEl = $('.dd-v', wrap);
+    let hi = -1, typed = '', typedT = 0;
+    function sync(){
+      const o = sel.options[sel.selectedIndex];
+      vEl.textContent = o ? o.textContent : '';
+      $$('.dd-o', menu).forEach((el, i) => { const on = i === sel.selectedIndex; el.classList.toggle('sel', on); el.setAttribute('aria-selected', String(on)); });
+    }
+    function build(){
+      menu.innerHTML = [...sel.options].map((o, i) => `<div class="dd-o" role="option" data-i="${i}" style="--i:${Math.min(i, 12)}">${esc(o.textContent)}</div>`).join('');
+      sync();
+    }
+    function mark(){ $$('.dd-o', menu).forEach((el, i) => el.classList.toggle('hi', i === hi)); const c = $('.dd-o.hi', menu); if(c) c.scrollIntoView({ block:'nearest' }); }
+    function close(){ wrap.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); openOnes.delete(close); }
+    function open(){
+      closeAll(close);
+      const r = btn.getBoundingClientRect();
+      wrap.classList.toggle('up', innerHeight - r.bottom < 300 && r.top > 300);
+      wrap.classList.add('open'); btn.setAttribute('aria-expanded', 'true'); openOnes.add(close);
+      hi = Math.max(0, sel.selectedIndex); mark();
+    }
+    function pick(i){
+      if(i >= 0 && sel.options[i] && !sel.options[i].disabled){
+        const changed = sel.selectedIndex !== i; sel.selectedIndex = i; sync();
+        if(changed) sel.dispatchEvent(new Event('change', { bubbles:true }));
+      }
+      close(); btn.focus();
+    }
+    btn.addEventListener('click', () => wrap.classList.contains('open') ? close() : open());
+    menu.addEventListener('click', e => { const o = e.target.closest('.dd-o'); if(o) pick(+o.dataset.i); });
+    menu.addEventListener('pointerover', e => { const o = e.target.closest('.dd-o'); if(o){ hi = +o.dataset.i; $$('.dd-o', menu).forEach((el, i) => el.classList.toggle('hi', i === hi)); } });
+    btn.addEventListener('keydown', e => {
+      const isOpen = wrap.classList.contains('open'), n = sel.options.length;
+      if(e.key === 'ArrowDown' || e.key === 'ArrowUp'){ e.preventDefault(); if(!isOpen) open(); else { hi = Math.max(0, Math.min(n - 1, hi + (e.key === 'ArrowDown' ? 1 : -1))); mark(); } }
+      else if(e.key === 'Home' && isOpen){ e.preventDefault(); hi = 0; mark(); }
+      else if(e.key === 'End' && isOpen){ e.preventDefault(); hi = n - 1; mark(); }
+      else if((e.key === 'Enter' || e.key === ' ') && isOpen){ e.preventDefault(); pick(hi); }
+      else if(e.key === 'Escape' && isOpen){ e.preventDefault(); e.stopPropagation(); close(); }
+      else if(e.key === 'Tab' && isOpen){ close(); }
+      else if(e.key.length === 1 && !e.ctrlKey && !e.metaKey && e.key !== ' '){
+        clearTimeout(typedT); typed += e.key.toLowerCase(); typedT = setTimeout(() => typed = '', 700);
+        const k = [...sel.options].findIndex(o => o.textContent.trim().toLowerCase().startsWith(typed));
+        if(k >= 0){ if(!isOpen) open(); hi = k; mark(); }
+      }
+    });
+    document.addEventListener('pointerdown', e => { if(wrap.classList.contains('open') && !wrap.contains(e.target)) close(); });
+    if(lab) lab.addEventListener('click', e => { e.preventDefault(); btn.focus(); });
+    Object.defineProperty(sel, 'value', { configurable:true, get(){ return valDesc.get.call(this); }, set(v){ valDesc.set.call(this, v); sync(); } });
+    new MutationObserver(build).observe(sel, { childList:true });
+    build();
+  }
+  $$('select').forEach(enhance);
+})();
+/* ==================== SEASONAL PLANNER ==================== */
+(function(){
+  const SEASONS = {
+    Summer:{ months:[3,4,5,6], note:'Heat and humidity push cooling, water and food-storage systems the hardest. Get these done before peak temperatures.', items:[
+      ['ac','service','Clean filters and coils so the AC cools faster and uses less power.'],
+      ['cleaning','tank','Hot weather speeds up bacteria growth in stored water.'],
+      ['appliance','fridge','A fridge struggling in the heat spoils food and wastes power.'],
+      ['pest','mosq','Standing water and warm nights bring mosquitoes.'] ] },
+    Monsoon:{ months:[7,8,9], note:'Rain exposes weak spots. Handle leaks, damp and electrics before and during the wet months.', items:[
+      ['painting','damp','Treat seepage early, before it spreads and peels the paint.'],
+      ['painting','exterior','Seal and repaint outer walls so rain cannot get in.'],
+      ['electrical','board','Wet weather raises shock and tripping risks. Have the board checked.'],
+      ['plumbing','drain','Clear drains so heavy rain does not back up into your home.'],
+      ['pest','termite','Damp wood attracts termites. Inspect before damage starts.'] ] },
+    Autumn:{ months:[10,11], note:'Mild weather is the best time for repairs, deep cleaning and exterior touch-ups before winter.', items:[
+      ['cleaning','deep','A deep clean after summer dust and before the festive season.'],
+      ['carpentry','door','Fix sticking doors and windows after the humid months.'],
+      ['painting','touch','Patch marks and cracks while it is dry enough to paint.'],
+      ['security','camfix','Check your cameras before the longer, darker evenings.'] ] },
+    Winter:{ months:[12,1,2], note:'Cold weather means heavier use of heaters and hot water. Keep them safe and your home secure.', items:[
+      ['plumbing','heater','Service the water heater before the coldest weeks.'],
+      ['electrical','fault','Heaters overload circuits. Fix tripping before it gets worse.'],
+      ['painting','polish','Dry winter air is hard on wood. Polish and protect it.'],
+      ['security','alarm','Longer nights are the time to make sure your alarm works.'] ] }
+  };
+  const m = new Date().getMonth() + 1;
+  const nowName = Object.keys(SEASONS).find(k => SEASONS[k].months.includes(m));
+  let cur = nowName;
+  const tabs = $('#plTabs');
+  tabs.innerHTML = Object.keys(SEASONS).map(k => `<button class="chip" data-s="${k}" aria-pressed="${k === cur}">${k}${k === nowName ? ' · Now' : ''}</button>`).join('');
+  function render(){
+    const S = SEASONS[cur]; let total = 0;
+    $$('#plTabs .chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.s === cur)));
+    $('#plGrid').innerHTML = S.items.map(([sv, is, why], i) => {
+      const svc = svcById(sv), issue = svc.issues.find(x => x.id === is);
+      const price = calcPrice({ service:sv, issue:is, qty:1, urgency:'standard', addons:[], promo:'' }).total; total += price;
+      return `<article class="card pl tilt" style="--c:${svc.color}"><div class="ico">${ic(svc.icon)}</div><small>${esc(svc.name)}</small><h4>${esc(issue.name)}</h4><p>${esc(why)}</p><div class="foot"><span>From <b>${money(price)}</b></span><button class="btn btn-primary btn-sm" data-i="${i}">Book</button></div></article>`;
+    }).join('');
+    $('#plNote').textContent = `${S.note} All ${S.items.length} tasks together come to about ${money(total)}.`;
+  }
+  tabs.addEventListener('click', e => { const b = e.target.closest('[data-s]'); if(b){ cur = b.dataset.s; render(); } });
+  $('#plGrid').addEventListener('click', e => {
+    const b = e.target.closest('[data-i]'); if(!b) return;
+    const it = SEASONS[cur].items[+b.dataset.i];
+    B.service = it[0]; B.issue = it[1]; B.tech = 'any'; B.qty = 1; B.addons = []; B.urgency = 'standard';
+    if(B.slot && B.slot.startsWith('ASAP')) B.slot = '';
+    goStep(1); renderB(); scrollToEl('#book');
+  });
+  render();
+})();
+
+/* ==================== CHAT ASSISTANT: KNOWLEDGE BASE ==================== */
+(function(){
+  const cheapest = Math.min(...SERVICES.map(s => s.from));
+  const KB = [
+    /* Pricing */
+    { c:'Pricing', q:'How much does it cost?', k:['how much','cost','price','pricing','charges','charge','rates','expensive','cheap'], a:() => `Labour starts from ${money(cheapest)}: ${SERVICES.slice(0,4).map(s => `${s.name} ${money(s.from)}`).join(', ')} and more. A fixed ${money(VISIT_FEE)} call-out fee is added. The Estimate section gives an exact quote for your job.` },
+    { c:'Pricing', q:'What is the call-out fee?', k:['call out','callout','visit fee','call-out'], a:() => `It is a fixed ${money(VISIT_FEE)} per visit, covering the technician's travel and diagnosis. It is already included in every estimate.` },
+    { c:'Pricing', q:'Are there any hidden charges?', k:['hidden','surprise','extra charges','additional charges','parts cost','spare parts','parts'], a:() => `No. You see an upfront estimate before booking. If parts are needed, they are charged at cost and your technician confirms the final price before any work begins.` },
+    { c:'Pricing', q:'Do you have discounts or promo codes?', k:['discount','promo','coupon','code','offer','deal','voucher','save'], a:() => `Yes. Use ${Object.keys(PROMOS).map(c => `${c} for ${Math.round(PROMOS[c] * 100)}% off`).join(' or ')} in booking step 3. You can also spend Rewards points at checkout and save with a care plan.` },
+    { c:'Pricing', q:'Is there an emergency surcharge?', k:['surcharge','emergency price','urgent price','same day price','night charges','extra for emergency'], a:() => `Urgency adds to the labour cost: Same day adds ${Math.round((URGENCY[1].mult - 1) * 100)}% and Emergency adds ${Math.round((URGENCY[2].mult - 1) * 100)}%. Scheduled bookings have no surcharge.` },
+    { c:'Pricing', q:'How do I pay?', k:['pay','payment','card','cash','invoice','receipt'], a:() => `You pay after the job is done, by cash or card, and you get a digital receipt.` },
+    /* Booking */
+    { c:'Booking', q:'How do I book a technician?', k:['how to book','how do i book','book a','booking process','make a booking','schedule','appointment'], a:() => `Pick a service, choose your time, enter your details, and confirm. It takes about a minute, and no account is needed. Tap "Book now" at the top to start.` },
+    { c:'Booking', q:'How fast can someone arrive?', k:['how fast','arrive','arrival','how long','eta','wait time','quick','soon','response time'], a:() => `Emergency jobs are dispatched within about 60 minutes. Same-day slots are confirmed within a few hours, and scheduled jobs arrive in the 2-hour window you choose.` },
+    { c:'Booking', q:'Can I cancel or reschedule?', k:['cancel','reschedule','change booking','change time','postpone','refund'], a:() => `Yes. Cancel for free up to 2 hours before your slot from My bookings. Later cancellations may incur the ${money(VISIT_FEE)} call-out fee.` },
+    { c:'Booking', q:'Can I choose my technician?', k:['choose technician','select technician','preferred','specific technician','particular','pick a pro'], a:() => `Yes. In booking step 3 you can pick a specific pro, or choose "Any available pro" for the fastest arrival.` },
+    { c:'Booking', q:'Can I add photos of the problem?', k:['photo','picture','image','upload','attach'], a:() => `Yes, you can add up to 3 photos in booking step 3 to help the technician prepare.` },
+    { c:'Booking', q:'How do I track my technician?', k:['track','where is my','live location','status','map','follow'], a:() => `Open My bookings and tap Track on your scheduled job to see the technician's progress on the map, from assigned to completed.` },
+    { c:'Booking', q:'Do I need an account?', k:['account','sign up','signup','register','login','log in','create account'], a:() => `No account needed. Your bookings are saved on this device so you can review, track or cancel them anytime.` },
+    { c:'Booking', q:'Do you work on weekends and holidays?', k:['weekend','holiday','sunday','saturday','open','hours','timing','working hours','night','24/7'], a:() => `Yes. Emergency dispatch runs 24/7, and scheduled slots run from 8am to 8pm every day.` },
+    /* Safety */
+    { c:'Safety', q:'I smell gas. What should I do?', k:['smell gas','gas smell','smell of gas','gas leak'], a:() => `Do not switch anything on or off and avoid flames. Open doors if you can do it quickly, leave the building with everyone, then call your gas utility or emergency number from outside. Book a pro only after it is cleared.` },
+    { c:'Safety', q:'Sparks or a burning smell?', k:['spark','burning','smoke','fire','shock','electric shock'], a:() => `Switch off the main power only if it is safe to reach. Never use water on an electrical fire. If there is smoke or flames, leave and call emergency services. Then book an electrician before restoring power.` },
+    { c:'Safety', q:'A pipe burst and water is everywhere', k:['burst','flood','flooding','pipe burst','water everywhere'], a:() => `Close the main water valve first. Open taps to drain the pipes, move valuables up, and switch off power at the board only if you can do it without standing in water. Then book an Emergency plumber.` },
+    { c:'Safety', q:'Are your technicians verified?', k:['verified','background','trusted','vetted','police','certified','licensed','insured','qualified','experience'], a:() => `Yes. Every pro passes ID verification, a background check and a hands-on skills test, and keeps a rolling customer rating.` },
+    { c:'Safety', q:'Do you give a guarantee?', k:['guarantee','warranty','come back','same issue','redo','rework'], a:() => `Every repair has a 90-day workmanship guarantee. If the same issue returns, we send a pro back at no labour cost. You can add an extended 1-year warranty for ${money(ADDONS.find(a => a.id === 'warranty').price)} at checkout.` },
+    /* Services */
+    { c:'Services', q:'What services do you offer?', k:['services','offer','trades','what do you do','what can you fix','list'], a:() => `${SERVICES.length} trades: ${SERVICES.map(s => s.name).join(', ')}.` },
+    { c:'Services', q:'Do you install AC units?', k:['install ac','ac install','installation','new ac','split ac','mount'], a:() => { const i = svcById('ac').issues.find(x => x.id === 'install'); return `Yes. AC installation starts from ${money(i.price)} plus the ${money(VISIT_FEE)} call-out fee. Choose AC Repair, then "AC installation".`; } },
+    { c:'Services', q:'Which areas do you cover?', k:['area','areas','cover','location','city','neighborhood','neighbourhood','service area','where do you'], a:() => `We cover: ${AREAS.join(', ')}.` },
+    { c:'Services', q:'Is pest control safe for kids and pets?', k:['pet','pets','kids','children','child','safe for','toxic','chemical'], a:() => `Our technicians use approved products and explain the re-entry time. Usually people and pets stay out until surfaces are dry, and food and toys are covered or removed first.` },
+    { c:'Services', q:"I don't know what's wrong", k:['not sure','dont know','don t know','diagnose','diagnosis','what is wrong','whats wrong','what s wrong','identify','figure out','symptom'], a:() => `Try Smart diagnosis. Describe what you see, hear or smell and it suggests the likely problem, the right pro and a price. Search "diagnosis" with Ctrl+K to jump there.` },
+    { c:'Services', q:'Do you fix all appliance brands?', k:['brand','samsung','lg','haier','dawlance','whirlpool','bosch','all brands'], a:() => `Our technicians repair most common household brands. Add the brand and model in the booking notes so the right pro is assigned.` },
+    /* More */
+    { c:'More', q:'How do Rewards points work?', k:['reward','rewards','points','loyalty','tier','tiers','redeem'], a:() => `You earn 1 point per dollar on completed jobs, plus 20 for rating your technician. Spend points at checkout for up to 50% off a booking. Higher tiers (Silver, Gold, Platinum) make each point worth more.` },
+    { c:'More', q:'What are the care plans?', k:['care plan','plans','subscription','membership','monthly','annual plan','plan price'], a:() => `${PLANS.map(p => `${p.name} ${money(p.price)}/month`).join(', ')}. They add inspections, repair discounts and priority booking. See the Plans section for details.` },
+    { c:'More', q:'How do I use my referral code?', k:['referral','refer','friend','invite','share'], a:() => `Open Rewards, copy your code and share it on WhatsApp. Your friend gets 10% off their first booking with FIXORA10.` },
+    { c:'More', q:'How do I switch dark or light mode?', k:['dark','light mode','theme','dark mode','night mode','appearance','auto mode'], a:() => `Use the sun, moon and screen icons at the top right: Light, Dark, or Auto, which follows your device.` },
+    { c:'More', q:'Is the site accessible?', k:['accessibility','accessible','font size','text size','contrast','screen reader','read aloud','larger text','bigger text','zoom'], a:() => `Yes. Tap the accessibility button at the bottom left for larger text, high contrast, a readable font, no animations, a bigger cursor and read-aloud.` },
+    { c:'More', q:'Is there a keyboard shortcut for search?', k:['shortcut','ctrl k','search','keyboard','find'], a:() => `Press Ctrl+K (or Cmd+K on Mac), or just "/", to search services, tips, pros and FAQs.` },
+    { c:'More', q:'How can I contact support?', k:['contact','support','phone','call','whatsapp','talk to','human','agent','speak','email','complain','complaint'], a:() => `Use the "Call support" or "WhatsApp us" buttons in the Emergency section near the bottom of the page.`, wa:true }
+  ];
+  KB.forEach((e, i) => { e.id = i; e.kk = e.k.map(x => ' ' + x.toLowerCase().replace(/[^a-z0-9/ ]+/g, ' ').replace(/\s+/g, ' ').trim()); });
+  const CATS = ['Pricing','Booking','Safety','Services','More'];
+  let cat = 'Pricing';
+
+  const chatB = $('#chatB');
+  chatB.setAttribute('role', 'log'); chatB.setAttribute('aria-live', 'polite');
+  $('#chatQ').insertAdjacentHTML('beforebegin', '<div class="chat-cats" id="chatCats"></div>');
+  function renderCats(){
+    $('#chatCats').innerHTML = CATS.map(c => `<button type="button" data-c="${c}" aria-pressed="${c === cat}">${c}</button>`).join('');
+    $('#chatQ').innerHTML = KB.filter(e => e.c === cat).map(e => `<button type="button" data-id="${e.id}">${esc(e.q)}</button>`).join('');
+  }
+  function best(text){
+    const t = ' ' + text.toLowerCase().replace(/[^a-z0-9/ ]+/g, ' ').replace(/\s+/g, ' ').trim() + ' ';
+    let top = null, topSc = 0;
+    KB.forEach(e => { let sc = 0; e.kk.forEach(k => { if(t.includes(k)) sc += k.trim().includes(' ') ? 3 : (k.trim().length > 4 ? 2 : 1); }); if(sc > topSc){ topSc = sc; top = e; } });
+    return top;
+  }
+  function botSay(content, wa){
+    const d = document.createElement('div'); d.className = 'msg bot typing'; d.innerHTML = '<span></span><span></span><span></span>';
+    chatB.appendChild(d); chatB.scrollTop = chatB.scrollHeight;
+    setTimeout(() => {
+      d.className = 'msg bot'; d.textContent = content;
+      if(wa){ const a = document.createElement('a'); a.className = 'btn btn-primary btn-sm'; a.target = '_blank'; a.rel = 'noopener'; a.href = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent('Hi Fixora, I need some help.'); a.textContent = 'Chat on WhatsApp'; d.appendChild(document.createElement('br')); d.appendChild(a); }
+      chatB.scrollTop = chatB.scrollHeight;
+    }, 550);
+  }
+  reply = function(q, entry){
+    say(q, true);
+    const n = q.toLowerCase().trim();
+    if(!entry && /^(hi|hello|hey|salam|assalam|good (morning|afternoon|evening))\b/.test(n)) return botSay('Hello! Pick a topic below or type your question, and I will help with pricing, booking, safety and more.');
+    if(!entry && /\b(thanks|thank you|thx|shukriya)\b/.test(n)) return botSay('You are welcome! Anything else I can help with?');
+    const e = entry || best(q);
+    if(e) botSay(e.a(), e.wa);
+    else botSay('I am not sure about that yet. Try one of the suggested questions, use Smart diagnosis to describe the problem, or chat with our team.', true);
+  };
+  $('#chatQ').onclick = e => { const b = e.target.closest('[data-id]'); if(!b) return; const en = KB[+b.dataset.id]; reply(en.q, en); };
+  $('#chatCats').onclick = e => { const b = e.target.closest('[data-c]'); if(b){ cat = b.dataset.c; renderCats(); } };
+  $('#chatF').onsubmit = e => { e.preventDefault(); const v = $('#chatI').value.trim(); if(v){ reply(v); $('#chatI').value = ''; } };
+  renderCats();
+})();
+/* ==================== BACKEND CONNECTION ==================== */
+const API_BASE = (['localhost', '127.0.0.1'].includes(location.hostname) && location.port !== '3000') ? 'http://localhost:3000' : '';
+let serverOn = false, aiOn = false;
+async function api(path, opts = {}){
+  const c = new AbortController(), t = setTimeout(() => c.abort(), 20000);
+  try{
+    const r = await fetch(API_BASE + path, { ...opts, signal:c.signal, headers:{ 'Content-Type':'application/json', ...(opts.headers || {}) } });
+    const j = await r.json().catch(() => ({}));
+    return { ok:r.ok, status:r.status, data:j };
+  }catch(e){ return { ok:false, status:0, data:{} }; }
+  finally{ clearTimeout(t); }
+}
+
+/* send each confirmed booking to the server */
+const prevConfirm = confirmBooking;
+confirmBooking = function(){
+  const snap = { service:B.service, issue:B.issue, qty:B.qty, urgency:B.urgency, addons:[...B.addons], promo:B.promo };
+  prevConfirm();
+  const bk = loadBookings()[0]; if(!bk) return;
+  if(!serverOn){ toast('Booking saved on this device. Server is offline.'); return; }
+  api('/api/bookings', { method:'POST', body:JSON.stringify({ ...snap, id:bk.id, date:bk.date, slot:bk.slot, tech:bk.tech, name:bk.name, phone:bk.phone, email:bk.email, addr:bk.addr, notes:bk.notes, total:bk.total }) }).then(r => {
+    if(!r.ok){ toast(r.data.error ? 'Server: ' + r.data.error : 'Booking saved on this device only.'); return; }
+    const all = loadBookings(), me = all.find(x => x.id === bk.id);
+    if(me){ me.token = r.data.token; me.srvStatus = r.data.status; saveBookings(all); }
+  });
+};
+
+/* cancel on the server too */
+$('#bkList').addEventListener('click', e => {
+  const c = e.target.closest('[data-cancel]'); if(!c || !serverOn) return;
+  const b = loadBookings().find(x => x.id === c.dataset.cancel); if(!b || !b.token) return;
+  api('/api/bookings/' + b.id + '/cancel', { method:'PATCH', headers:{ 'x-token':b.token } }).then(r => { if(r.status === 409) toast(r.data.error); });
+});
+
+/* pull status and technician changes made in the admin dashboard */
+let syncing = false;
+async function syncStatuses(){
+  if(!serverOn || syncing) return; syncing = true;
+  try{
+    const open = loadBookings().filter(b => b.token && b.srvStatus !== 'Completed' && b.srvStatus !== 'Cancelled');
+    const ups = await Promise.all(open.map(async b => { const r = await api('/api/bookings/' + b.id, { headers:{ 'x-token':b.token } }); return r.ok ? r.data : null; }));
+    const all = loadBookings(); let changed = false;
+    ups.filter(Boolean).forEach(u => {
+      const b = all.find(x => x.id === u.id); if(!b) return;
+      if(b.srvStatus !== u.status){ b.srvStatus = u.status; changed = true; }
+      if(u.tech && u.tech !== 'any' && b.tech !== u.tech){ b.tech = u.tech; changed = true; }
+      if(u.status === 'Completed' && b.status !== 'Completed'){ b.status = 'Completed'; changed = true; }
+      if(u.status === 'Cancelled' && b.status !== 'Cancelled'){ b.status = 'Cancelled'; changed = true; }
+    });
+    if(changed){ saveBookings(all); renderBookings(); }
+  } finally { syncing = false; }
+}
+const prevRB2 = renderBookings;
+renderBookings = function(){
+  prevRB2();
+  const all = loadBookings();
+  $$('#bkList .bk').forEach(card => {
+    const del = card.querySelector('[data-del]'); if(!del) return;
+    const b = all.find(x => x.id === del.dataset.del), bd = card.querySelector('.badge');
+    if(b && bd && b.status === 'Scheduled' && b.srvStatus && b.srvStatus !== 'Scheduled') bd.textContent = b.srvStatus;
+    if(b && b.token && serverOn && b.status === 'Completed' && !card.querySelector('.inv-link')){ const a = document.createElement('a'); a.className = 'btn btn-ghost btn-sm inv-link'; a.target = '_blank'; a.rel = 'noopener'; a.textContent = 'Invoice'; a.href = API_BASE + '/invoice/' + b.id + '?t=' + b.token; del.before(a); }
+  });
+};
+
+/* AI diagnosis through the server, with keyword matching as the fallback */
+window.__aiDiagnose = async function(text){
+  if(!serverOn || !aiOn) return null;
+  $('#dxOut').innerHTML = `<div class="dx-empty">${ic('search')}<b>Analysing your description…</b></div>`;
+  const r = await api('/api/diagnose', { method:'POST', body:JSON.stringify({ text }) });
+  const d = r.data;
+  if(!r.ok || !d.service || !svcById(d.service) || !svcById(d.service).issues.some(i => i.id === d.issue)) return null;
+  const mk = (sv, is, tips, sc) => ({ r:[sv, is, '', tips], sc });
+  const alts = (d.alternatives || []).filter(a => svcById(a.service) && svcById(a.service).issues.some(i => i.id === a.issue)).slice(0, 2);
+  return { urgent:!!d.urgent, res:[mk(d.service, d.issue, d.advice || [], Math.max(3, Math.round((d.confidence || .7) * 8)))].concat(alts.map(a => mk(a.service, a.issue, [], 2))) };
+};
+
+api('/api/health').then(r => { serverOn = r.ok; aiOn = !!(r.ok && r.data.ai); syncStatuses(); });
+setInterval(() => { if(!document.hidden) syncStatuses(); }, 20000);
+document.addEventListener('visibilitychange', () => { if(!document.hidden) syncStatuses(); });
+/* ==================== PAUSE OFF-SCREEN ANIMATIONS ==================== */
+(function(){
+  const io3 = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('offscreen', !e.isIntersecting)));
+  $$('.scene, .marquee').forEach(t => io3.observe(t));
+})();
+
+/* ==================== 3D BACKGROUND (three.js, loaded lazily) ==================== */
+function init3D(){
+  if(typeof THREE === 'undefined'){ return; }
+  const canvas = $('#bg3d'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true, powerPreference:'high-performance' });
+  const lowEnd = innerWidth < 700 || (navigator.hardwareConcurrency || 8) <= 4;
+  let pr = Math.min(devicePixelRatio, lowEnd ? 1 : 1.5);
+  renderer.setPixelRatio(pr);
+  const scene = new THREE.Scene(), cam = new THREE.PerspectiveCamera(55, 1, .1, 200); cam.position.z = 26;
+  scene.add(new THREE.AmbientLight(0xffffff, .7));
+  const l1 = new THREE.PointLight(0x3ee0c4, 1.6, 90); l1.position.set(12, 10, 14); scene.add(l1);
+  const l2 = new THREE.PointLight(0x7c6cff, 1.6, 90); l2.position.set(-14, -8, 10); scene.add(l2);
+
+  /* floating shapes */
+  const geos = [new THREE.IcosahedronGeometry(1.6,0), new THREE.OctahedronGeometry(1.5,0), new THREE.TorusGeometry(1.3,.42,14,36), new THREE.TorusKnotGeometry(1,.3,80,12), new THREE.BoxGeometry(1.8,1.8,1.8)];
+  const group = new THREE.Group(), items = [];
+  const palette = () => { const dark = document.documentElement.dataset.theme === 'dark';
+    return dark ? [0x3ee0c4,0x7c6cff,0xffb547,0x4b8cff] : [0x0f9d8a,0x5b4bdb,0xf59e0b,0x3b6fe0]; };
+  for(let i=0;i<(lowEnd ? 8 : 18);i++){
+    const m = new THREE.Mesh(geos[i % geos.length], new THREE.MeshStandardMaterial({ color:0x3ee0c4, metalness:.5, roughness:.25, transparent:true, opacity:.55, flatShading:true }));
+    const wire = new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry), new THREE.LineBasicMaterial({ color:0xffffff, transparent:true, opacity:.25 }));
+    m.add(wire);
+    m.position.set((Math.random()-.5)*60, (Math.random()-.5)*70, (Math.random()-.5)*30 - 6);
+    m.scale.setScalar(.6 + Math.random()*1.1);
+    m.userData = { rx:(Math.random()-.5)*.012, ry:(Math.random()-.5)*.012, fy:Math.random()*6, sp:.3 + Math.random()*.6, base:m.position.y };
+    group.add(m); items.push(m);
+  }
+  scene.add(group);
+
+  /* dust particles */
+  const N = lowEnd ? 350 : 800, pos = new Float32Array(N*3);
+  for(let i=0;i<N;i++){ pos[i*3] = (Math.random()-.5)*110; pos[i*3+1] = (Math.random()-.5)*130; pos[i*3+2] = (Math.random()-.5)*70 - 10; }
+  const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos,3));
+  const pm = new THREE.PointsMaterial({ size:.16, color:0x3ee0c4, transparent:true, opacity:.75, sizeAttenuation:true });
+  const pts = new THREE.Points(pg, pm); scene.add(pts);
+
+  /* wave floor: the ripple is computed on the GPU, so the CPU does no per-point work */
+  const GX = lowEnd ? 36 : 60, GZ = lowEnd ? 24 : 40, gpos = new Float32Array(GX*GZ*3);
+  for(let x=0;x<GX;x++) for(let z=0;z<GZ;z++){ const i=(x*GZ+z)*3; gpos[i]=(x-GX/2)*2; gpos[i+1]=0; gpos[i+2]=(z-GZ/2)*2; }
+  const gg = new THREE.BufferGeometry(); gg.setAttribute('position', new THREE.BufferAttribute(gpos,3));
+  const gm = new THREE.ShaderMaterial({
+    uniforms:{ uTime:{ value:0 }, uScale:{ value:150 }, uColor:{ value:new THREE.Color(0x7c6cff) }, uOpacity:{ value:.7 } },
+    vertexShader:'uniform float uTime; uniform float uScale; void main(){ vec3 p = position; p.y = sin(p.x*.22 + uTime*1.1)*1.1 + cos(p.z*.35 + uTime*.9)*.8 + sin((p.x+p.z)*.12 + uTime*.5)*.9; vec4 mv = modelViewMatrix * vec4(p, 1.0); gl_PointSize = uScale / -mv.z; gl_Position = projectionMatrix * mv; }',
+    fragmentShader:'uniform vec3 uColor; uniform float uOpacity; void main(){ if(length(gl_PointCoord - vec2(.5)) > .5) discard; gl_FragColor = vec4(uColor, uOpacity); }',
+    transparent:true, depthWrite:false
+  });
+  const grid = new THREE.Points(gg, gm); grid.frustumCulled = false; grid.position.z = -14; scene.add(grid);
+
+  /* glowing wireframe house with orbit rings and a lightning arc */
+  const house = new THREE.Group();
+  const hMat = new THREE.MeshStandardMaterial({ color:0x3ee0c4, transparent:true, opacity:.16, flatShading:true });
+  const edgeMat = new THREE.LineBasicMaterial({ color:0x3ee0c4, transparent:true, opacity:.9 });
+  const bodyG = new THREE.BoxGeometry(4,3,4), roofG = new THREE.ConeGeometry(3.6,2.2,4);
+  const body = new THREE.Mesh(bodyG, hMat); body.add(new THREE.LineSegments(new THREE.EdgesGeometry(bodyG), edgeMat));
+  const roof = new THREE.Mesh(roofG, hMat); roof.position.y = 2.6; roof.rotation.y = Math.PI/4; roof.add(new THREE.LineSegments(new THREE.EdgesGeometry(roofG), edgeMat));
+  house.add(body, roof);
+  const ringMat = new THREE.MeshBasicMaterial({ color:0x7c6cff, transparent:true, opacity:.55 });
+  const satMat = new THREE.MeshBasicMaterial({ color:0xffb547 });
+  const rings = [];
+  for(let i=0;i<3;i++){
+    const rad = 4.4 + i*1.1, r = new THREE.Mesh(new THREE.TorusGeometry(rad,.03,8,100), ringMat);
+    r.rotation.set(Math.PI/2 + (i-1)*.55, i*.7, 0);
+    const sat = new THREE.Mesh(new THREE.SphereGeometry(.2,14,14), satMat); sat.position.x = rad; r.add(sat);
+    r.userData.spd = .5 + i*.25; house.add(r); rings.push(r);
+  }
+  house.scale.setScalar(1.5); scene.add(house);
+
+  const arcN = 14, arcGeo = new THREE.BufferGeometry(); arcGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(arcN*3),3));
+  const arcMat = new THREE.LineBasicMaterial({ color:0xffb547, transparent:true, opacity:0 });
+  const arc = new THREE.Line(arcGeo, arcMat); arc.frustumCulled = false; scene.add(arc);
+  let nextArc = 2, arcLife = 0;
+  function strike(){
+    const a = arcGeo.attributes.position.array, hx = house.position.x, hy = house.position.y, hz = house.position.z;
+    const sx = hx + (Math.random()-.5)*9, sy = hy + 12, ex = hx + (Math.random()-.5)*3, ey = hy + 3;
+    for(let i=0;i<arcN;i++){ const k = i/(arcN-1), j = (i && i < arcN-1) ? 1 : 0;
+      a[i*3] = sx + (ex-sx)*k + j*(Math.random()-.5)*1.8; a[i*3+1] = sy + (ey-sy)*k; a[i*3+2] = hz + j*(Math.random()-.5)*1.8; }
+    arcGeo.attributes.position.needsUpdate = true; arcLife = 1;
+  }
+
+  window.__recolor = () => {
+    const pal = palette(), dark = document.documentElement.dataset.theme === 'dark';
+    items.forEach((m,i) => { m.material.color.setHex(pal[i % pal.length]); m.material.opacity = dark ? .55 : .38; m.children[0].material.color.setHex(dark ? 0xffffff : 0x0d1b33); m.children[0].material.opacity = dark ? .25 : .22; });
+    pm.color.setHex(pal[0]); pm.opacity = dark ? .75 : .55; l1.color.setHex(pal[0]); l2.color.setHex(pal[1]);
+    hMat.color.setHex(pal[0]); edgeMat.color.setHex(pal[0]); ringMat.color.setHex(pal[1]); satMat.color.setHex(pal[2]);
+    gm.uniforms.uColor.value.setHex(pal[1]); gm.uniforms.uOpacity.value = dark ? .7 : .5; arcMat.color.setHex(pal[2]);
+  };
+  window.__recolor();
+
+  let mx = 0, my = 0, sy = 0, vis = true;
+  addEventListener('pointermove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; }, { passive:true });
+  addEventListener('scroll', () => sy = scrollY, { passive:true });
+  document.addEventListener('visibilitychange', () => { vis = !document.hidden; if(vis) loop(); });
+  function resize(){
+    const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); cam.aspect = w/h; cam.updateProjectionMatrix();
+    gm.uniforms.uScale.value = .2 * h * pr / (2 * Math.tan(27.5 * Math.PI / 180));
+    house.position.x = Math.min(15, cam.aspect * 9); house.position.y = cam.aspect > 1.2 ? 2 : 7; house.position.z = -10;
+  }
+  let rzT = 0;
+  addEventListener('resize', () => { clearTimeout(rzT); rzT = setTimeout(resize, 120); }); resize();
+  const clock = new THREE.Clock();
+  let paused = false, running = false, lowFps = 0, last = performance.now(), frames = 0, lastDraw = 0;
+  const gap = lowEnd ? 30 : 0;
+  function frame(){
+    const t = clock.getElapsedTime();
+    items.forEach(m => { const u = m.userData; m.rotation.x += u.rx; m.rotation.y += u.ry; m.position.y = u.base + Math.sin(t*u.sp + u.fy) * 1.4; });
+    pts.rotation.y = t * .012; pts.rotation.x = Math.sin(t*.05) * .05;
+    cam.position.x += (mx * 5 - cam.position.x) * .04;
+    cam.position.y += ((-my * 4 - sy * .012) - cam.position.y) * .04;
+    group.rotation.y = sy * .0006 + t * .01;
+    cam.lookAt(0, -sy * .006, 0);
+
+    grid.position.y = cam.position.y - 17;
+    gm.uniforms.uTime.value = t;
+
+    house.position.y = (cam.aspect > 1.2 ? 2 : 7) + cam.position.y * .8;
+    house.rotation.y = t * .25 + mx * .8; house.rotation.x = my * .25;
+    rings.forEach(r => { r.rotation.z = t * r.userData.spd; });
+
+    if(t > nextArc){ strike(); nextArc = t + 2.5 + Math.random()*4; }
+    arcLife = Math.max(0, arcLife - .05); arcMat.opacity = arcLife;
+
+    renderer.render(scene, cam);
+  }
+  window.__bgPause = on => { paused = !!on; canvas.style.display = on ? 'none' : ''; if(!on) loop(); };
+  function loop(){
+    if(running) return; running = true; last = performance.now(); frames = 0;
+    (function step(ts){
+      if(!vis || paused){ running = false; return; }
+      if(gap && ts - lastDraw < gap){ requestAnimationFrame(step); return; }
+      lastDraw = ts; frame();
+      frames++; const now = performance.now();
+      if(now - last > 2000){
+        const fps = frames * 1000 / (now - last); frames = 0; last = now;
+        if(fps < (gap ? 24 : 40)){ if(++lowFps >= 2){ lowFps = 0; if(pr > 1){ pr = 1; renderer.setPixelRatio(1); resize(); } else document.documentElement.classList.add('lite'); } } else lowFps = 0;
+      }
+      if(!reduce) requestAnimationFrame(step); else running = false;
+    })(performance.now());
+  }
+  requestAnimationFrame(() => canvas.classList.add('ready'));
+  if(window.__bgOff){ paused = true; canvas.style.display = 'none'; } else loop();
+}
+(function(){
+  const src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  const load = () => { if(typeof THREE !== 'undefined'){ init3D(); return; } const sc = document.createElement('script'); sc.src = src; sc.async = true; sc.onload = init3D; document.head.appendChild(sc); };
+  const idle = () => (window.requestIdleCallback || (f => setTimeout(f, 300)))(load, { timeout:1500 });
+  if(document.readyState === 'complete') idle(); else addEventListener('load', idle);
+})();
+</script>
+</body>
+</html>
